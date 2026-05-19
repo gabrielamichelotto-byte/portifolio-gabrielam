@@ -1,4 +1,14 @@
 import streamlit as st
+import base64, os
+
+def _foto_b64():
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "foto.jpg")
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            return base64.b64encode(f.read()).decode()
+    return None
+
+_foto = _foto_b64()
 
 st.set_page_config(
     page_title="Gabriela Michelotto · Portfólio",
@@ -44,6 +54,12 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #ffffff !imp
 .contact-link { font-weight: 600; color: #111; text-decoration: none; }
 .footer-bar { background: #0f0f0f; color: #555; text-align: center; font-size: 0.72rem; font-weight: 300; letter-spacing: 0.1em; padding: 1.5rem; }
 .lang-bar { background: #0f0f0f; padding: 10px 80px; display: flex; justify-content: flex-end; }
+.cta-btn { display: inline-block; background: #ffffff; color: #0f0f0f; font-size: 0.85rem; font-weight: 700; padding: 0.75rem 2rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.04em; margin-right: 1rem; margin-top: 2rem; }
+.cta-btn-outline { display: inline-block; background: transparent; color: #ffffff; font-size: 0.85rem; font-weight: 600; padding: 0.72rem 2rem; border-radius: 4px; border: 1px solid #555; text-decoration: none; letter-spacing: 0.04em; margin-top: 2rem; }
+.cta-btn:hover { background: #e8e8e8; }
+.cta-btn-outline:hover { border-color: #fff; color: #fff; }
+.case-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; margin-bottom: 0.4rem; }
+.case-result { font-size: 0.78rem; font-weight: 600; color: #111; margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid #f0f0f0; }
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stSidebar"] { display: none; }
 div[data-testid="stHorizontalBlock"] { gap: 0 !important; }
@@ -117,6 +133,35 @@ T = {
     "contact_loc":     {"PT": "Cuiabá, Mato Grosso — Brasil",    "EN": "Cuiabá, Mato Grosso — Brazil"},
     "footer":          {"PT": "GABRIELA BARROS MICHELOTTO &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026",
                         "EN": "GABRIELA BARROS MICHELOTTO &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026"},
+    "cta_primary":     {"PT": "Falar Comigo",                     "EN": "Get in Touch"},
+    "cta_secondary":   {"PT": "Ver LinkedIn",                     "EN": "View LinkedIn"},
+    "case_challenge":  {"PT": "Contexto",                         "EN": "Challenge"},
+    "case_action":     {"PT": "O que fiz",                        "EN": "What I did"},
+    "case_result":     {"PT": "Resultado",                        "EN": "Result"},
+    "proj1_challenge": {"PT": "Criar uma presença digital de IA sem experiência prévia em programação.",
+                        "EN": "Build a production-ready AI showcase with zero prior programming experience."},
+    "proj1_action":    {"PT": "Aprendi Python do zero e desenvolvi um assistente conversacional completo com Google Gemini.",
+                        "EN": "Learned Python from scratch and built a full conversational assistant powered by Google Gemini."},
+    "proj1_result":    {"PT": "App funcional publicado e no ar — acessível pelo link do portfólio.",
+                        "EN": "Fully deployed app — live and accessible via portfolio link."},
+    "proj2_challenge": {"PT": "Equipe de 14 pessoas sem visibilidade de performance em tempo real.",
+                        "EN": "Team of 14 with no real-time visibility into individual or regional performance."},
+    "proj2_action":    {"PT": "Construí dashboards em Power BI com indicadores por vendedor, laboratório e região.",
+                        "EN": "Designed Power BI dashboards tracking KPIs by sales rep, partner brand and region."},
+    "proj2_result":    {"PT": "Decisões de gestão passaram a ser orientadas por dados, com impacto direto no crescimento de 21%.",
+                        "EN": "Management decisions became data-driven — directly contributing to 21% revenue growth."},
+    "proj3_challenge": {"PT": "Relatórios manuais consumindo horas da liderança toda semana.",
+                        "EN": "Manual reporting consuming hours of leadership time every week."},
+    "proj3_action":    {"PT": "Automatizei a geração de relatórios HTML a partir de planilhas Excel.",
+                        "EN": "Automated HTML report generation from Excel data sources."},
+    "proj3_result":    {"PT": "Zero horas de trabalho manual — relatórios gerados em segundos.",
+                        "EN": "Zero manual effort — reports generated in seconds."},
+    "proj4_challenge": {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores e promotores.",
+                        "EN": "High turnover and long ramp-up time for new sales reps and promoters."},
+    "proj4_action":    {"PT": "Criei manual técnico completo com rotas, abordagem, produto e gestão de carteira, em parceria com o RH.",
+                        "EN": "Authored a complete technical manual covering field routes, sales approach, product knowledge and account management — in partnership with HR."},
+    "proj4_result":    {"PT": "Onboarding mais rápido e padronizado, reduzindo dependência de treinamento individual.",
+                        "EN": "Faster, standardized onboarding — reducing dependence on one-on-one training."},
 }
 
 def t(key):
@@ -163,8 +208,11 @@ experiencias = {
 # ════════════════════════════════════════════════
 # HERO
 # ════════════════════════════════════════════════
+_foto_html = f'<img src="data:image/jpeg;base64,{_foto}" style="width:320px;height:380px;object-fit:cover;object-position:top;border-radius:6px;display:block;">' if _foto else ""
+
 st.markdown(f"""
-<div class="hero">
+<div class="hero" style="display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;">
+<div style="flex:1;min-width:0;">
 <p class="hero-tag">{t("hero_tag")}</p>
 <h1 class="hero-name">Gabriela Barros<br>Michelotto</h1>
 <p class="hero-title">{t("hero_subtitle")}</p>
@@ -176,12 +224,18 @@ st.markdown(f"""
 <span class="hero-badge">{'Gestão Comercial' if lang=='PT' else 'Commercial Management'}</span>
 <span class="hero-badge">{'Medicina Veterinária' if lang=='PT' else 'Veterinary Medicine'}</span>
 </div>
+<div>
+<a class="cta-btn" href="mailto:gabrielamichelotto@gmail.com">{t("cta_primary")}</a>
+<a class="cta-btn-outline" href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">{t("cta_secondary")}</a>
+</div>
 <div class="hero-stat">
 <div><div class="stat-num">+21%</div><div class="stat-label">{t("stat1")}</div></div>
 <div><div class="stat-num">14</div><div class="stat-label">{t("stat2")}</div></div>
 <div><div class="stat-num">11</div><div class="stat-label">{t("stat3")}</div></div>
 <div><div class="stat-num">9</div><div class="stat-label">{t("stat4")}</div></div>
 </div>
+</div>
+<div style="flex-shrink:0;padding-top:0.5rem;">{_foto_html}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -252,15 +306,15 @@ st.markdown(f"""<div class="section-alt"><p class="section-label">{t("proj_label
 
 c1, c2, c3 = st.columns(3)
 with c1:
-    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Streamlit · IA</p><p class="project-name">{'Agente IA Pessoal' if lang=='PT' else 'Personal AI Agent'}</p><p class="project-desc">{t("proj1_desc")}</p><a class="project-link" href="https://github.com/gabrielamichelotto-byte/agente-gabriela" target="_blank">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Streamlit · AI</p><p class="project-name">{'Agente IA Pessoal' if lang=='PT' else 'Personal AI Agent'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj1_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj1_action")}</p><p class="case-result">✦ {t("proj1_result")}</p><a class="project-link" href="https://github.com/gabrielamichelotto-byte/agente-gabriela" target="_blank" style="margin-top:1rem;display:inline-block">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
 with c2:
-    st.markdown(f"""<div style="padding:0 20px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Power BI · {'Dados' if lang=='PT' else 'Data'}</p><p class="project-name">{'Dashboard Comercial' if lang=='PT' else 'Commercial Dashboard'}</p><p class="project-desc">{t("proj2_desc")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div style="padding:0 20px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Power BI · {'Dados' if lang=='PT' else 'Data'}</p><p class="project-name">{'Dashboard Comercial' if lang=='PT' else 'Commercial Dashboard'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj2_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj2_action")}</p><p class="case-result">✦ {t("proj2_result")}</p></div></div>""", unsafe_allow_html=True)
 with c3:
-    st.markdown(f"""<div style="padding:0 80px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Excel</p><p class="project-name">{'Dashboard BI de Vendedores' if lang=='PT' else 'Salesforce BI Dashboard'}</p><p class="project-desc">{t("proj3_desc")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div style="padding:0 80px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Excel</p><p class="project-name">{'Dashboard BI de Vendedores' if lang=='PT' else 'Salesforce BI Dashboard'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj3_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj3_action")}</p><p class="case-result">✦ {t("proj3_result")}</p></div></div>""", unsafe_allow_html=True)
 
 c4, _, _ = st.columns(3)
 with c4:
-    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">{t("proj4_tag")}</p><p class="project-name">{t("proj4_name")}</p><p class="project-desc">{t("proj4_desc")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">{t("proj4_tag")}</p><p class="project-name">{t("proj4_name")}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj4_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj4_action")}</p><p class="case-result">✦ {t("proj4_result")}</p></div></div>""", unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTATO
