@@ -509,8 +509,8 @@ st.markdown(f"""
       <div><div class="stat-val">9</div><div class="stat-lbl">{t("stat4")}</div></div>
     </div>
     <div class="hero-cta">
-      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
-      <a class="btn-secondary" href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">{t("cta2")}</a>
+      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" target="_blank">{t("cta1")}</a>
+      <a class="btn-secondary" href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">{t("cta2")}</a>
     </div>
   </div>
   <div>{photo_html}</div>
@@ -693,18 +693,18 @@ st.markdown(f"""
   <h2 class="section-heading-white">{t("ct_h")}</h2>
   <div class="contact-item">
     <span class="contact-label">E-mail</span>
-    <a href="mailto:gabrielamichelotto@gmail.com">gabrielamichelotto@gmail.com</a>
+    <a href="mailto:gabrielamichelotto@gmail.com" target="_blank">gabrielamichelotto@gmail.com</a>
   </div>
   <div class="contact-item">
     <span class="contact-label">LinkedIn</span>
-    <a href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">linkedin.com/in/gabrielamichelotto</a>
+    <a href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">linkedin.com/in/gabrielamichelotto</a>
   </div>
   <div class="contact-item">
     <span class="contact-label">{'Localização' if lang=='PT' else 'Location'}</span>
     <span style="color:#555;">{t("ct_loc")}</span>
   </div>
   <div style="margin-top:2.5rem;">
-    <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
+    <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" target="_blank">{t("cta1")}</a>
   </div>
 </div>
 <div class="footer-bar">{t("footer")}</div>
