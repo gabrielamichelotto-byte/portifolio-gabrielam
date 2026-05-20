@@ -47,7 +47,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .topbar-nav a:hover { color: #c9a96e; }
 
 /* ── HERO ── */
-.hero-wrap { background: #0a0a0a; }
+.hero-wrap { background: #f7f3ee; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 400px;
@@ -69,18 +69,18 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   font-weight: 900;
   line-height: 1.0;
   letter-spacing: -0.03em;
-  color: #ffffff !important;
+  color: #0a0a0a !important;
   margin-bottom: 1.6rem;
 }
 .hero-subtitle {
   font-size: 1.05rem;
   font-weight: 300;
-  color: #888;
+  color: #666;
   line-height: 1.8;
   max-width: 540px;
   margin-bottom: 0;
 }
-.hero-subtitle strong { color: #ddd; font-weight: 500; }
+.hero-subtitle strong { color: #111; font-weight: 500; }
 
 .hero-divider {
   width: 48px;
@@ -89,7 +89,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   margin: 2.2rem 0;
 }
 
-.hero-stats { display: flex; gap: 2.8rem; }
+.hero-stats { display: flex; gap: 2.8rem; flex-wrap: wrap; }
 .stat-val {
   font-size: 2.1rem;
   font-weight: 800;
@@ -100,22 +100,23 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .stat-lbl {
   font-size: 0.62rem;
   font-weight: 400;
-  color: #555;
-  letter-spacing: 0.1em;
+  color: #888;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 0.3rem;
   line-height: 1.5;
-  max-width: 80px;
+  white-space: nowrap;
 }
 
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; align-items: center; }
 .btn-primary {
   display: inline-block;
+  width: fit-content;
   background: #c9a96e;
   color: #0a0a0a;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.85rem 2.4rem;
+  padding: 0.85rem 2.2rem;
   border-radius: 2px;
   text-decoration: none;
   letter-spacing: 0.1em;
@@ -123,19 +124,20 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 }
 .btn-secondary {
   display: inline-block;
+  width: fit-content;
   background: transparent;
-  color: #888;
+  color: #555;
   font-size: 0.75rem;
   font-weight: 500;
-  padding: 0.82rem 2.4rem;
+  padding: 0.82rem 2.2rem;
   border-radius: 2px;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #bbb;
   text-decoration: none;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .btn-primary:hover  { background: #b8975a; }
-.btn-secondary:hover { border-color: #555; color: #ccc; }
+.btn-secondary:hover { border-color: #c9a96e; color: #c9a96e; }
 
 /* ── SECTIONS ── */
 .section      { padding: 88px 80px; background: #f7f3ee; }
@@ -343,8 +345,9 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .stat-label  { font-size: 0.62rem; font-weight: 400; color: #555; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; line-height: 1.5; }
 
 /* ── VALUE PILLARS ── */
-.pillars     { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; padding: 40px 80px; background: #0a0a0a; border-top: 1px solid #1a1a1a; }
+.pillars     { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; padding: 48px 80px 56px; background: #ede8e0; border-top: 1px solid #ddd6ca; }
 .pillar-icon { font-size: 1.2rem; margin-bottom: 0.8rem; }
+.pillar-title { font-size: 0.78rem; font-weight: 700; color: #111; margin-bottom: 0.4rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .pillar-body { font-size: 0.85rem; font-weight: 300; color: #666; line-height: 1.7; }
 
 /* ── HIDE STREAMLIT ── */
@@ -511,7 +514,7 @@ st.markdown(f"""
 <div class="hero-grid">
   <div>
     <p class="hero-eyebrow">{t("eyebrow")}</p>
-    <h1 class="hero-name" style="color:#ffffff !important;">Gabriela Barros<br>Michelotto</h1>
+    <h1 class="hero-name" style="color:#0a0a0a !important;">Gabriela Barros<br>Michelotto</h1>
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
@@ -526,20 +529,6 @@ st.markdown(f"""
     </div>
   </div>
   <div>{photo_html}</div>
-</div>
-</div>
-""", unsafe_allow_html=True)
-
-# ════════════════════════════════════════════════
-# STATS STRIP
-# ════════════════════════════════════════════════
-st.markdown(f"""
-<div class="stats-strip">
-<div class="stats-grid">
-<div class="stat-card"><div class="stat-num">+21%</div><div class="stat-label">{t("stat1")}</div></div>
-<div class="stat-card"><div class="stat-num">14</div><div class="stat-label">{t("stat2")}</div></div>
-<div class="stat-card"><div class="stat-num">11</div><div class="stat-label">{t("stat3")}</div></div>
-<div class="stat-card"><div class="stat-num">8</div><div class="stat-label">{t("stat4")}</div></div>
 </div>
 </div>
 """, unsafe_allow_html=True)
