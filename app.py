@@ -41,7 +41,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   align-items: center;
   border-bottom: 1px solid #1a1a1a;
 }
-.topbar-name { font-size: 0.7rem; font-weight: 600; color: #444; letter-spacing: 0.2em; text-transform: uppercase; }
+.topbar-name { font-size: 0.7rem; font-weight: 600; color: #c9a96e; letter-spacing: 0.2em; text-transform: uppercase; }
 .topbar-nav  { display: flex; gap: 2rem; }
 .topbar-nav a { font-size: 0.7rem; font-weight: 400; color: #444; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
 .topbar-nav a:hover { color: #c9a96e; }
