@@ -69,7 +69,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   font-weight: 900;
   line-height: 1.0;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 1.6rem;
 }
 .hero-subtitle {
@@ -537,9 +537,9 @@ st.markdown(f"""
 # ════════════════════════════════════════════════
 st.markdown(f"""
 <div class="pillars">
-<div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-title">{t("pillar1_title")}</div><div class="pillar-body">{t("pillar1_body")}</div></div>
-<div class="pillar"><div class="pillar-icon">📊</div><div class="pillar-title">{t("pillar2_title")}</div><div class="pillar-body">{t("pillar2_body")}</div></div>
-<div class="pillar"><div class="pillar-icon">👥</div><div class="pillar-title">{t("pillar3_title")}</div><div class="pillar-body">{t("pillar3_body")}</div></div>
+<div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-title">{t("p1_t")}</div><div class="pillar-body">{t("p1_d")}</div></div>
+<div class="pillar"><div class="pillar-icon">📊</div><div class="pillar-title">{t("p2_t")}</div><div class="pillar-body">{t("p2_d")}</div></div>
+<div class="pillar"><div class="pillar-icon">👥</div><div class="pillar-title">{t("p3_t")}</div><div class="pillar-body">{t("p3_d")}</div></div>
 </div>
 """, unsafe_allow_html=True)
 
