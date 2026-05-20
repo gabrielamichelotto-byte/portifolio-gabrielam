@@ -115,17 +115,17 @@ lang = st.session_state.lang
 # ── Conteúdo bilíngue ────────────────────────────
 T = {
     "hero_tag":        {"PT": "Portfólio Profissional",          "EN": "Professional Portfolio"},
-    "hero_subtitle":   {"PT": "Coordenadora Comercial com 9 anos no mercado PET — unindo gestão de equipes, estratégia de dados e Inteligência Artificial para gerar resultados mensuráveis.",
-                        "EN": "Sales Manager with 9 years in the pet industry — bridging team leadership, data strategy and AI to drive measurable business results."},
+    "hero_subtitle":   {"PT": "Coordenadora Comercial com mais de 10 anos de experiência — unindo gestão de equipes, estratégia de dados e Inteligência Artificial para gerar resultados mensuráveis.",
+                        "EN": "Sales Manager with 10+ years of professional experience — bridging team leadership, data strategy and AI to drive measurable business results."},
     "stat1":           {"PT": "Crescimento em 2025",             "EN": "Revenue Growth in 2025"},
     "stat2":           {"PT": "Profissionais liderados",         "EN": "Professionals Led"},
     "stat3":           {"PT": "Laboratórios parceiros",          "EN": "Partner Brands"},
-    "stat4":           {"PT": "Anos de experiência",             "EN": "Years of Experience"},
+    "stat4":           {"PT": "Anos de carreira",                "EN": "Years of Experience"},
     "about_label":     {"PT": "Sobre",                           "EN": "About"},
     "about_title":     {"PT": "Ciência, dados e estratégia<br>no mesmo lugar.", "EN": "Where science meets<br>data and strategy."},
     "about_body":      {
-        "PT": 'Sou <span class="about-highlight">médica veterinária formada pela UFMT</span> e, ao longo de 9 anos no mercado, transformei minha base técnica em vantagem comercial. Hoje coordeno uma equipe de 14 profissionais na SOMAPET — distribuidora PET em Cuiabá — gerenciando campanhas, metas e estratégias com 11 laboratórios nacionais e multinacionais.<br><br>O que me diferencia é a capacidade de <span class="about-highlight">conectar dados a decisões</span>: uso Power BI para acompanhar indicadores em tempo real e aplico Inteligência Artificial com Claude para automatizar análises, otimizar processos e criar relatórios estratégicos.<br><br>Também desenvolvo <span class="about-highlight">manuais técnicos de treinamento</span> para vendedores e promotores iniciantes, aliados a acompanhamento a campo para acelerar o desenvolvimento individual da equipe.<br><br>Tenho pós-graduação em Gestão de Pessoas e acredito que <span class="about-highlight">liderança eficaz nasce da combinação entre técnica, empatia e visão de mercado.</span>',
-        "EN": 'I am a <span class="about-highlight">Doctor of Veterinary Medicine (UFMT)</span> who has spent 9 years converting scientific expertise into commercial performance. As Sales Manager at SOMAPET — a leading pet products distributor in Cuiabá, Brazil — I oversee a team of 14 professionals across 11 national and multinational partner brands.<br><br>My differentiator is the ability to <span class="about-highlight">translate data into decisions</span>: I design real-time Power BI dashboards that give the team instant performance visibility, and I leverage AI (Claude) to automate reporting, surface insights and sharpen strategic focus.<br><br>I also create <span class="about-highlight">technical training manuals</span> for onboarding sales reps and promoters, paired with structured field coaching to accelerate each team member\'s professional growth.<br><br>I hold a Graduate Certificate in People Management and believe that <span class="about-highlight">high-impact leadership lives at the intersection of technical depth, emotional intelligence and market awareness.</span>',
+        "PT": 'Sou <span class="about-highlight">médica veterinária formada pela UFMT</span> e, ao longo de mais de 10 anos de carreira, transformei minha base técnica em vantagem comercial. Hoje coordeno uma equipe de 14 profissionais na SOMAPET — distribuidora PET em Cuiabá — gerenciando campanhas, metas e estratégias com 11 laboratórios nacionais e multinacionais.<br><br>O que me diferencia é a capacidade de <span class="about-highlight">conectar dados a decisões</span>: uso Power BI para acompanhar indicadores em tempo real e aplico Inteligência Artificial com Claude para automatizar análises, otimizar processos e criar relatórios estratégicos.<br><br>Também desenvolvo <span class="about-highlight">manuais técnicos de treinamento</span> para vendedores e promotores iniciantes, aliados a acompanhamento a campo para acelerar o desenvolvimento individual da equipe.<br><br>Tenho pós-graduação em Gestão de Pessoas e acredito que <span class="about-highlight">liderança eficaz nasce da combinação entre técnica, empatia e visão de mercado.</span>',
+        "EN": 'I am a <span class="about-highlight">Doctor of Veterinary Medicine (UFMT)</span> with 10+ years of experience converting scientific expertise into commercial performance. As Sales Manager at SOMAPET — a leading pet products distributor in Cuiabá, Brazil — I oversee a team of 14 professionals across 11 national and multinational partner brands.<br><br>My differentiator is the ability to <span class="about-highlight">translate data into decisions</span>: I design real-time Power BI dashboards that give the team instant performance visibility, and I leverage AI (Claude) to automate reporting, surface insights and sharpen strategic focus.<br><br>I also create <span class="about-highlight">technical training manuals</span> for onboarding sales reps and promoters, paired with structured field coaching to accelerate each team member\'s professional growth.<br><br>I hold a Graduate Certificate in People Management and believe that <span class="about-highlight">high-impact leadership lives at the intersection of technical depth, emotional intelligence and market awareness.</span>',
     },
     "skills_label":    {"PT": "Competências",                    "EN": "Competencies"},
     "skills_title":    {"PT": "Ferramentas & habilidades.",      "EN": "Tools & expertise."},
@@ -188,8 +188,8 @@ T = {
                         "EN": "Manual reporting consuming hours of leadership time every week."},
     "proj3_action":    {"PT": "Automatizei a geração de relatórios HTML a partir de planilhas Excel.",
                         "EN": "Automated HTML report generation from Excel data sources."},
-    "proj3_result":    {"PT": "Diminuindo o trabalho manual — relatórios gerados em segundos.",
-                        "EN": "Reducing manual work — reports generated in seconds."},
+    "proj3_result":    {"PT": "Trabalho manual reduzido — relatórios gerados em segundos.",
+                        "EN": "Manual work eliminated — reports now generated in seconds."},
     "proj4_challenge": {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores e promotores.",
                         "EN": "High turnover and long ramp-up time for new sales reps and promoters."},
     "proj4_action":    {"PT": "Criei manual técnico completo com rotas, abordagem, produto e gestão de carteira, em parceria com o RH.",
@@ -217,7 +217,19 @@ experiencias = {
             "empresa": "ORGANNACT",
             "cargo": "Coordenadora Regional — MT/MS",
             "periodo": "AGOSTO 2019 — NOVEMBRO 2022 · MT/MS",
-            "descricao": "Gestão comercial das equipes nos estados de MT e MS. Suporte técnico, treinamentos com médicos veterinários, desenvolvimento de carteira e elaboração de campanhas mensais junto às distribuidoras.",
+            "descricao": "Gestão comercial das equipes junto às distribuidoras nos estados de MT e MS. Suporte técnico aos consultores de vendas e promotoras do laboratório. Treinamentos e visitas técnicas a médicos veterinários para apresentação de novos produtos. Desenvolvimento de carteira de clientes e elaboração, acompanhamento e fechamento de campanhas mensais junto às distribuidoras.",
+        },
+        {
+            "empresa": "MC AGRO",
+            "cargo": "Promotora Técnica",
+            "periodo": "JANEIRO 2018 — JULHO 2019 · CUIABÁ, MT",
+            "descricao": "Promotoria técnica e comercial dos laboratórios Organnact, Syntec e Dechra em todo o estado do MT. Acompanhamento da equipe comercial da distribuidora na rotina de campo. Gestão de channel sales junto à gerência. Treinamentos sobre suplementos e medicamentos com foco na linha Pet. Organização e participação em eventos com apresentação de produtos.",
+        },
+        {
+            "empresa": "BRF",
+            "cargo": "Extensionista de Campo",
+            "periodo": "MAIO 2015 — ABRIL 2017 · NOVA MUTUM, MT",
+            "descricao": "Extensão rural com acompanhamento técnico de lotes de frango de corte. Gestão de área com análise de dados, resultados e pessoas. Implementação da metodologia 5S na rotina operacional.",
         },
     ],
     "EN": [
@@ -228,13 +240,25 @@ experiencias = {
             "descricao": "Lead a team of 14 (8 sales consultants + 6 technical reps) across 11 national and multinational partner brands. Created a Sales Manual for Beginner Salespeople to support HR in onboarding, complemented by structured field coaching for individual development. Deployed Power BI dashboards for real-time KPI tracking and integrated AI automation (Claude) into reporting workflows. Delivered 21% revenue growth in 2025.",
             "sub_cargo": "Technical Sales Representative · Virbac",
             "sub_periodo": "MAY 2023 — APRIL 2024",
-            "sub_descricao": "Provided field-level technical support and product promotion for Virbac across veterinary clinics, pet shops and distribution partners in the greater Cuiabá area.",
+            "sub_descricao": "Provided field-level technical support and channel sales execution for Virbac across veterinary clinics, pet shops and distribution partners in the greater Cuiabá area.",
         },
         {
             "empresa": "ORGANNACT",
             "cargo": "Regional Sales Coordinator — MT/MS",
             "periodo": "AUGUST 2019 — NOVEMBER 2022 · MT/MS",
-            "descricao": "Managed sales teams across two states (Mato Grosso and Mato Grosso do Sul). Delivered technical training to veterinary professionals, drove regional account growth and coordinated monthly promotional campaigns in partnership with local distributors.",
+            "descricao": "Managed distributor sales teams across two states (Mato Grosso and Mato Grosso do Sul). Provided technical support to sales consultants and field reps. Delivered veterinary training sessions introducing new product lines. Developed regional account portfolios and led monthly channel sales campaigns end-to-end.",
+        },
+        {
+            "empresa": "MC AGRO",
+            "cargo": "Technical Sales Representative",
+            "periodo": "JANUARY 2018 — JULY 2019 · CUIABÁ, MT",
+            "descricao": "Technical and commercial promotion for Organnact, Syntec and Dechra brands across Mato Grosso state. Supported distributor field teams in daily sales routines. Managed channel sales performance in partnership with distributor leadership. Conducted product training on pet supplements and medications. Organized and participated in pet industry trade events and product launches.",
+        },
+        {
+            "empresa": "BRF",
+            "cargo": "Field Extension Specialist",
+            "periodo": "MAY 2015 — APRIL 2017 · NOVA MUTUM, MT",
+            "descricao": "Provided hands-on technical oversight of commercial broiler production lots. Managed field area operations including data analysis, performance reporting and people management. Implemented 5S methodology across operational routines.",
         },
     ],
 }
@@ -261,13 +285,13 @@ st.markdown(f"""
 </div>
 <div>
 <a class="cta-btn" href="mailto:gabrielamichelotto@gmail.com">{t("cta_primary")}</a>
-<a class="cta-btn-outline" href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">{t("cta_secondary")}</a>
+<a class="cta-btn-outline" href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">{t("cta_secondary")}</a>
 </div>
 <div class="hero-stat">
 <div><div class="stat-num">+21%</div><div class="stat-label">{t("stat1")}</div></div>
 <div><div class="stat-num">14</div><div class="stat-label">{t("stat2")}</div></div>
 <div><div class="stat-num">11</div><div class="stat-label">{t("stat3")}</div></div>
-<div><div class="stat-num">9</div><div class="stat-label">{t("stat4")}</div></div>
+<div><div class="stat-num">10+</div><div class="stat-label">{t("stat4")}</div></div>
 </div>
 </div>
 <div class="hero-photo-wrap">{_foto_html}</div>
@@ -300,7 +324,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_data")}</p><span class="skill-pill">Power BI</span><span class="skill-pill">Python</span><span class="skill-pill">Excel</span><span class="skill-pill">Claude AI</span><span class="skill-pill">Dashboards</span></div>""", unsafe_allow_html=True)
 with col2:
-    st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_commercial")}</p><span class="skill-pill-light">{t("skill_lead")}</span><span class="skill-pill-light">{t("skill_goals")}</span><span class="skill-pill-light">Sell out</span><span class="skill-pill-light">{t("skill_expansion")}</span><span class="skill-pill-light">{t("skill_portfolio")}</span></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_commercial")}</p><span class="skill-pill-light">{t("skill_lead")}</span><span class="skill-pill-light">{t("skill_goals")}</span><span class="skill-pill-light">Channel Sales</span><span class="skill-pill-light">{t("skill_expansion")}</span><span class="skill-pill-light">{t("skill_portfolio")}</span></div>""", unsafe_allow_html=True)
 with col3:
     st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_soft")}</p><span class="skill-pill-light">{t("skill_comm")}</span><span class="skill-pill-light">{t("skill_people")}</span><span class="skill-pill-light">{t("skill_flex")}</span><span class="skill-pill-light">{t("skill_train")}</span><span class="skill-pill-light">{t("skill_vision")}</span></div>""", unsafe_allow_html=True)
 
@@ -360,7 +384,7 @@ st.markdown(f"""
 <p class="section-label">{t("contact_label")}</p>
 <h2 class="section-title">{t("contact_title")}</h2>
 <p class="contact-line">📧 <a class="contact-link" href="mailto:gabrielamichelotto@gmail.com">gabrielamichelotto@gmail.com</a></p>
-<p class="contact-line">💼 <a class="contact-link" href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">linkedin.com/in/gabrielamichelotto</a></p>
+<p class="contact-line">💼 <a class="contact-link" href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">linkedin.com/in/gabriela-michelotto</a></p>
 <p class="contact-line">📍 {t("contact_loc")}</p>
 </div>
 <div class="footer-bar">{t("footer")}</div>
