@@ -461,6 +461,8 @@ T = {
               "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
 }
 
+T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
+
 def t(k): return T[k][lang]
 
 experiencias = {
@@ -524,7 +526,7 @@ st.markdown(f"""
       <div><div class="stat-val">9</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
     </div>
     <div class="hero-cta">
-      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
+      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" onclick="window.open('mailto:gabrielamichelotto@gmail.com');return false;" style="cursor:pointer;">{t("cta1")}</a>
       <a class="btn-secondary" href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">{t("cta2")}</a>
     </div>
   </div>
@@ -689,7 +691,7 @@ st.markdown(f"""
   </div>
   <div class="contact-item">
     <span class="contact-label">LinkedIn</span>
-    <a href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">linkedin.com/in/gabrielamichelotto</a>
+    <a href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">linkedin.com/in/gabriela-michelotto</a>
   </div>
   <div class="contact-item">
     <span class="contact-label">{'Localização' if lang=='PT' else 'Location'}</span>
@@ -702,5 +704,3 @@ st.markdown(f"""
 <div class="footer-bar">{t("footer")}</div>
 """, unsafe_allow_html=True)
 
-# Patch skill_lead key safely
-T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
