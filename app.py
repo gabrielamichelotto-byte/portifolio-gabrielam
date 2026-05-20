@@ -335,22 +335,34 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   padding: 2rem;
 }
 
+/* ── STATS STRIP ── */
+.stats-strip { background: #0a0a0a; padding: 0 80px 60px 80px; }
+.stats-grid  { display: flex; gap: 3rem; }
+.stat-card   { min-width: 90px; }
+.stat-num    { font-size: 2.1rem; font-weight: 800; color: #c9a96e; letter-spacing: -0.02em; line-height: 1; }
+.stat-label  { font-size: 0.62rem; font-weight: 400; color: #555; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; line-height: 1.5; }
+
+/* ── VALUE PILLARS ── */
+.pillars     { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; padding: 40px 80px; background: #0a0a0a; border-top: 1px solid #1a1a1a; }
+.pillar-icon { font-size: 1.2rem; margin-bottom: 0.8rem; }
+.pillar-body { font-size: 0.85rem; font-weight: 300; color: #666; line-height: 1.7; }
+
 /* ── HIDE STREAMLIT ── */
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stSidebar"] { display: none; }
 div[data-testid="stHorizontalBlock"] { gap: 0 !important; }
 [data-testid="stButton"] > button {
-  background: transparent !important;
-  border: 1px solid #2a2a2a !important;
-  color: #666 !important;
-  font-size: 0.7rem !important;
+  background: #0a0a0a !important;
+  border: 1px solid #c9a96e !important;
+  color: #c9a96e !important;
+  font-size: 0.72rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
-  padding: 0.5rem 1.2rem !important;
+  padding: 0.5rem 1.4rem !important;
   border-radius: 2px !important;
 }
-[data-testid="stButton"] > button:hover { border-color: #c9a96e !important; color: #c9a96e !important; }
+[data-testid="stButton"] > button:hover { background: #c9a96e !important; color: #0a0a0a !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -499,7 +511,7 @@ st.markdown(f"""
 <div class="hero-grid">
   <div>
     <p class="hero-eyebrow">{t("eyebrow")}</p>
-    <h1 class="hero-name">Gabriela Barros<br>Michelotto</h1>
+    <h1 class="hero-name" style="color:#ffffff !important;">Gabriela Barros<br>Michelotto</h1>
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
@@ -627,20 +639,22 @@ exp_items = ""
 for e in experiencias[lang]:
     sub = ""
     if e.get("sub_cargo"):
-        sub = f"""
-        <div class="exp-sub">
-          <div class="exp-sub-role">{e["sub_cargo"]}</div>
-          <div class="exp-sub-period">{e["sub_periodo"]}</div>
-          <div class="exp-sub-desc">{e["sub_desc"]}</div>
-        </div>"""
-    exp_items += f"""
-    <div class="exp-item">
-      <div class="exp-company">{e["empresa"]}</div>
-      <div class="exp-role">{e["cargo"]}</div>
-      <div class="exp-period">{e["periodo"]}</div>
-      <div class="exp-desc">{e["descricao"]}</div>
-      {sub}
-    </div>"""
+        sub = (
+            '<div class="exp-sub">'
+            f'<div class="exp-sub-role">{e["sub_cargo"]}</div>'
+            f'<div class="exp-sub-period">{e["sub_periodo"]}</div>'
+            f'<div class="exp-sub-desc">{e["sub_desc"]}</div>'
+            '</div>'
+        )
+    exp_items += (
+        '<div class="exp-item">'
+        f'<div class="exp-company">{e["empresa"]}</div>'
+        f'<div class="exp-role">{e["cargo"]}</div>'
+        f'<div class="exp-period">{e["periodo"]}</div>'
+        f'<div class="exp-desc">{e["descricao"]}</div>'
+        f'{sub}'
+        '</div>'
+    )
 
 st.markdown(f"""
 <div class="section-dark">
