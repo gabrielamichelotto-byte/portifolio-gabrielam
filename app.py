@@ -115,17 +115,17 @@ lang = st.session_state.lang
 # ── Conteúdo bilíngue ────────────────────────────
 T = {
     "hero_tag":        {"PT": "Portfólio Profissional",          "EN": "Professional Portfolio"},
-    "hero_subtitle":   {"PT": "Coordenadora Comercial com mais de 10 anos de experiência — unindo gestão de equipes, estratégia de dados e Inteligência Artificial para gerar resultados mensuráveis.",
-                        "EN": "Sales Manager with 10+ years of professional experience — bridging team leadership, data strategy and AI to drive measurable business results."},
+    "hero_subtitle":   {"PT": "Coordenadora Comercial com 8 anos no mercado PET — unindo gestão de equipes, estratégia de dados e Inteligência Artificial para gerar resultados mensuráveis.",
+                        "EN": "Sales Manager with 8 years in the pet industry — bridging team leadership, data strategy and AI to drive measurable business results."},
     "stat1":           {"PT": "Crescimento em 2025",             "EN": "Revenue Growth in 2025"},
     "stat2":           {"PT": "Profissionais liderados",         "EN": "Professionals Led"},
     "stat3":           {"PT": "Laboratórios parceiros",          "EN": "Partner Brands"},
-    "stat4":           {"PT": "Anos de carreira",                "EN": "Years of Experience"},
+    "stat4":           {"PT": "Anos no mercado PET",             "EN": "Years in Pet Industry"},
     "about_label":     {"PT": "Sobre",                           "EN": "About"},
     "about_title":     {"PT": "Ciência, dados e estratégia<br>no mesmo lugar.", "EN": "Where science meets<br>data and strategy."},
     "about_body":      {
-        "PT": 'Sou <span class="about-highlight">médica veterinária formada pela UFMT</span> e, ao longo de mais de 10 anos de carreira, transformei minha base técnica em vantagem comercial. Hoje coordeno uma equipe de 14 profissionais na SOMAPET — distribuidora PET em Cuiabá — gerenciando campanhas, metas e estratégias com 11 laboratórios nacionais e multinacionais.<br><br>O que me diferencia é a capacidade de <span class="about-highlight">conectar dados a decisões</span>: uso Power BI para acompanhar indicadores em tempo real e aplico Inteligência Artificial com Claude para automatizar análises, otimizar processos e criar relatórios estratégicos.<br><br>Também desenvolvo <span class="about-highlight">manuais técnicos de treinamento</span> para vendedores e promotores iniciantes, aliados a acompanhamento a campo para acelerar o desenvolvimento individual da equipe.<br><br>Tenho pós-graduação em Gestão de Pessoas e acredito que <span class="about-highlight">liderança eficaz nasce da combinação entre técnica, empatia e visão de mercado.</span>',
-        "EN": 'I am a <span class="about-highlight">Doctor of Veterinary Medicine (UFMT)</span> with 10+ years of experience converting scientific expertise into commercial performance. As Sales Manager at SOMAPET — a leading pet products distributor in Cuiabá, Brazil — I oversee a team of 14 professionals across 11 national and multinational partner brands.<br><br>My differentiator is the ability to <span class="about-highlight">translate data into decisions</span>: I design real-time Power BI dashboards that give the team instant performance visibility, and I leverage AI (Claude) to automate reporting, surface insights and sharpen strategic focus.<br><br>I also create <span class="about-highlight">technical training manuals</span> for onboarding sales reps and promoters, paired with structured field coaching to accelerate each team member\'s professional growth.<br><br>I hold a Graduate Certificate in People Management and believe that <span class="about-highlight">high-impact leadership lives at the intersection of technical depth, emotional intelligence and market awareness.</span>',
+        "PT": 'Sou <span class="about-highlight">médica veterinária formada pela UFMT</span> e, ao longo de 8 anos no mercado PET, transformei minha base técnica em vantagem comercial. Hoje coordeno uma equipe de 14 profissionais na SOMAPET — distribuidora PET em Cuiabá — gerenciando campanhas, metas e estratégias com 11 laboratórios nacionais e multinacionais.<br><br>O que me diferencia é a capacidade de <span class="about-highlight">conectar dados a decisões</span>: uso Power BI para acompanhar indicadores em tempo real e aplico Inteligência Artificial com Claude para automatizar análises, otimizar processos e criar relatórios estratégicos.<br><br>Também desenvolvo <span class="about-highlight">manuais técnicos de treinamento</span> para vendedores e promotores iniciantes, aliados a acompanhamento a campo para acelerar o desenvolvimento individual da equipe.<br><br>Tenho pós-graduação em Gestão de Pessoas e acredito que <span class="about-highlight">liderança eficaz nasce da combinação entre técnica, empatia e visão de mercado.</span>',
+        "EN": 'I am a <span class="about-highlight">Doctor of Veterinary Medicine (UFMT)</span> with 8 years in the pet industry, converting scientific expertise into commercial performance. As Sales Manager at SOMAPET — a leading pet products distributor in Cuiabá, Brazil — I oversee a team of 14 professionals across 11 national and multinational partner brands.<br><br>My differentiator is the ability to <span class="about-highlight">translate data into decisions</span>: I design real-time Power BI dashboards that give the team instant performance visibility, and I leverage AI (Claude) to automate reporting, surface insights and sharpen strategic focus.<br><br>I also create <span class="about-highlight">technical training manuals</span> for onboarding sales reps and promoters, paired with structured field coaching to accelerate each team member\'s professional growth.<br><br>I hold a Graduate Certificate in People Management and believe that <span class="about-highlight">high-impact leadership lives at the intersection of technical depth, emotional intelligence and market awareness.</span>',
     },
     "skills_label":    {"PT": "Competências",                    "EN": "Competencies"},
     "skills_title":    {"PT": "Ferramentas & habilidades.",      "EN": "Tools & expertise."},
@@ -225,12 +225,6 @@ experiencias = {
             "periodo": "JANEIRO 2018 — JULHO 2019 · CUIABÁ, MT",
             "descricao": "Promotoria técnica e comercial dos laboratórios Organnact, Syntec e Dechra em todo o estado do MT. Acompanhamento da equipe comercial da distribuidora na rotina de campo. Gestão de channel sales junto à gerência. Treinamentos sobre suplementos e medicamentos com foco na linha Pet. Organização e participação em eventos com apresentação de produtos.",
         },
-        {
-            "empresa": "BRF",
-            "cargo": "Extensionista de Campo",
-            "periodo": "MAIO 2015 — ABRIL 2017 · NOVA MUTUM, MT",
-            "descricao": "Extensão rural com acompanhamento técnico de lotes de frango de corte. Gestão de área com análise de dados, resultados e pessoas. Implementação da metodologia 5S na rotina operacional.",
-        },
     ],
     "EN": [
         {
@@ -253,12 +247,6 @@ experiencias = {
             "cargo": "Technical Sales Representative",
             "periodo": "JANUARY 2018 — JULY 2019 · CUIABÁ, MT",
             "descricao": "Technical and commercial promotion for Organnact, Syntec and Dechra brands across Mato Grosso state. Supported distributor field teams in daily sales routines. Managed channel sales performance in partnership with distributor leadership. Conducted product training on pet supplements and medications. Organized and participated in pet industry trade events and product launches.",
-        },
-        {
-            "empresa": "BRF",
-            "cargo": "Field Extension Specialist",
-            "periodo": "MAY 2015 — APRIL 2017 · NOVA MUTUM, MT",
-            "descricao": "Provided hands-on technical oversight of commercial broiler production lots. Managed field area operations including data analysis, performance reporting and people management. Implemented 5S methodology across operational routines.",
         },
     ],
 }
@@ -291,7 +279,7 @@ st.markdown(f"""
 <div><div class="stat-num">+21%</div><div class="stat-label">{t("stat1")}</div></div>
 <div><div class="stat-num">14</div><div class="stat-label">{t("stat2")}</div></div>
 <div><div class="stat-num">11</div><div class="stat-label">{t("stat3")}</div></div>
-<div><div class="stat-num">10+</div><div class="stat-label">{t("stat4")}</div></div>
+<div><div class="stat-num">8</div><div class="stat-label">{t("stat4")}</div></div>
 </div>
 </div>
 <div class="hero-photo-wrap">{_foto_html}</div>
