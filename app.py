@@ -455,8 +455,8 @@ T = {
   "c4_name": {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginners"},
   "c4_ctx":  {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores.",
               "EN": "High turnover and slow onboarding for new sales reps and promoters."},
-  "c4_act":  {"PT": "Manual completo de vendas: abordagem comercial, conhecimento de produto e gestão de carteira.",
-              "EN": "Complete sales manual: commercial approach, product knowledge and account management."},
+  "c4_act":  {"PT": "Manual completo para iniciantes: pipeline, abordagem comercial e técnicas de negociação.",
+              "EN": "Complete beginner sales manual: pipeline management, commercial approach and negotiation techniques."},
   "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
               "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
 }
