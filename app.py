@@ -140,7 +140,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 
 /* ── SECTIONS ── */
 .section      { padding: 88px 80px; background: #f7f3ee; }
-.section-dark { padding: 88px 80px; background: #0d0d0d; }
+.section-dark { padding: 88px 80px; background: #ede8e0; }
 .section-mid  { padding: 88px 80px; background: #ede8e0; }
 
 .eyebrow {
@@ -172,7 +172,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .section-heading-white {
   font-size: 2.4rem;
   font-weight: 800;
-  color: #fff;
+  color: #111;
   line-height: 1.12;
   letter-spacing: -0.025em;
   margin-bottom: 3rem;
@@ -243,8 +243,8 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   left: -5px;
   top: 6px;
 }
-.exp-company { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
-.exp-role    { font-size: 0.92rem; font-weight: 300; color: #999; margin-top: 0.2rem; }
+.exp-company { font-size: 1rem; font-weight: 800; color: #111; letter-spacing: -0.01em; }
+.exp-role    { font-size: 0.92rem; font-weight: 300; color: #666; margin-top: 0.2rem; }
 .exp-period  {
   font-size: 0.62rem;
   font-weight: 600;
@@ -253,14 +253,14 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   text-transform: uppercase;
   margin: 0.6rem 0 1rem;
 }
-.exp-desc { font-size: 0.88rem; font-weight: 300; color: #777; line-height: 1.9; }
+.exp-desc { font-size: 0.88rem; font-weight: 300; color: #555; line-height: 1.9; }
 .exp-sub {
   margin-top: 1.4rem;
   padding-top: 1.2rem;
-  border-top: 1px dashed #1e1e1e;
+  border-top: 1px dashed #ccc;
 }
-.exp-sub-role   { font-size: 0.78rem; font-weight: 600; color: #666; }
-.exp-sub-period { font-size: 0.6rem; color: #444; letter-spacing: 0.08em; margin: 0.25rem 0 0.6rem; }
+.exp-sub-role   { font-size: 0.78rem; font-weight: 600; color: #444; }
+.exp-sub-period { font-size: 0.6rem; color: #888; letter-spacing: 0.08em; margin: 0.25rem 0 0.6rem; }
 .exp-sub-desc   { font-size: 0.82rem; color: #666; font-weight: 300; line-height: 1.75; }
 
 /* ── CASES ── */
@@ -319,10 +319,10 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 }
 
 /* ── CONTACT ── */
-.contact-item { font-size: 0.95rem; font-weight: 300; color: #888; margin-bottom: 1.1rem; line-height: 1.6; }
-.contact-item a { font-weight: 500; color: #fff; text-decoration: none; }
-.contact-item a:hover { color: #c9a96e; }
-.contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #333; display: block; margin-bottom: 0.25rem; }
+.contact-item { font-size: 0.95rem; font-weight: 300; color: #666; margin-bottom: 1.1rem; line-height: 1.6; }
+.contact-item a { font-weight: 500; color: #c9a96e; text-decoration: none; }
+.contact-item a:hover { color: #b8975a; }
+.contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #999; display: block; margin-bottom: 0.25rem; }
 
 /* ── FOOTER ── */
 .footer-bar {
@@ -682,9 +682,11 @@ with c2:
 with c3:
     st.markdown(f'<div style="padding:0 80px 48px 16px;background:#f7f3ee;">{case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))}</div>', unsafe_allow_html=True)
 
-c4, _, _ = st.columns(3)
+c4, c5 = st.columns(2)
 with c4:
     st.markdown(f'<div style="padding:0 16px 64px 80px;background:#f7f3ee;">{case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))}</div>', unsafe_allow_html=True)
+with c5:
+    st.markdown('<div style="padding:0 80px 64px 16px;background:#f7f3ee;"></div>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTACT
