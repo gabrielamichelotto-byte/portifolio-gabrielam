@@ -169,8 +169,8 @@ lang = st.session_state.lang
 T = {
     "hero_eyebrow":  {"PT": "Portfólio Profissional",           "EN": "Professional Portfolio"},
     "hero_subtitle": {
-        "PT": "Coordenadora Comercial com 8 anos no mercado PET — conectando liderança de equipes, estratégia de dados e Inteligência Artificial para entregar crescimento mensurável.",
-        "EN": "Pet Industry Sales Manager with 8 years of experience — connecting team leadership, data strategy and Artificial Intelligence to deliver measurable revenue growth.",
+        "PT": "Coordenadora Comercial que entregou <strong style='color:#2EC4B6'>+21% de crescimento em 2025</strong> — combinando liderança de equipes, Power BI e Inteligência Artificial para gerar resultados mensuráveis no mercado PET.",
+        "EN": "Sales Manager who delivered <strong style='color:#2EC4B6'>+21% revenue growth in 2025</strong> — combining team leadership, Power BI and AI to drive measurable results in the pet distribution industry.",
     },
     "stat1":         {"PT": "Crescimento de Receita · 2025",    "EN": "Revenue Growth · 2025"},
     "stat2":         {"PT": "Profissionais Liderados",          "EN": "Professionals Led"},
@@ -188,8 +188,8 @@ T = {
     "about_label":   {"PT": "Sobre",                            "EN": "About"},
     "about_title":   {"PT": "Onde ciência veterinária<br>encontra estratégia comercial.", "EN": "Where veterinary science<br>meets commercial strategy."},
     "about_body":    {
-        "PT": 'Sou <b>médica veterinária formada pela UFMT</b> com 8 anos construindo pontes entre conhecimento técnico, performance comercial e tecnologia no mercado PET. Na <b>SOMAPET</b> — uma das principais distribuidoras PET de Cuiabá — lidero 14 profissionais e coordeno a relação estratégica com 11 laboratórios nacionais e multinacionais.<br><br>Meu diferencial está em transformar dados em decisões: construí dashboards em Power BI que entregam visibilidade de performance em tempo real para toda a equipe, e aplico IA com Claude para automatizar relatórios, eliminar trabalho manual e afiar o foco estratégico da gestão. <b>Resultado direto: crescimento de 21% no faturamento em 2025.</b><br><br>Também desenvolvo <b>manuais técnicos de treinamento</b> e conduzo acompanhamento a campo — padronizando o onboarding de novos vendedores e promotores e reduzindo a curva de aprendizado da equipe. Tenho pós-graduação em Gestão de Pessoas e acredito que <b>equipes de alta performance nascem da combinação entre profundidade técnica, inteligência de dados e investimento genuíno em pessoas.</b>',
-        "EN": 'I am a <b>Doctor of Veterinary Medicine (UFMT)</b> with 8 years bridging veterinary science, commercial strategy and technology in the pet distribution industry — a combination that turns product knowledge into revenue growth and team depth into measurable outcomes.<br><br>At <b>SOMAPET</b>, I lead 14 professionals and manage strategic relationships across 11 national and multinational lab partners. I delivered <b>21% top-line growth in 2025</b> by combining rigorous account management with a data-first operating model: real-time Power BI dashboards and AI-powered automation (Claude) that sharpen every business decision my team makes.<br><br>I also author <b>technical training manuals</b> and lead structured field coaching — standardizing onboarding and compressing ramp-up time for new reps and promoters. I hold a Graduate Certificate in People Management and believe that <b>elite commercial teams are built at the intersection of technical depth, data fluency and genuine investment in people.</b>',
+        "PT": '<b>+21% de crescimento no faturamento em 2025.</b> Esse é o resultado mais recente de uma trajetória construída na interseção entre ciência veterinária, estratégia comercial e tecnologia.<br><br>Sou <b>médica veterinária formada pela UFMT</b> com 8 anos no mercado PET. Na <b>SOMAPET</b> — uma das principais distribuidoras PET de Cuiabá — lidero 14 profissionais e coordeno a relação estratégica com 11 laboratórios nacionais e multinacionais. Meu diferencial está em transformar dados em decisões: construí dashboards em Power BI que entregam visibilidade de performance em tempo real, e aplico IA com Claude para automatizar relatórios e afiar o foco estratégico da gestão.<br><br>Também desenvolvo <b>manuais técnicos de treinamento</b> e conduzo acompanhamento a campo — padronizando o onboarding de novos vendedores e promotores. Tenho pós-graduação em Gestão de Pessoas e acredito que <b>equipes de alta performance nascem da combinação entre profundidade técnica, inteligência de dados e investimento genuíno em pessoas.</b>',
+        "EN": '<b>+21% revenue growth in 2025.</b> That is the most recent result of a career built at the intersection of veterinary science, commercial strategy and technology.<br><br>I am a <b>Doctor of Veterinary Medicine (UFMT)</b> with 8 years in the pet distribution industry. At <b>SOMAPET</b> — one of Cuiabá\'s leading pet distributors — I lead 14 professionals and manage strategic relationships across 11 national and multinational lab partners. My differentiator: I turn data into decisions — building real-time Power BI dashboards and deploying AI automation (Claude) that eliminate manual work and sharpen every strategic call my team makes.<br><br>I also author <b>technical training manuals</b> and lead structured field coaching to standardize onboarding and accelerate rep development. I hold a Graduate Certificate in People Management and believe that <b>elite commercial teams are built at the intersection of technical depth, data fluency and genuine investment in people.</b>',
     },
     "skills_label":   {"PT": "Competências",                    "EN": "Competencies"},
     "skills_title":   {"PT": "Ferramentas & habilidades.",      "EN": "Tools & expertise."},
@@ -219,7 +219,10 @@ T = {
     "proj_label":     {"PT": "Projetos",                        "EN": "Projects"},
     "proj_title":     {"PT": "O que já construí.",              "EN": "Selected work."},
     "proj1_link":     {"PT": "Ver projeto →",                   "EN": "View project →"},
+    "proj4_link":     {"PT": "Solicitar material →",            "EN": "Request material →"},
     "contact_label":  {"PT": "Contato",                         "EN": "Contact"},
+    "open_to":        {"PT": "🟢 Aberta a Oportunidades · Disponível para entrevistas",
+                       "EN": "🟢 Open to Opportunities · Available for interviews"},
     "contact_title":  {"PT": "Vamos conversar?",                "EN": "Let's connect."},
     "contact_loc":    {"PT": "Cuiabá, Mato Grosso — Brasil",   "EN": "Cuiabá, Mato Grosso — Brazil"},
     "footer":         {"PT": "GABRIELA BARROS MICHELOTTO &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026",
@@ -323,6 +326,9 @@ badges = badges_pt if lang == "PT" else badges_en
 badges_html = "".join(f'<span class="hero-badge">{b}</span>' for b in badges)
 
 st.markdown(f"""
+<div style="background:#1DA89E;padding:10px 80px;text-align:center;">
+<span style="color:#0D1B2A;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">{t("open_to")}</span>
+</div>
 <div class="hero">
 <div class="hero-inner">
 <div class="hero-text">
@@ -440,7 +446,7 @@ with c3:
 
 c4, _, _ = st.columns(3)
 with c4:
-    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="proj-tag">{t("p4_tag")}</p><p class="proj-name">{t("p4_name")}</p><p class="case-label">{t("case_ch")}</p><p class="proj-desc">{t("p4_ch")}</p><p class="case-label">{t("case_ac")}</p><p class="proj-desc">{t("p4_ac")}</p><p class="case-result">{t("case_re")} — {t("p4_re")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="proj-tag">{t("p4_tag")}</p><p class="proj-name">{t("p4_name")}</p><p class="case-label">{t("case_ch")}</p><p class="proj-desc">{t("p4_ch")}</p><p class="case-label">{t("case_ac")}</p><p class="proj-desc">{t("p4_ac")}</p><p class="case-result">{t("case_re")} — {t("p4_re")}</p><a class="proj-link" href="mailto:gabrielamichelotto@gmail.com">{t("proj4_link")}</a></div></div>""", unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTACT
