@@ -89,23 +89,22 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   margin: 2.2rem 0;
 }
 
-.hero-stats { display: flex; gap: 2.8rem; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 3rem; align-items: flex-start; }
 .stat-val {
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: #c9a96e;
   letter-spacing: -0.02em;
   line-height: 1;
 }
 .stat-lbl {
-  font-size: 0.62rem;
-  font-weight: 400;
-  color: #888;
-  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: #999;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-top: 0.3rem;
-  line-height: 1.5;
-  white-space: nowrap;
+  margin-top: 0.35rem;
+  line-height: 1.4;
 }
 
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; align-items: center; }
@@ -378,10 +377,10 @@ T = {
                     "EN": "Commercial Manager · Strategy & Data"},
   "subtitle":      {"PT": "9 anos no mercado PET transformando <strong>liderança de equipes</strong>, <strong>análise de dados</strong> e <strong>Inteligência Artificial</strong> em crescimento mensurável.",
                     "EN": "9 years in the pet industry translating <strong>team leadership</strong>, <strong>data analysis</strong> and <strong>AI</strong> into measurable commercial growth."},
-  "stat1":         {"PT": "Crescimento<br>em 2025",       "EN": "Revenue Growth<br>2025"},
-  "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>Led"},
-  "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>Brands"},
-  "stat4":         {"PT": "Anos de<br>experiência",       "EN": "Years of<br>Experience"},
+  "stat1":         {"PT": "Crescimento<br>2025",           "EN": "Growth<br>2025"},
+  "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>led"},
+  "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>brands"},
+  "stat4":         {"PT": "Anos de<br>experiência",       "EN": "Years of<br>experience"},
   "cta1":          {"PT": "Entrar em Contato",            "EN": "Get in Touch"},
   "cta2":          {"PT": "Ver LinkedIn",                 "EN": "View LinkedIn"},
   # ABOUT
@@ -518,13 +517,13 @@ st.markdown(f"""
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
-      <div><div class="stat-val">+21%</div><div class="stat-lbl">{t("stat1")}</div></div>
-      <div><div class="stat-val">14</div><div class="stat-lbl">{t("stat2")}</div></div>
-      <div><div class="stat-val">11</div><div class="stat-lbl">{t("stat3")}</div></div>
-      <div><div class="stat-val">9</div><div class="stat-lbl">{t("stat4")}</div></div>
+      <div><div class="stat-val">+21%</div><div class="stat-lbl">{'Crescimento 2025' if lang=='PT' else 'Growth 2025'}</div></div>
+      <div><div class="stat-val">14</div><div class="stat-lbl">{'Profissionais' if lang=='PT' else 'Professionals'}</div></div>
+      <div><div class="stat-val">11</div><div class="stat-lbl">{'Laboratórios' if lang=='PT' else 'Partner brands'}</div></div>
+      <div><div class="stat-val">9</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
     </div>
     <div class="hero-cta">
-      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" target="_blank">{t("cta1")}</a>
+      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
       <a class="btn-secondary" href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">{t("cta2")}</a>
     </div>
   </div>
@@ -696,7 +695,7 @@ st.markdown(f"""
   <h2 class="section-heading-white">{t("ct_h")}</h2>
   <div class="contact-item">
     <span class="contact-label">E-mail</span>
-    <a href="mailto:gabrielamichelotto@gmail.com" target="_blank">gabrielamichelotto@gmail.com</a>
+    <a href="mailto:gabrielamichelotto@gmail.com">gabrielamichelotto@gmail.com</a>
   </div>
   <div class="contact-item">
     <span class="contact-label">LinkedIn</span>
@@ -707,7 +706,7 @@ st.markdown(f"""
     <span style="color:#555;">{t("ct_loc")}</span>
   </div>
   <div style="margin-top:2.5rem;">
-    <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" target="_blank">{t("cta1")}</a>
+    <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
   </div>
 </div>
 <div class="footer-bar">{t("footer")}</div>
