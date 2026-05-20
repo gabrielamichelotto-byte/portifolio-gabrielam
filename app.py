@@ -671,7 +671,7 @@ def case_card(tag, name, ctx, act, res, link=None):
         '</div>'
     )
 
-c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://github.com/gabrielamichelotto-byte/agente-gabriela")
+c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://agente-gabriela-fcjbnde2pwalgeu5ihgpqr.streamlit.app/")
 c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
 c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
 c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
