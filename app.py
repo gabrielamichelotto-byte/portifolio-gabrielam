@@ -24,15 +24,18 @@ if "lang" not in st.session_state:
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-* { font-family: 'Inter', sans-serif; }
+* { font-family: 'Inter', sans-serif; box-sizing: border-box; }
 html, body, [data-testid="stAppViewContainer"], .main { background: #ffffff !important; }
 .block-container { padding: 0 !important; max-width: 100% !important; }
 .hero { background: #0f0f0f; color: #ffffff; padding: 90px 80px 80px 80px; }
+.hero-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem; }
+.hero-text { flex: 1; min-width: 0; }
+.hero-photo-wrap { flex-shrink: 0; padding-top: 0.5rem; }
 .hero-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 1.2rem; }
 .hero-name { font-size: 3.8rem; font-weight: 800; line-height: 1.05; margin-bottom: 1rem; letter-spacing: -0.02em; }
 .hero-title { font-size: 1.1rem; font-weight: 300; color: #aaa; margin-bottom: 2rem; max-width: 600px; line-height: 1.7; }
 .hero-badge { display: inline-block; background: #ffffff15; border: 1px solid #333; color: #ccc; font-size: 0.75rem; font-weight: 400; padding: 0.35rem 0.9rem; border-radius: 20px; margin-right: 0.5rem; margin-bottom: 0.5rem; letter-spacing: 0.03em; }
-.hero-stat { margin-top: 3rem; display: flex; gap: 3rem; }
+.hero-stat { margin-top: 3rem; display: flex; gap: 3rem; flex-wrap: wrap; }
 .stat-num { font-size: 2.2rem; font-weight: 800; color: #fff; }
 .stat-label { font-size: 0.72rem; font-weight: 400; color: #666; letter-spacing: 0.08em; text-transform: uppercase; }
 .section { padding: 70px 80px; }
@@ -60,14 +63,45 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #ffffff !imp
 .cta-btn-outline:hover { border-color: #fff; color: #fff; }
 .case-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; margin-bottom: 0.4rem; }
 .case-result { font-size: 0.78rem; font-weight: 600; color: #111; margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid #f0f0f0; }
+.skill-col { padding: 0 40px 40px 40px; background: #f8f8f8; }
+.skill-col-full { padding: 0 80px 50px 80px; background: #f8f8f8; }
+.exp-item { padding: 0 80px; margin-bottom: 2.5rem; }
+.proj-col { padding: 0 20px 60px 20px; background: #f8f8f8; }
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stSidebar"] { display: none; }
 div[data-testid="stHorizontalBlock"] { gap: 0 !important; }
+
+/* ── MOBILE ─────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero { padding: 50px 20px 40px 20px !important; }
+    .hero-inner { flex-direction: column !important; }
+    .hero-photo-wrap { display: none !important; }
+    .hero-name { font-size: 2.1rem !important; }
+    .hero-title { font-size: 0.92rem !important; max-width: 100% !important; }
+    .hero-badge { font-size: 0.7rem !important; padding: 0.3rem 0.7rem !important; }
+    .hero-stat { gap: 1.2rem !important; margin-top: 2rem !important; }
+    .stat-num { font-size: 1.6rem !important; }
+    .stat-label { font-size: 0.65rem !important; }
+    .cta-btn { font-size: 0.78rem !important; padding: 0.65rem 1.3rem !important; margin-right: 0.5rem !important; }
+    .cta-btn-outline { font-size: 0.78rem !important; padding: 0.62rem 1.3rem !important; }
+    .section { padding: 40px 20px !important; }
+    .section-alt { padding: 40px 20px !important; }
+    .section-title { font-size: 1.45rem !important; margin-bottom: 1.5rem !important; }
+    .about-text { font-size: 0.93rem !important; }
+    .skill-col { padding: 0 20px 25px 20px !important; }
+    .skill-col-full { padding: 0 20px 30px 20px !important; }
+    .exp-item { padding: 0 20px !important; }
+    .proj-col { padding: 0 20px 30px 20px !important; }
+    .lang-bar { padding: 8px 20px !important; }
+    .project-card { padding: 1.4rem !important; }
+    div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
+    div[data-testid="stHorizontalBlock"] > div { width: 100% !important; min-width: 100% !important; flex: 1 1 100% !important; }
+}
 </style>
 """, unsafe_allow_html=True)
 
 # ── Seletor de idioma ────────────────────────────
-st.markdown('<div style="background:#0f0f0f;padding:8px 80px;display:flex;justify-content:flex-end;">', unsafe_allow_html=True)
+st.markdown('<div class="lang-bar">', unsafe_allow_html=True)
 _, col_btn = st.columns([20, 1])
 with col_btn:
     label = "🇺🇸 EN" if st.session_state.lang == "PT" else "🇧🇷 PT"
@@ -208,11 +242,12 @@ experiencias = {
 # ════════════════════════════════════════════════
 # HERO
 # ════════════════════════════════════════════════
-_foto_html = f'<img src="data:image/jpeg;base64,{_foto}" style="width:320px;height:380px;object-fit:cover;object-position:top;border-radius:6px;display:block;">' if _foto else ""
+_foto_html = f'<img src="data:image/jpeg;base64,{_foto}" style="width:280px;height:340px;object-fit:cover;object-position:top;border-radius:6px;display:block;">' if _foto else ""
 
 st.markdown(f"""
-<div class="hero" style="display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;">
-<div style="flex:1;min-width:0;">
+<div class="hero">
+<div class="hero-inner">
+<div class="hero-text">
 <p class="hero-tag">{t("hero_tag")}</p>
 <h1 class="hero-name">Gabriela Barros<br>Michelotto</h1>
 <p class="hero-title">{t("hero_subtitle")}</p>
@@ -235,7 +270,8 @@ st.markdown(f"""
 <div><div class="stat-num">9</div><div class="stat-label">{t("stat4")}</div></div>
 </div>
 </div>
-<div style="flex-shrink:0;padding-top:0.5rem;">{_foto_html}</div>
+<div class="hero-photo-wrap">{_foto_html}</div>
+</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -262,13 +298,13 @@ st.markdown(f"""
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.markdown(f"""<div style="padding:0 80px 40px 80px;background:#f8f8f8;"><p class="skill-group-title">{t("sg_data")}</p><span class="skill-pill">Power BI</span><span class="skill-pill">Python</span><span class="skill-pill">Excel</span><span class="skill-pill">Claude AI</span><span class="skill-pill">Dashboards</span></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_data")}</p><span class="skill-pill">Power BI</span><span class="skill-pill">Python</span><span class="skill-pill">Excel</span><span class="skill-pill">Claude AI</span><span class="skill-pill">Dashboards</span></div>""", unsafe_allow_html=True)
 with col2:
-    st.markdown(f"""<div style="padding:0 40px 40px 40px;background:#f8f8f8;"><p class="skill-group-title">{t("sg_commercial")}</p><span class="skill-pill-light">{t("skill_lead")}</span><span class="skill-pill-light">{t("skill_goals")}</span><span class="skill-pill-light">Sell out</span><span class="skill-pill-light">{t("skill_expansion")}</span><span class="skill-pill-light">{t("skill_portfolio")}</span></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_commercial")}</p><span class="skill-pill-light">{t("skill_lead")}</span><span class="skill-pill-light">{t("skill_goals")}</span><span class="skill-pill-light">Sell out</span><span class="skill-pill-light">{t("skill_expansion")}</span><span class="skill-pill-light">{t("skill_portfolio")}</span></div>""", unsafe_allow_html=True)
 with col3:
-    st.markdown(f"""<div style="padding:0 80px 40px 0;background:#f8f8f8;"><p class="skill-group-title">{t("sg_soft")}</p><span class="skill-pill-light">{t("skill_comm")}</span><span class="skill-pill-light">{t("skill_people")}</span><span class="skill-pill-light">{t("skill_flex")}</span><span class="skill-pill-light">{t("skill_train")}</span><span class="skill-pill-light">{t("skill_vision")}</span></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="skill-col"><p class="skill-group-title">{t("sg_soft")}</p><span class="skill-pill-light">{t("skill_comm")}</span><span class="skill-pill-light">{t("skill_people")}</span><span class="skill-pill-light">{t("skill_flex")}</span><span class="skill-pill-light">{t("skill_train")}</span><span class="skill-pill-light">{t("skill_vision")}</span></div>""", unsafe_allow_html=True)
 
-st.markdown(f"""<div style="padding:0 80px 50px 80px;background:#f8f8f8;"><p class="skill-group-title">{t("sg_courses")}</p><span class="skill-pill-light">{t("course1")}</span><span class="skill-pill-light">{t("course2")}</span><span class="skill-pill-light">{t("course3")}</span><span class="skill-pill-light">{t("course4")}</span><span class="skill-pill-light">{t("course5")}</span></div>""", unsafe_allow_html=True)
+st.markdown(f"""<div class="skill-col-full"><p class="skill-group-title">{t("sg_courses")}</p><span class="skill-pill-light">{t("course1")}</span><span class="skill-pill-light">{t("course2")}</span><span class="skill-pill-light">{t("course3")}</span><span class="skill-pill-light">{t("course4")}</span><span class="skill-pill-light">{t("course5")}</span></div>""", unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # EXPERIÊNCIA
@@ -287,7 +323,7 @@ for exp in experiencias[lang]:
             '</div>'
         )
     exp_html += (
-        '<div style="padding:0 80px;margin-bottom:2.5rem;">'
+        '<div class="exp-item">'
         '<div style="border-left:2px solid #e0e0e0;padding-left:1.5rem;">'
         f'<div style="font-size:1rem;font-weight:700;color:#111;">{exp["empresa"]}</div>'
         f'<div style="font-size:0.9rem;color:#555;margin-top:0.1rem;">{exp["cargo"]}</div>'
@@ -306,15 +342,15 @@ st.markdown(f"""<div class="section-alt"><p class="section-label">{t("proj_label
 
 c1, c2, c3 = st.columns(3)
 with c1:
-    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Streamlit · AI</p><p class="project-name">{'Agente IA Pessoal' if lang=='PT' else 'Personal AI Agent'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj1_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj1_action")}</p><p class="case-result">✦ {t("proj1_result")}</p><a class="project-link" href="https://github.com/gabrielamichelotto-byte/agente-gabriela" target="_blank" style="margin-top:1rem;display:inline-block">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="project-tag">Python · Streamlit · AI</p><p class="project-name">{'Agente IA Pessoal' if lang=='PT' else 'Personal AI Agent'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj1_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj1_action")}</p><p class="case-result">✦ {t("proj1_result")}</p><a class="project-link" href="https://github.com/gabrielamichelotto-byte/agente-gabriela" target="_blank" style="margin-top:1rem;display:inline-block">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
 with c2:
-    st.markdown(f"""<div style="padding:0 20px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Power BI · {'Dados' if lang=='PT' else 'Data'}</p><p class="project-name">{'Dashboard Comercial' if lang=='PT' else 'Commercial Dashboard'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj2_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj2_action")}</p><p class="case-result">✦ {t("proj2_result")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="project-tag">Power BI · {'Dados' if lang=='PT' else 'Data'}</p><p class="project-name">{'Dashboard Comercial' if lang=='PT' else 'Commercial Dashboard'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj2_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj2_action")}</p><p class="case-result">✦ {t("proj2_result")}</p></div></div>""", unsafe_allow_html=True)
 with c3:
-    st.markdown(f"""<div style="padding:0 80px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Excel</p><p class="project-name">{'Dashboard BI de Vendedores' if lang=='PT' else 'Salesforce BI Dashboard'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj3_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj3_action")}</p><p class="case-result">✦ {t("proj3_result")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="project-tag">Python · Excel</p><p class="project-name">{'Dashboard BI de Vendedores' if lang=='PT' else 'Salesforce BI Dashboard'}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj3_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj3_action")}</p><p class="case-result">✦ {t("proj3_result")}</p></div></div>""", unsafe_allow_html=True)
 
 c4, _, _ = st.columns(3)
 with c4:
-    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">{t("proj4_tag")}</p><p class="project-name">{t("proj4_name")}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj4_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj4_action")}</p><p class="case-result">✦ {t("proj4_result")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="project-tag">{t("proj4_tag")}</p><p class="project-name">{t("proj4_name")}</p><p class="case-label">{t("case_challenge")}</p><p class="project-desc">{t("proj4_challenge")}</p><p class="case-label" style="margin-top:0.7rem">{t("case_action")}</p><p class="project-desc">{t("proj4_action")}</p><p class="case-result">✦ {t("proj4_result")}</p></div></div>""", unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTATO
