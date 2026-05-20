@@ -489,8 +489,6 @@ st.markdown('<style>div[data-testid="stHorizontalBlock"]{margin-top:-52px;paddin
 # ════════════════════════════════════════════════
 # HERO
 # ════════════════════════════════════════════════
-_foto_html = f'<img src="data:image/jpeg;base64,{_foto}" style="width:270px;height:330px;object-fit:cover;object-position:top;border-radius:6px;display:block;border:3px solid #1E3A5F;">' if _foto else ""
-
 badges_pt = ["Power BI", "Inteligência Artificial", "Python", "Excel", "Channel Sales", "Medicina Veterinária", "Gestão de Pessoas"]
 badges_en = ["Power BI", "Artificial Intelligence", "Python", "Excel", "Channel Sales", "Veterinary Medicine", "People Management"]
 badges = badges_pt if lang == "PT" else badges_en
