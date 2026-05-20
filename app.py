@@ -454,8 +454,8 @@ T = {
   "c4_name": {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginners"},
   "c4_ctx":  {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores.",
               "EN": "High turnover and slow onboarding for new sales reps and promoters."},
-  "c4_act":  {"PT": "Manual técnico completo: rotas, abordagem, produto e gestão de carteira.",
-              "EN": "Complete technical manual: field routes, sales approach, product knowledge and account management."},
+  "c4_act":  {"PT": "Manual completo de vendas: abordagem comercial, conhecimento de produto e gestão de carteira.",
+              "EN": "Complete sales manual: commercial approach, product knowledge and account management."},
   "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
               "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
 }
@@ -657,15 +657,16 @@ st.markdown(f"""
 # ════════════════════════════════════════════════
 def case_card(tag, name, ctx, act, res, link=None):
     link_html = f'<a class="case-link" href="{link}" target="_blank">{t("see")} →</a>' if link else ""
-    return f"""
-    <div class="case-card">
-      <p class="case-tag">{tag}</p>
-      <p class="case-name">{name}</p>
-      <p class="case-lbl">{t("ctx")}</p><p class="case-text">{ctx}</p>
-      <p class="case-lbl">{t("act")}</p><p class="case-text">{act}</p>
-      <p class="case-result">◆ {res}</p>
-      {link_html}
-    </div>"""
+    return (
+        '<div class="case-card">'
+        f'<p class="case-tag">{tag}</p>'
+        f'<p class="case-name">{name}</p>'
+        f'<p class="case-lbl">{t("ctx")}</p><p class="case-text">{ctx}</p>'
+        f'<p class="case-lbl">{t("act")}</p><p class="case-text">{act}</p>'
+        f'<p class="case-result">◆ {res}</p>'
+        f'{link_html}'
+        '</div>'
+    )
 
 st.markdown(f"""
 <div class="section">
@@ -697,7 +698,7 @@ st.markdown(f"""
   <h2 class="section-heading-white">{t("ct_h")}</h2>
   <div class="contact-item">
     <span class="contact-label">E-mail</span>
-    <a href="mailto:gabrielamichelotto@gmail.com">gabrielamichelotto@gmail.com</a>
+    <a href="mailto:gabrielamichelotto@gmail.com" onclick="window.open('mailto:gabrielamichelotto@gmail.com');return false;">gabrielamichelotto@gmail.com</a>
   </div>
   <div class="contact-item">
     <span class="contact-label">LinkedIn</span>
@@ -705,10 +706,10 @@ st.markdown(f"""
   </div>
   <div class="contact-item">
     <span class="contact-label">{'Localização' if lang=='PT' else 'Location'}</span>
-    <span style="color:#555;">{t("ct_loc")}</span>
+    <span style="color:#888;">{t("ct_loc")}</span>
   </div>
   <div style="margin-top:2.5rem;">
-    <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
+    <a class="btn-primary" onclick="window.open('mailto:gabrielamichelotto@gmail.com');return false;" style="cursor:pointer;">{t("cta1")}</a>
   </div>
 </div>
 <div class="footer-bar">{t("footer")}</div>
