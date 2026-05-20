@@ -221,8 +221,8 @@ T = {
     "proj1_link":     {"PT": "Ver projeto →",                   "EN": "View project →"},
     "proj4_link":     {"PT": "Solicitar material →",            "EN": "Request material →"},
     "contact_label":  {"PT": "Contato",                         "EN": "Contact"},
-    "open_to":        {"PT": "🟢 Aberta a Oportunidades · Disponível para entrevistas",
-                       "EN": "🟢 Open to Opportunities · Available for interviews"},
+    "open_to":        {"PT": "💼 Freelancer em IA, Dados & Estratégia Comercial — conheça meus projetos abaixo",
+                       "EN": "💼 Freelancer in AI, Data & Commercial Strategy — explore my projects below"},
     "contact_title":  {"PT": "Vamos conversar?",                "EN": "Let's connect."},
     "contact_loc":    {"PT": "Cuiabá, Mato Grosso — Brasil",   "EN": "Cuiabá, Mato Grosso — Brazil"},
     "footer":         {"PT": "GABRIELA BARROS MICHELOTTO &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026",
@@ -438,7 +438,7 @@ st.markdown(f"""<div class="section-alt"><p class="eyebrow">{t("proj_label")}</p
 
 c1, c2, c3 = st.columns(3)
 with c1:
-    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="proj-tag">Python · Streamlit · AI</p><p class="proj-name">{t("p1_name")}</p><p class="case-label">{t("case_ch")}</p><p class="proj-desc">{t("p1_ch")}</p><p class="case-label">{t("case_ac")}</p><p class="proj-desc">{t("p1_ac")}</p><p class="case-result">{t("case_re")} — {t("p1_re")}</p><a class="proj-link" href="https://github.com/gabrielamichelotto-byte/agente-gabriela" target="_blank">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="proj-tag">Python · Streamlit · AI</p><p class="proj-name">{t("p1_name")}</p><p class="case-label">{t("case_ch")}</p><p class="proj-desc">{t("p1_ch")}</p><p class="case-label">{t("case_ac")}</p><p class="proj-desc">{t("p1_ac")}</p><p class="case-result">{t("case_re")} — {t("p1_re")}</p><a class="proj-link" href="https://agente-gabriela-fcjbnde2pwalgeu5ihgpqr.streamlit.app/" target="_blank">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
 with c2:
     st.markdown(f"""<div class="proj-col"><div class="project-card"><p class="proj-tag">Power BI · Data Strategy</p><p class="proj-name">{t("p2_name")}</p><p class="case-label">{t("case_ch")}</p><p class="proj-desc">{t("p2_ch")}</p><p class="case-label">{t("case_ac")}</p><p class="proj-desc">{t("p2_ac")}</p><p class="case-result">{t("case_re")} — {t("p2_re")}</p></div></div>""", unsafe_allow_html=True)
 with c3:
