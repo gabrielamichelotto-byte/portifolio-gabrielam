@@ -489,6 +489,13 @@ st.markdown('<style>div[data-testid="stHorizontalBlock"]{margin-top:-52px;paddin
 # ════════════════════════════════════════════════
 # HERO
 # ════════════════════════════════════════════════
+_foto_html = f'<img src="data:image/jpeg;base64,{_foto}" style="width:270px;height:330px;object-fit:cover;object-position:top;border-radius:6px;display:block;border:3px solid #1E3A5F;">' if _foto else ""
+
+badges_pt = ["Power BI", "Inteligência Artificial", "Python", "Excel", "Channel Sales", "Medicina Veterinária", "Gestão de Pessoas"]
+badges_en = ["Power BI", "Artificial Intelligence", "Python", "Excel", "Channel Sales", "Veterinary Medicine", "People Management"]
+badges = badges_pt if lang == "PT" else badges_en
+badges_html = "".join(f'<span class="hero-badge">{b}</span>' for b in badges)
+
 st.markdown(f"""
 <div class="hero-wrap">
 <div class="hero-grid">
@@ -514,7 +521,32 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
-# SOBRE
+# STATS STRIP
+# ════════════════════════════════════════════════
+st.markdown(f"""
+<div class="stats-strip">
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-num">+21%</div><div class="stat-label">{t("stat1")}</div></div>
+<div class="stat-card"><div class="stat-num">14</div><div class="stat-label">{t("stat2")}</div></div>
+<div class="stat-card"><div class="stat-num">11</div><div class="stat-label">{t("stat3")}</div></div>
+<div class="stat-card"><div class="stat-num">8</div><div class="stat-label">{t("stat4")}</div></div>
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+# ════════════════════════════════════════════════
+# VALUE PILLARS
+# ════════════════════════════════════════════════
+st.markdown(f"""
+<div class="pillars">
+<div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-title">{t("pillar1_title")}</div><div class="pillar-body">{t("pillar1_body")}</div></div>
+<div class="pillar"><div class="pillar-icon">📊</div><div class="pillar-title">{t("pillar2_title")}</div><div class="pillar-body">{t("pillar2_body")}</div></div>
+<div class="pillar"><div class="pillar-icon">👥</div><div class="pillar-title">{t("pillar3_title")}</div><div class="pillar-body">{t("pillar3_body")}</div></div>
+</div>
+""", unsafe_allow_html=True)
+
+# ════════════════════════════════════════════════
+# ABOUT
 # ════════════════════════════════════════════════
 st.markdown(f"""
 <div class="section">
@@ -544,7 +576,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
-# HABILIDADES
+# SKILLS
 # ════════════════════════════════════════════════
 sk_data = ["Power BI", "Python", "Excel", "Claude AI", "Dashboards", "Automação"]
 sk_comm = [t("skill_lead") if "skill_lead" in T else "Liderança de equipes",
@@ -591,7 +623,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
-# EXPERIÊNCIA
+# EXPERIENCE
 # ════════════════════════════════════════════════
 exp_items = ""
 for e in experiencias[lang]:
@@ -655,7 +687,7 @@ with c4:
     st.markdown(f'<div style="padding:0 16px 64px 80px;background:#f7f3ee;">{case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))}</div>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
-# CONTATO
+# CONTACT
 # ════════════════════════════════════════════════
 st.markdown(f"""
 <div class="section-dark">
