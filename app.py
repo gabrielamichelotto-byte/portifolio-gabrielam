@@ -264,6 +264,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .exp-sub-desc   { font-size: 0.82rem; color: #666; font-weight: 300; line-height: 1.75; }
 
 /* ── CASES ── */
+.cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 0; }
 .case-card {
   background: #fff;
   border: 1px solid #e8e2d9;
@@ -668,26 +669,12 @@ def case_card(tag, name, ctx, act, res, link=None):
         '</div>'
     )
 
-st.markdown(f"""
-<div class="section">
-  <p class="eyebrow">{t("case_ey")}</p>
-  <h2 class="section-heading">{t("case_h")}</h2>
-</div>
-""", unsafe_allow_html=True)
+c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://github.com/gabrielamichelotto-byte/agente-gabriela")
+c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
+c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
+c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
 
-c1, c2, c3 = st.columns(3)
-with c1:
-    st.markdown(f'<div style="padding:0 16px 48px 80px;background:#f7f3ee;">{case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://github.com/gabrielamichelotto-byte/agente-gabriela")}</div>', unsafe_allow_html=True)
-with c2:
-    st.markdown(f'<div style="padding:0 16px 48px 16px;background:#f7f3ee;">{case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))}</div>', unsafe_allow_html=True)
-with c3:
-    st.markdown(f'<div style="padding:0 80px 48px 16px;background:#f7f3ee;">{case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))}</div>', unsafe_allow_html=True)
-
-c4, c5 = st.columns(2)
-with c4:
-    st.markdown(f'<div style="padding:0 16px 64px 80px;background:#f7f3ee;">{case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))}</div>', unsafe_allow_html=True)
-with c5:
-    st.markdown('<div style="padding:0 80px 64px 16px;background:#f7f3ee;"></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="section"><p class="eyebrow">{t("case_ey")}</p><h2 class="section-heading">{t("case_h")}</h2><div class="cases-grid">{c1}{c2}{c3}{c4}</div></div>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTACT
