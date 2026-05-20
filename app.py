@@ -1,186 +1,514 @@
 import streamlit as st
+import base64, os
 
 st.set_page_config(
-    page_title="Gabriela Michelotto · Portfólio",
-    page_icon="💼",
+    page_title="Gabriela Barros Michelotto",
+    page_icon="◆",
     layout="wide"
 )
 
-# ── Idioma ──────────────────────────────────────
+# ── Idioma ───────────────────────────────────────
 if "lang" not in st.session_state:
     st.session_state.lang = "PT"
 
-# ── CSS ─────────────────────────────────────────
+# ── Foto via base64 ──────────────────────────────
+def load_photo():
+    for fname in ["foto.jpg.jpg", "foto.jpg", "foto.png"]:
+        path = os.path.join(os.path.dirname(__file__) or ".", fname)
+        if os.path.exists(path):
+            with open(path, "rb") as f:
+                return base64.b64encode(f.read()).decode()
+    return None
+
+photo_b64 = load_photo()
+photo_src  = f"data:image/jpeg;base64,{photo_b64}" if photo_b64 else ""
+photo_html = f'<img src="{photo_src}" alt="Gabriela Barros Michelotto" style="width:100%;max-width:440px;border-radius:6px;display:block;margin-left:auto;box-shadow:0 32px 80px rgba(0,0,0,0.5);">' if photo_src else ""
+
+# ── CSS ──────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-* { font-family: 'Inter', sans-serif; }
-html, body, [data-testid="stAppViewContainer"], .main { background: #ffffff !important; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*, *::before, *::after { font-family: 'Inter', sans-serif; box-sizing: border-box; margin: 0; padding: 0; }
+html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !important; }
 .block-container { padding: 0 !important; max-width: 100% !important; }
-.hero { background: #0f0f0f; color: #ffffff; padding: 90px 80px 80px 80px; }
-.hero-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 1.2rem; }
-.hero-name { font-size: 3.8rem; font-weight: 800; line-height: 1.05; margin-bottom: 1rem; letter-spacing: -0.02em; }
-.hero-title { font-size: 1.1rem; font-weight: 300; color: #aaa; margin-bottom: 2rem; max-width: 600px; line-height: 1.7; }
-.hero-badge { display: inline-block; background: #ffffff15; border: 1px solid #333; color: #ccc; font-size: 0.75rem; font-weight: 400; padding: 0.35rem 0.9rem; border-radius: 20px; margin-right: 0.5rem; margin-bottom: 0.5rem; letter-spacing: 0.03em; }
-.hero-stat { margin-top: 3rem; display: flex; gap: 3rem; }
-.stat-num { font-size: 2.2rem; font-weight: 800; color: #fff; }
-.stat-label { font-size: 0.72rem; font-weight: 400; color: #666; letter-spacing: 0.08em; text-transform: uppercase; }
-.section { padding: 70px 80px; }
-.section-alt { padding: 70px 80px; background: #f8f8f8; }
-.section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #999; margin-bottom: 0.5rem; }
-.section-title { font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 2.5rem; letter-spacing: -0.02em; }
-.about-text { font-size: 1.05rem; font-weight: 300; color: #444; line-height: 1.9; max-width: 720px; }
-.about-highlight { font-weight: 600; color: #111; }
-.skill-group-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #999; margin-bottom: 0.8rem; }
-.skill-pill { display: inline-block; background: #111; color: #fff; font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; border-radius: 4px; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-.skill-pill-light { display: inline-block; background: #f0f0f0; color: #333; font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; border-radius: 4px; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-.project-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; padding: 2rem; height: 100%; }
-.project-card:hover { border-color: #111; }
-.project-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #999; margin-bottom: 0.6rem; }
-.project-name { font-size: 1.1rem; font-weight: 700; color: #111; margin-bottom: 0.6rem; }
-.project-desc { font-size: 0.85rem; color: #666; font-weight: 300; line-height: 1.7; }
-.project-link { display: inline-block; margin-top: 1.2rem; font-size: 0.78rem; font-weight: 600; color: #111; letter-spacing: 0.05em; text-decoration: none; border-bottom: 1px solid #111; padding-bottom: 1px; }
-.contact-line { font-size: 1rem; font-weight: 300; color: #444; margin-bottom: 0.8rem; }
-.contact-link { font-weight: 600; color: #111; text-decoration: none; }
-.footer-bar { background: #0f0f0f; color: #555; text-align: center; font-size: 0.72rem; font-weight: 300; letter-spacing: 0.1em; padding: 1.5rem; }
-.lang-bar { background: #0f0f0f; padding: 10px 80px; display: flex; justify-content: flex-end; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: #0a0a0a;
+  padding: 14px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1a1a1a;
+}
+.topbar-name { font-size: 0.7rem; font-weight: 600; color: #444; letter-spacing: 0.2em; text-transform: uppercase; }
+.topbar-nav  { display: flex; gap: 2rem; }
+.topbar-nav a { font-size: 0.7rem; font-weight: 400; color: #444; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+.topbar-nav a:hover { color: #c9a96e; }
+
+/* ── HERO ── */
+.hero-wrap { background: #0a0a0a; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 5rem;
+  padding: 90px 80px 80px 80px;
+  align-items: center;
+  max-width: 1400px;
+}
+.hero-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  margin-bottom: 1.4rem;
+}
+.hero-name {
+  font-size: 4.6rem;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 1.6rem;
+}
+.hero-subtitle {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.8;
+  max-width: 540px;
+  margin-bottom: 0;
+}
+.hero-subtitle strong { color: #ddd; font-weight: 500; }
+
+.hero-divider {
+  width: 48px;
+  height: 2px;
+  background: #c9a96e;
+  margin: 2.2rem 0;
+}
+
+.hero-stats { display: flex; gap: 2.8rem; }
+.stat-val {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #c9a96e;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  line-height: 1.5;
+  max-width: 80px;
+}
+
+.hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; align-items: center; }
+.btn-primary {
+  display: inline-block;
+  background: #c9a96e;
+  color: #0a0a0a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.85rem 2.4rem;
+  border-radius: 2px;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #888;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.82rem 2.4rem;
+  border-radius: 2px;
+  border: 1px solid #2a2a2a;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.btn-primary:hover  { background: #b8975a; }
+.btn-secondary:hover { border-color: #555; color: #ccc; }
+
+/* ── SECTIONS ── */
+.section      { padding: 88px 80px; background: #f7f3ee; }
+.section-dark { padding: 88px 80px; background: #0d0d0d; }
+.section-mid  { padding: 88px 80px; background: #ede8e0; }
+
+.eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: #c9a96e;
+}
+.section-heading {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: 3rem;
+}
+.section-heading-white {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: 3rem;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #555;
+  line-height: 2.0;
+}
+.about-text strong { color: #111; font-weight: 600; }
+.about-text p { margin-bottom: 1.2rem; }
+
+.pillar {
+  border-top: 2px solid #c9a96e;
+  padding-top: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+.pillar-title { font-size: 0.78rem; font-weight: 700; color: #111; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+.pillar-text  { font-size: 0.85rem; font-weight: 300; color: #666; line-height: 1.7; }
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 0; }
+.skill-group-name {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #d8d0c5;
+  margin-bottom: 1rem;
+}
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #ede8e0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #444;
+}
+.skill-row:last-child { border-bottom: none; }
+
+/* ── EXPERIENCE ── */
+.exp-item {
+  border-left: 2px solid #c9a96e;
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.exp-item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #c9a96e;
+  border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top: 6px;
+}
+.exp-company { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+.exp-role    { font-size: 0.92rem; font-weight: 300; color: #999; margin-top: 0.2rem; }
+.exp-period  {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #c9a96e;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0.6rem 0 1rem;
+}
+.exp-desc { font-size: 0.88rem; font-weight: 300; color: #777; line-height: 1.9; }
+.exp-sub {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed #1e1e1e;
+}
+.exp-sub-role   { font-size: 0.78rem; font-weight: 600; color: #666; }
+.exp-sub-period { font-size: 0.6rem; color: #444; letter-spacing: 0.08em; margin: 0.25rem 0 0.6rem; }
+.exp-sub-desc   { font-size: 0.82rem; color: #666; font-weight: 300; line-height: 1.75; }
+
+/* ── CASES ── */
+.case-card {
+  background: #fff;
+  border: 1px solid #e8e2d9;
+  border-top: 3px solid #c9a96e;
+  border-radius: 4px;
+  padding: 2rem;
+  height: 100%;
+}
+.case-tag  {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c9a96e;
+  margin-bottom: 0.8rem;
+}
+.case-name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 1.4rem;
+  line-height: 1.35;
+}
+.case-lbl {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin: 0.9rem 0 0.35rem;
+}
+.case-lbl:first-of-type { margin-top: 0; }
+.case-text { font-size: 0.82rem; color: #666; font-weight: 300; line-height: 1.7; }
+.case-result {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #111;
+  margin-top: 1.3rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid #f0ebe3;
+}
+.case-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #c9a96e;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid #c9a96e;
+  padding-bottom: 1px;
+}
+
+/* ── CONTACT ── */
+.contact-item { font-size: 0.95rem; font-weight: 300; color: #888; margin-bottom: 1.1rem; line-height: 1.6; }
+.contact-item a { font-weight: 500; color: #fff; text-decoration: none; }
+.contact-item a:hover { color: #c9a96e; }
+.contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #333; display: block; margin-bottom: 0.25rem; }
+
+/* ── FOOTER ── */
+.footer-bar {
+  background: #050505;
+  color: #2a2a2a;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 2rem;
+}
+
+/* ── HIDE STREAMLIT ── */
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stSidebar"] { display: none; }
 div[data-testid="stHorizontalBlock"] { gap: 0 !important; }
+[data-testid="stButton"] > button {
+  background: transparent !important;
+  border: 1px solid #2a2a2a !important;
+  color: #666 !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 2px !important;
+}
+[data-testid="stButton"] > button:hover { border-color: #c9a96e !important; color: #c9a96e !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Seletor de idioma ────────────────────────────
-st.markdown('<div style="background:#0f0f0f;padding:8px 80px;display:flex;justify-content:flex-end;">', unsafe_allow_html=True)
-_, col_btn = st.columns([20, 1])
-with col_btn:
-    label = "🇺🇸 EN" if st.session_state.lang == "PT" else "🇧🇷 PT"
-    if st.button(label, key="lang_toggle"):
-        st.session_state.lang = "EN" if st.session_state.lang == "PT" else "PT"
-        st.rerun()
-st.markdown('</div>', unsafe_allow_html=True)
-
+# ── Conteúdo bilíngue ────────────────────────────
 lang = st.session_state.lang
 
-# ── Conteúdo bilíngue ────────────────────────────
 T = {
-    "hero_tag":        {"PT": "Portfólio Profissional",          "EN": "Professional Portfolio"},
-    "hero_subtitle":   {"PT": "Coordenadora Comercial com 9 anos no mercado PET — unindo gestão de equipes, estratégia de dados e Inteligência Artificial para gerar resultados mensuráveis.",
-                        "EN": "Sales Manager with 9 years in the pet industry — bridging team leadership, data strategy and AI to drive measurable business results."},
-    "stat1":           {"PT": "Crescimento em 2025",             "EN": "Revenue Growth in 2025"},
-    "stat2":           {"PT": "Profissionais liderados",         "EN": "Professionals Led"},
-    "stat3":           {"PT": "Laboratórios parceiros",          "EN": "Partner Brands"},
-    "stat4":           {"PT": "Anos de experiência",             "EN": "Years of Experience"},
-    "about_label":     {"PT": "Sobre",                           "EN": "About"},
-    "about_title":     {"PT": "Ciência, dados e estratégia<br>no mesmo lugar.", "EN": "Where science meets<br>data and strategy."},
-    "about_body":      {
-        "PT": 'Sou <span class="about-highlight">médica veterinária formada pela UFMT</span> e, ao longo de 9 anos no mercado, transformei minha base técnica em vantagem comercial. Hoje coordeno uma equipe de 14 profissionais na SOMAPET — distribuidora PET em Cuiabá — gerenciando campanhas, metas e estratégias com 11 laboratórios nacionais e multinacionais.<br><br>O que me diferencia é a capacidade de <span class="about-highlight">conectar dados a decisões</span>: uso Power BI para acompanhar indicadores em tempo real e aplico Inteligência Artificial com Claude para automatizar análises, otimizar processos e criar relatórios estratégicos.<br><br>Também desenvolvo <span class="about-highlight">manuais técnicos de treinamento</span> para vendedores e promotores iniciantes, aliados a acompanhamento a campo para acelerar o desenvolvimento individual da equipe.<br><br>Tenho pós-graduação em Gestão de Pessoas e acredito que <span class="about-highlight">liderança eficaz nasce da combinação entre técnica, empatia e visão de mercado.</span>',
-        "EN": 'I am a <span class="about-highlight">Doctor of Veterinary Medicine (UFMT)</span> who has spent 9 years converting scientific expertise into commercial performance. As Sales Manager at SOMAPET — a leading pet products distributor in Cuiabá, Brazil — I oversee a team of 14 professionals across 11 national and multinational partner brands.<br><br>My differentiator is the ability to <span class="about-highlight">translate data into decisions</span>: I design real-time Power BI dashboards that give the team instant performance visibility, and I leverage AI (Claude) to automate reporting, surface insights and sharpen strategic focus.<br><br>I also create <span class="about-highlight">technical training manuals</span> for onboarding sales reps and promoters, paired with structured field coaching to accelerate each team member\'s professional growth.<br><br>I hold a Graduate Certificate in People Management and believe that <span class="about-highlight">high-impact leadership lives at the intersection of technical depth, emotional intelligence and market awareness.</span>',
-    },
-    "skills_label":    {"PT": "Competências",                    "EN": "Competencies"},
-    "skills_title":    {"PT": "Ferramentas & habilidades.",      "EN": "Tools & expertise."},
-    "sg_data":         {"PT": "Dados & Tecnologia",              "EN": "Data & Technology"},
-    "sg_commercial":   {"PT": "Gestão Comercial",                "EN": "Sales & Commercial"},
-    "sg_soft":         {"PT": "Comportamental",                  "EN": "Leadership & Soft Skills"},
-    "sg_courses":      {"PT": "Cursos & Formação",               "EN": "Education & Certifications"},
-    "skill_lead":      {"PT": "Liderança de equipes",            "EN": "Team Leadership"},
-    "skill_goals":     {"PT": "Gestão de metas",                 "EN": "KPI & Target Management"},
-    "skill_expansion": {"PT": "Expansão de mercado",             "EN": "Market Expansion"},
-    "skill_portfolio": {"PT": "Gestão de carteira",              "EN": "Account Management"},
-    "skill_comm":      {"PT": "Comunicação assertiva",           "EN": "Clear & Impactful Communication"},
-    "skill_people":    {"PT": "Gestão de pessoas",               "EN": "People Development"},
-    "skill_flex":      {"PT": "Flexibilidade",                   "EN": "Adaptability"},
-    "skill_train":     {"PT": "Treinamento de equipes",          "EN": "Sales Team Coaching"},
-    "skill_vision":    {"PT": "Visão estratégica",               "EN": "Strategic Thinking"},
-    "course1":         {"PT": "Pós-graduação em Gestão de Pessoas", "EN": "Graduate Certificate — People & Leadership"},
-    "course2":         {"PT": "Power BI do Básico ao Avançado",  "EN": "Power BI — Fundamentals to Advanced"},
-    "course3":         {"PT": "Python para Análise de Dados",    "EN": "Python for Data Analysis"},
-    "course4":         {"PT": "Inteligência Artificial Aplicada","EN": "Applied AI & Automation"},
-    "course5":         {"PT": "Medicina Veterinária — UFMT",     "EN": "Doctor of Veterinary Medicine — UFMT"},
-    "exp_label":       {"PT": "Trajetória",                      "EN": "Experience"},
-    "exp_title":       {"PT": "Experiência profissional.",       "EN": "Professional background."},
-    "proj_label":      {"PT": "Projetos",                        "EN": "Projects"},
-    "proj_title":      {"PT": "O que já construí.",              "EN": "Selected work."},
-    "proj1_desc":      {"PT": "Assistente de Inteligência Artificial com interface estilo diário, saudação dinâmica por horário e integração com Google Gemini. Construído do zero com Python.",
-                        "EN": "Conversational AI assistant built from scratch in Python — featuring a handwritten diary aesthetic, time-aware dynamic greetings and Google Gemini integration."},
-    "proj1_link":      {"PT": "Ver projeto →",                   "EN": "View project →"},
-    "proj2_desc":      {"PT": "Dashboards em Power BI para acompanhamento em tempo real de performance por vendedor, laboratório e região. Suporte à tomada de decisão da liderança.",
-                        "EN": "Real-time Power BI dashboards tracking commercial performance by sales rep, partner brand and region — designed to support data-driven decision-making at the leadership level."},
-    "proj3_desc":      {"PT": "Geração automatizada de relatórios HTML a partir de planilhas Excel, com visualização de metas, resultados e acompanhamento de equipe.",
-                        "EN": "Automated HTML report generation from Excel data sources, providing at-a-glance views of individual targets, results and overall team progress."},
-    "proj4_name":      {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginner Salespeople"},
-    "proj4_tag":       {"PT": "Treinamento · RH",                  "EN": "Training · HR"},
-    "proj4_desc":      {"PT": "Manual técnico desenvolvido para apoiar o RH no processo de onboarding de novos vendedores e promotores. Cobre técnicas de abordagem, conhecimento de produto, gestão de carteira e rotina de campo — acelerando a curva de aprendizado dos iniciantes.",
-                        "EN": "Technical manual developed to support HR in the onboarding of new sales reps and promoters. Covers approach techniques, product knowledge, account management and field routines — shortening the learning curve for beginners."},
-    "contact_label":   {"PT": "Contato",                         "EN": "Contact"},
-    "contact_title":   {"PT": "Vamos conversar?",                "EN": "Let's connect."},
-    "contact_loc":     {"PT": "Cuiabá, Mato Grosso — Brasil",    "EN": "Cuiabá, Mato Grosso — Brazil"},
-    "footer":          {"PT": "GABRIELA BARROS MICHELOTTO &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026",
-                        "EN": "GABRIELA BARROS MICHELOTTO &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026"},
+  # HERO
+  "eyebrow":       {"PT": "Gestora Comercial · Estratégia & Dados",
+                    "EN": "Commercial Manager · Strategy & Data"},
+  "subtitle":      {"PT": "9 anos no mercado PET transformando <strong>liderança de equipes</strong>, <strong>análise de dados</strong> e <strong>Inteligência Artificial</strong> em crescimento mensurável.",
+                    "EN": "9 years in the pet industry translating <strong>team leadership</strong>, <strong>data analysis</strong> and <strong>AI</strong> into measurable commercial growth."},
+  "stat1":         {"PT": "Crescimento<br>em 2025",       "EN": "Revenue Growth<br>2025"},
+  "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>Led"},
+  "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>Brands"},
+  "stat4":         {"PT": "Anos de<br>experiência",       "EN": "Years of<br>Experience"},
+  "cta1":          {"PT": "Entrar em Contato",            "EN": "Get in Touch"},
+  "cta2":          {"PT": "Ver LinkedIn",                 "EN": "View LinkedIn"},
+  # ABOUT
+  "about_ey":      {"PT": "Sobre",                        "EN": "About"},
+  "about_h":       {"PT": "Ciência, dados e<br>estratégia comercial.",
+                    "EN": "Where science meets<br>commercial strategy."},
+  "about_p1":      {"PT": "Médica Veterinária formada pela UFMT, construí minha carreira na intersecção entre <strong>conhecimento técnico e gestão comercial</strong>. Ao longo de 9 anos no mercado PET, desenvolvi a capacidade de traduzir dados em decisões — e decisões em resultados.",
+                    "EN": "A Doctor of Veterinary Medicine from UFMT, I have built my career at the intersection of <strong>technical expertise and commercial leadership</strong>. Over 9 years in the pet industry, I have developed the ability to translate data into decisions — and decisions into results."},
+  "about_p2":      {"PT": "Hoje coordeno uma equipe de <strong>14 profissionais na SOMAPET</strong> — distribuidora PET em Cuiabá — gerenciando estratégias com 11 laboratórios nacionais e multinacionais, implementando dashboards em Power BI e automação com IA.",
+                    "EN": "Today I lead a team of <strong>14 professionals at SOMAPET</strong> — a PET distributor in Cuiabá — managing strategies with 11 national and multinational partner brands, implementing Power BI dashboards and AI-driven automation."},
+  "p1_t":          {"PT": "Liderança",                   "EN": "Leadership"},
+  "p1_d":          {"PT": "Gestão de equipes comerciais com foco em desenvolvimento individual, metas e alta performance.",
+                    "EN": "Commercial team management focused on individual development, goal-setting and high performance."},
+  "p2_t":          {"PT": "Dados & Tecnologia",          "EN": "Data & Technology"},
+  "p2_d":          {"PT": "Power BI, Python e Inteligência Artificial aplicados à tomada de decisão estratégica e automação de processos.",
+                    "EN": "Power BI, Python and AI applied to strategic decision-making and process automation."},
+  "p3_t":          {"PT": "Visão de Negócio",            "EN": "Business Acumen"},
+  "p3_d":          {"PT": "Gestão de carteira, sell-out, campanhas mensais e relacionamento B2B com laboratórios parceiros.",
+                    "EN": "Account management, sell-out strategies, monthly campaigns and B2B relationships with partner brands."},
+  # SKILLS
+  "sk_ey":         {"PT": "Competências",                "EN": "Competencies"},
+  "sk_h":          {"PT": "Ferramentas &<br>habilidades.", "EN": "Tools &<br>expertise."},
+  "sk_data":       {"PT": "Dados & Tecnologia",          "EN": "Data & Technology"},
+  "sk_comm":       {"PT": "Gestão Comercial",            "EN": "Sales & Commercial"},
+  "sk_lead":       {"PT": "Liderança & Soft Skills",     "EN": "Leadership & Soft Skills"},
+  "sk_edu":        {"PT": "Formação",                    "EN": "Education"},
+  # EXP
+  "exp_ey":        {"PT": "Trajetória",                  "EN": "Experience"},
+  "exp_h":         {"PT": "Experiência<br>profissional.", "EN": "Professional<br>background."},
+  # CASES
+  "case_ey":       {"PT": "Realizações",                 "EN": "Selected Work"},
+  "case_h":        {"PT": "O que já construí.",          "EN": "Cases & deliverables."},
+  "ctx":           {"PT": "Contexto",                    "EN": "Challenge"},
+  "act":           {"PT": "O que fiz",                   "EN": "What I did"},
+  "res":           {"PT": "Resultado",                   "EN": "Result"},
+  "see":           {"PT": "Ver projeto",                 "EN": "View project"},
+  # CONTACT
+  "ct_ey":         {"PT": "Contato",                     "EN": "Contact"},
+  "ct_h":          {"PT": "Vamos conversar.",            "EN": "Let's connect."},
+  "ct_loc":        {"PT": "Cuiabá, Mato Grosso — Brasil", "EN": "Cuiabá, Mato Grosso — Brazil"},
+  # FOOTER
+  "footer":        {"PT": "Gabriela Barros Michelotto &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026",
+                    "EN": "Gabriela Barros Michelotto &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026"},
+  # CASES content
+  "c1_tag":  {"PT": "Python · Streamlit · IA",           "EN": "Python · Streamlit · AI"},
+  "c1_name": {"PT": "Agente IA Pessoal",                 "EN": "Personal AI Agent"},
+  "c1_ctx":  {"PT": "Construir presença digital em IA sem experiência prévia em programação.",
+              "EN": "Build an AI-powered digital presence with no prior programming background."},
+  "c1_act":  {"PT": "Aprendi Python do zero e desenvolvi assistente conversacional com Google Gemini.",
+              "EN": "Learned Python from scratch and built a full conversational assistant powered by Google Gemini."},
+  "c1_res":  {"PT": "App funcional publicado — acessível pelo portfólio.",
+              "EN": "Fully deployed app — live and accessible via portfolio."},
+  "c1_link": {"PT": "Ver projeto", "EN": "View project"},
+  "c2_tag":  {"PT": "Power BI · Dados",                  "EN": "Power BI · Data"},
+  "c2_name": {"PT": "Dashboard Comercial",               "EN": "Commercial Dashboard"},
+  "c2_ctx":  {"PT": "Equipe de 14 sem visibilidade de performance em tempo real.",
+              "EN": "Team of 14 with no real-time visibility into individual or regional performance."},
+  "c2_act":  {"PT": "Dashboards em Power BI com KPIs por vendedor, laboratório e região.",
+              "EN": "Designed Power BI dashboards tracking KPIs by sales rep, brand and region."},
+  "c2_res":  {"PT": "Gestão orientada por dados — contribuição direta para crescimento de 21%.",
+              "EN": "Data-driven management — direct contribution to 21% revenue growth."},
+  "c3_tag":  {"PT": "Python · Excel",                    "EN": "Python · Excel"},
+  "c3_name": {"PT": "Automação de Relatórios",           "EN": "Report Automation"},
+  "c3_ctx":  {"PT": "Relatórios manuais consumindo horas da liderança toda semana.",
+              "EN": "Manual reporting consuming hours of leadership time every week."},
+  "c3_act":  {"PT": "Automatizei geração de relatórios HTML a partir de planilhas Excel.",
+              "EN": "Automated HTML report generation from Excel data sources."},
+  "c3_res":  {"PT": "Zero horas manuais — relatórios gerados em segundos.",
+              "EN": "Zero manual effort — reports generated in seconds."},
+  "c4_tag":  {"PT": "Treinamento · RH",                  "EN": "Training · HR"},
+  "c4_name": {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginners"},
+  "c4_ctx":  {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores.",
+              "EN": "High turnover and slow onboarding for new sales reps and promoters."},
+  "c4_act":  {"PT": "Manual técnico completo: rotas, abordagem, produto e gestão de carteira.",
+              "EN": "Complete technical manual: field routes, sales approach, product knowledge and account management."},
+  "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
+              "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
 }
 
-def t(key):
-    return T[key][lang]
+def t(k): return T[k][lang]
 
-# ── Experiências ─────────────────────────────────
 experiencias = {
-    "PT": [
-        {
-            "empresa": "SOMAPET",
-            "cargo": "Coordenadora Comercial",
-            "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
-            "descricao": "Liderança de 14 profissionais (8 consultores + 6 promotores técnicos). Gestão de 11 laboratórios parceiros nacionais e multinacionais. Criação de manual técnico de vendas para apoiar o RH no onboarding de iniciantes, com acompanhamento a campo para desenvolvimento individual. Implementação de dashboards em Power BI e automação com IA (Claude). Crescimento de 21% no faturamento em 2025.",
-            "sub_cargo": "Promotora Técnica · Virbac",
-            "sub_periodo": "MAIO 2023 — ABRIL 2024",
-            "sub_descricao": "Suporte técnico e promoção de produtos veterinários junto a clínicas, petshops e distribuidoras na região de Cuiabá.",
-        },
-        {
-            "empresa": "ORGANNACT",
-            "cargo": "Coordenadora Regional — MT/MS",
-            "periodo": "AGOSTO 2019 — NOVEMBRO 2022 · MT/MS",
-            "descricao": "Gestão comercial das equipes nos estados de MT e MS. Suporte técnico, treinamentos com médicos veterinários, desenvolvimento de carteira e elaboração de campanhas mensais junto às distribuidoras.",
-        },
-    ],
-    "EN": [
-        {
-            "empresa": "SOMAPET",
-            "cargo": "Sales Manager",
-            "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
-            "descricao": "Lead a team of 14 (8 sales consultants + 6 technical reps) across 11 national and multinational partner brands. Created a Sales Manual for Beginner Salespeople to support HR in onboarding, complemented by structured field coaching for individual development. Deployed Power BI dashboards for real-time KPI tracking and integrated AI automation (Claude) into reporting workflows. Delivered 21% revenue growth in 2025.",
-            "sub_cargo": "Technical Sales Representative · Virbac",
-            "sub_periodo": "MAY 2023 — APRIL 2024",
-            "sub_descricao": "Provided field-level technical support and product promotion for Virbac across veterinary clinics, pet shops and distribution partners in the greater Cuiabá area.",
-        },
-        {
-            "empresa": "ORGANNACT",
-            "cargo": "Regional Sales Coordinator — MT/MS",
-            "periodo": "AUGUST 2019 — NOVEMBER 2022 · MT/MS",
-            "descricao": "Managed sales teams across two states (Mato Grosso and Mato Grosso do Sul). Delivered technical training to veterinary professionals, drove regional account growth and coordinated monthly promotional campaigns in partnership with local distributors.",
-        },
-    ],
+  "PT": [
+    {"empresa": "SOMAPET", "cargo": "Coordenadora Comercial",
+     "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
+     "descricao": "Liderança de 14 profissionais — 8 consultores de vendas e 6 promotores técnicos. Gestão estratégica de 11 laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios. Crescimento de 21% no faturamento em 2025.",
+     "sub_cargo": "Promotora Técnica · Virbac",
+     "sub_periodo": "MAIO 2023 — ABRIL 2024",
+     "sub_desc": "Suporte técnico e promoção de produtos veterinários junto a clínicas, petshops e distribuidoras em Cuiabá."},
+    {"empresa": "ORGANNACT", "cargo": "Coordenadora Regional — MT/MS",
+     "periodo": "AGOSTO 2019 — NOVEMBRO 2022 · MT/MS",
+     "descricao": "Gestão comercial de equipes nos estados de MT e MS. Treinamentos técnicos com médicos veterinários, desenvolvimento de carteira e campanhas mensais junto às distribuidoras parceiras."},
+  ],
+  "EN": [
+    {"empresa": "SOMAPET", "cargo": "Sales Manager",
+     "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
+     "descricao": "Lead a team of 14 — 8 sales consultants and 6 technical promoters — across 11 national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows. Delivered 21% revenue growth in 2025.",
+     "sub_cargo": "Technical Sales Rep · Virbac",
+     "sub_periodo": "MAY 2023 — APRIL 2024",
+     "sub_desc": "Field-level technical support and product promotion for Virbac across veterinary clinics, pet shops and distributors in the greater Cuiabá area."},
+    {"empresa": "ORGANNACT", "cargo": "Regional Sales Coordinator — MT/MS",
+     "periodo": "AUGUST 2019 — NOVEMBER 2022 · MT/MS",
+     "descricao": "Managed sales teams across Mato Grosso and Mato Grosso do Sul. Delivered technical training to veterinary professionals, drove regional account growth and coordinated monthly promotional campaigns with local distributors."},
+  ],
 }
+
+# ════════════════════════════════════════════════
+# TOPBAR + IDIOMA
+# ════════════════════════════════════════════════
+st.markdown('<div class="topbar"><span class="topbar-name">Gabriela Barros Michelotto</span></div>', unsafe_allow_html=True)
+_, col_lang = st.columns([20, 1])
+with col_lang:
+    label = "🇺🇸 EN" if lang == "PT" else "🇧🇷 PT"
+    if st.button(label, key="lang_btn"):
+        st.session_state.lang = "EN" if lang == "PT" else "PT"
+        st.rerun()
+# compensate button spacing
+st.markdown('<style>div[data-testid="stHorizontalBlock"]{margin-top:-52px;padding-right:20px;justify-content:flex-end;background:#0a0a0a;}</style>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # HERO
 # ════════════════════════════════════════════════
 st.markdown(f"""
-<div class="hero">
-<p class="hero-tag">{t("hero_tag")}</p>
-<h1 class="hero-name">Gabriela Barros<br>Michelotto</h1>
-<p class="hero-title">{t("hero_subtitle")}</p>
-<div>
-<span class="hero-badge">Power BI</span>
-<span class="hero-badge">{'Inteligência Artificial' if lang=='PT' else 'Artificial Intelligence'}</span>
-<span class="hero-badge">Python</span>
-<span class="hero-badge">Excel</span>
-<span class="hero-badge">{'Gestão Comercial' if lang=='PT' else 'Commercial Management'}</span>
-<span class="hero-badge">{'Medicina Veterinária' if lang=='PT' else 'Veterinary Medicine'}</span>
-</div>
-<div class="hero-stat">
-<div><div class="stat-num">+21%</div><div class="stat-label">{t("stat1")}</div></div>
-<div><div class="stat-num">14</div><div class="stat-label">{t("stat2")}</div></div>
-<div><div class="stat-num">11</div><div class="stat-label">{t("stat3")}</div></div>
-<div><div class="stat-num">9</div><div class="stat-label">{t("stat4")}</div></div>
+<div class="hero-wrap">
+<div class="hero-grid">
+  <div>
+    <p class="hero-eyebrow">{t("eyebrow")}</p>
+    <h1 class="hero-name">Gabriela Barros<br>Michelotto</h1>
+    <p class="hero-subtitle">{t("subtitle")}</p>
+    <div class="hero-divider"></div>
+    <div class="hero-stats">
+      <div><div class="stat-val">+21%</div><div class="stat-lbl">{t("stat1")}</div></div>
+      <div><div class="stat-val">14</div><div class="stat-lbl">{t("stat2")}</div></div>
+      <div><div class="stat-val">11</div><div class="stat-lbl">{t("stat3")}</div></div>
+      <div><div class="stat-val">9</div><div class="stat-lbl">{t("stat4")}</div></div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
+      <a class="btn-secondary" href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">{t("cta2")}</a>
+    </div>
+  </div>
+  <div>{photo_html}</div>
 </div>
 </div>
 """, unsafe_allow_html=True)
@@ -190,88 +518,167 @@ st.markdown(f"""
 # ════════════════════════════════════════════════
 st.markdown(f"""
 <div class="section">
-<p class="section-label">{t("about_label")}</p>
-<h2 class="section-title">{t("about_title")}</h2>
-<p class="about-text">{t("about_body")}</p>
+  <p class="eyebrow">{t("about_ey")}</p>
+  <h2 class="section-heading">{t("about_h")}</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>{t("about_p1")}</p>
+      <p>{t("about_p2")}</p>
+    </div>
+    <div>
+      <div class="pillar">
+        <div class="pillar-title">{t("p1_t")}</div>
+        <div class="pillar-text">{t("p1_d")}</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">{t("p2_t")}</div>
+        <div class="pillar-text">{t("p2_d")}</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">{t("p3_t")}</div>
+        <div class="pillar-text">{t("p3_d")}</div>
+      </div>
+    </div>
+  </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # HABILIDADES
 # ════════════════════════════════════════════════
+sk_data = ["Power BI", "Python", "Excel", "Claude AI", "Dashboards", "Automação"]
+sk_comm = [t("skill_lead") if "skill_lead" in T else "Liderança de equipes",
+           "Sell-out & Campanhas",
+           "Gestão de carteira",
+           "Expansão de mercado",
+           "Relacionamento B2B"]
+sk_lead = ["Comunicação assertiva", "Gestão de pessoas", "Visão estratégica",
+           "Treinamento de equipes", "Adaptabilidade"]
+sk_edu  = ["Pós-graduação em Gestão de Pessoas" if lang=="PT" else "Graduate Certificate — People & Leadership",
+           "Power BI — Básico ao Avançado" if lang=="PT" else "Power BI — Fundamentals to Advanced",
+           "Python para Análise de Dados" if lang=="PT" else "Python for Data Analysis",
+           "Medicina Veterinária — UFMT" if lang=="PT" else "Doctor of Veterinary Medicine — UFMT",
+           "Pós-grad. Perícia Criminal (cursando)" if lang=="PT" else "Graduate — Criminal Forensics (ongoing)"]
+
+def skill_rows(items):
+    return "".join(f'<div class="skill-row">{i}</div>' for i in items)
+
 st.markdown(f"""
-<div class="section-alt">
-<p class="section-label">{t("skills_label")}</p>
-<h2 class="section-title">{t("skills_title")}</h2>
+<div class="section-mid">
+  <p class="eyebrow">{t("sk_ey")}</p>
+  <h2 class="section-heading">{t("sk_h")}</h2>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-group-name">{t("sk_data")}</div>
+      {skill_rows(sk_data)}
+    </div>
+    <div>
+      <div class="skill-group-name">{t("sk_comm")}</div>
+      {skill_rows(sk_comm)}
+    </div>
+    <div>
+      <div class="skill-group-name">{t("sk_lead")}</div>
+      {skill_rows(sk_lead)}
+    </div>
+  </div>
+  <div style="margin-top:2.5rem;">
+    <div class="skill-group-name">{t("sk_edu")}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.8rem;">
+      {"".join(f'<span style="background:#fff;border:1px solid #d8d0c5;border-radius:3px;padding:0.35rem 1rem;font-size:0.8rem;color:#555;font-weight:400;">{e}</span>' for e in sk_edu)}
+    </div>
+  </div>
 </div>
 """, unsafe_allow_html=True)
-
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.markdown(f"""<div style="padding:0 80px 40px 80px;background:#f8f8f8;"><p class="skill-group-title">{t("sg_data")}</p><span class="skill-pill">Power BI</span><span class="skill-pill">Python</span><span class="skill-pill">Excel</span><span class="skill-pill">Claude AI</span><span class="skill-pill">Dashboards</span></div>""", unsafe_allow_html=True)
-with col2:
-    st.markdown(f"""<div style="padding:0 40px 40px 40px;background:#f8f8f8;"><p class="skill-group-title">{t("sg_commercial")}</p><span class="skill-pill-light">{t("skill_lead")}</span><span class="skill-pill-light">{t("skill_goals")}</span><span class="skill-pill-light">Sell out</span><span class="skill-pill-light">{t("skill_expansion")}</span><span class="skill-pill-light">{t("skill_portfolio")}</span></div>""", unsafe_allow_html=True)
-with col3:
-    st.markdown(f"""<div style="padding:0 80px 40px 0;background:#f8f8f8;"><p class="skill-group-title">{t("sg_soft")}</p><span class="skill-pill-light">{t("skill_comm")}</span><span class="skill-pill-light">{t("skill_people")}</span><span class="skill-pill-light">{t("skill_flex")}</span><span class="skill-pill-light">{t("skill_train")}</span><span class="skill-pill-light">{t("skill_vision")}</span></div>""", unsafe_allow_html=True)
-
-st.markdown(f"""<div style="padding:0 80px 50px 80px;background:#f8f8f8;"><p class="skill-group-title">{t("sg_courses")}</p><span class="skill-pill-light">{t("course1")}</span><span class="skill-pill-light">{t("course2")}</span><span class="skill-pill-light">{t("course3")}</span><span class="skill-pill-light">{t("course4")}</span><span class="skill-pill-light">{t("course5")}</span></div>""", unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # EXPERIÊNCIA
 # ════════════════════════════════════════════════
-st.markdown(f"""<div class="section"><p class="section-label">{t("exp_label")}</p><h2 class="section-title">{t("exp_title")}</h2></div>""", unsafe_allow_html=True)
-
-exp_html = ""
-for exp in experiencias[lang]:
+exp_items = ""
+for e in experiencias[lang]:
     sub = ""
-    if exp.get("sub_cargo"):
-        sub = (
-            '<div style="margin-top:1.2rem;padding-top:1rem;border-top:1px dashed #e8e8e8;">'
-            f'<div style="font-size:0.78rem;font-weight:600;color:#888;">{exp["sub_cargo"]}</div>'
-            f'<div style="font-size:0.68rem;color:#bbb;letter-spacing:0.05em;margin:0.2rem 0 0.5rem 0;">{exp["sub_periodo"]}</div>'
-            f'<div style="font-size:0.8rem;color:#888;font-weight:300;line-height:1.7;">{exp["sub_descricao"]}</div>'
-            '</div>'
-        )
-    exp_html += (
-        '<div style="padding:0 80px;margin-bottom:2.5rem;">'
-        '<div style="border-left:2px solid #e0e0e0;padding-left:1.5rem;">'
-        f'<div style="font-size:1rem;font-weight:700;color:#111;">{exp["empresa"]}</div>'
-        f'<div style="font-size:0.9rem;color:#555;margin-top:0.1rem;">{exp["cargo"]}</div>'
-        f'<div style="font-size:0.7rem;color:#aaa;letter-spacing:0.06em;margin:0.4rem 0 0.8rem 0;">{exp["periodo"]}</div>'
-        f'<div style="font-size:0.88rem;color:#555;font-weight:300;line-height:1.8;">{exp["descricao"]}</div>'
-        f'{sub}'
-        '</div></div>'
-    )
+    if e.get("sub_cargo"):
+        sub = f"""
+        <div class="exp-sub">
+          <div class="exp-sub-role">{e["sub_cargo"]}</div>
+          <div class="exp-sub-period">{e["sub_periodo"]}</div>
+          <div class="exp-sub-desc">{e["sub_desc"]}</div>
+        </div>"""
+    exp_items += f"""
+    <div class="exp-item">
+      <div class="exp-company">{e["empresa"]}</div>
+      <div class="exp-role">{e["cargo"]}</div>
+      <div class="exp-period">{e["periodo"]}</div>
+      <div class="exp-desc">{e["descricao"]}</div>
+      {sub}
+    </div>"""
 
-st.markdown(exp_html, unsafe_allow_html=True)
+st.markdown(f"""
+<div class="section-dark">
+  <p class="eyebrow">{t("exp_ey")}</p>
+  <h2 class="section-heading-white">{t("exp_h")}</h2>
+  {exp_items}
+</div>
+""", unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
-# PROJETOS
+# CASES
 # ════════════════════════════════════════════════
-st.markdown(f"""<div class="section-alt"><p class="section-label">{t("proj_label")}</p><h2 class="section-title">{t("proj_title")}</h2></div>""", unsafe_allow_html=True)
+def case_card(tag, name, ctx, act, res, link=None):
+    link_html = f'<a class="case-link" href="{link}" target="_blank">{t("see")} →</a>' if link else ""
+    return f"""
+    <div class="case-card">
+      <p class="case-tag">{tag}</p>
+      <p class="case-name">{name}</p>
+      <p class="case-lbl">{t("ctx")}</p><p class="case-text">{ctx}</p>
+      <p class="case-lbl">{t("act")}</p><p class="case-text">{act}</p>
+      <p class="case-result">◆ {res}</p>
+      {link_html}
+    </div>"""
+
+st.markdown(f"""
+<div class="section">
+  <p class="eyebrow">{t("case_ey")}</p>
+  <h2 class="section-heading">{t("case_h")}</h2>
+</div>
+""", unsafe_allow_html=True)
 
 c1, c2, c3 = st.columns(3)
 with c1:
-    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Streamlit · IA</p><p class="project-name">{'Agente IA Pessoal' if lang=='PT' else 'Personal AI Agent'}</p><p class="project-desc">{t("proj1_desc")}</p><a class="project-link" href="https://github.com/gabrielamichelotto-byte/agente-gabriela" target="_blank">{t("proj1_link")}</a></div></div>""", unsafe_allow_html=True)
+    st.markdown(f'<div style="padding:0 16px 48px 80px;background:#f7f3ee;">{case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://github.com/gabrielamichelotto-byte/agente-gabriela")}</div>', unsafe_allow_html=True)
 with c2:
-    st.markdown(f"""<div style="padding:0 20px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Power BI · {'Dados' if lang=='PT' else 'Data'}</p><p class="project-name">{'Dashboard Comercial' if lang=='PT' else 'Commercial Dashboard'}</p><p class="project-desc">{t("proj2_desc")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f'<div style="padding:0 16px 48px 16px;background:#f7f3ee;">{case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))}</div>', unsafe_allow_html=True)
 with c3:
-    st.markdown(f"""<div style="padding:0 80px 60px 20px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">Python · Excel</p><p class="project-name">{'Dashboard BI de Vendedores' if lang=='PT' else 'Salesforce BI Dashboard'}</p><p class="project-desc">{t("proj3_desc")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f'<div style="padding:0 80px 48px 16px;background:#f7f3ee;">{case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))}</div>', unsafe_allow_html=True)
 
 c4, _, _ = st.columns(3)
 with c4:
-    st.markdown(f"""<div style="padding:0 20px 60px 80px;background:#f8f8f8;"><div class="project-card"><p class="project-tag">{t("proj4_tag")}</p><p class="project-name">{t("proj4_name")}</p><p class="project-desc">{t("proj4_desc")}</p></div></div>""", unsafe_allow_html=True)
+    st.markdown(f'<div style="padding:0 16px 64px 80px;background:#f7f3ee;">{case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))}</div>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTATO
 # ════════════════════════════════════════════════
 st.markdown(f"""
-<div class="section">
-<p class="section-label">{t("contact_label")}</p>
-<h2 class="section-title">{t("contact_title")}</h2>
-<p class="contact-line">📧 <a class="contact-link" href="mailto:gabrielamichelotto@gmail.com">gabrielamichelotto@gmail.com</a></p>
-<p class="contact-line">💼 <a class="contact-link" href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">linkedin.com/in/gabrielamichelotto</a></p>
-<p class="contact-line">📍 {t("contact_loc")}</p>
+<div class="section-dark">
+  <p class="eyebrow">{t("ct_ey")}</p>
+  <h2 class="section-heading-white">{t("ct_h")}</h2>
+  <div class="contact-item">
+    <span class="contact-label">E-mail</span>
+    <a href="mailto:gabrielamichelotto@gmail.com">gabrielamichelotto@gmail.com</a>
+  </div>
+  <div class="contact-item">
+    <span class="contact-label">LinkedIn</span>
+    <a href="https://www.linkedin.com/in/gabrielamichelotto" target="_blank">linkedin.com/in/gabrielamichelotto</a>
+  </div>
+  <div class="contact-item">
+    <span class="contact-label">{'Localização' if lang=='PT' else 'Location'}</span>
+    <span style="color:#555;">{t("ct_loc")}</span>
+  </div>
+  <div style="margin-top:2.5rem;">
+    <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com">{t("cta1")}</a>
+  </div>
 </div>
 <div class="footer-bar">{t("footer")}</div>
 """, unsafe_allow_html=True)
+
+# Patch skill_lead key safely
+T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
