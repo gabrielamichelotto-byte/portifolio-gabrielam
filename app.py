@@ -350,6 +350,43 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .pillar-title { font-size: 0.78rem; font-weight: 700; color: #111; margin-bottom: 0.4rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .pillar-body { font-size: 0.85rem; font-weight: 300; color: #666; line-height: 1.7; }
 
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .topbar { padding: 12px 20px; }
+  .topbar-nav { display: none; }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    padding: 48px 20px 40px !important;
+    gap: 2.5rem !important;
+  }
+  .hero-grid > div:last-child { order: -1; }
+  .hero-grid img { max-width: 200px !important; margin: 0 auto !important; }
+  .hero-name { font-size: 2.8rem !important; }
+  .hero-subtitle { font-size: 0.95rem !important; }
+  .hero-stats { gap: 1.4rem !important; flex-wrap: wrap; }
+  .hero-cta { flex-direction: column; align-items: flex-start; }
+
+  .pillars { grid-template-columns: 1fr !important; padding: 36px 20px !important; gap: 1.5rem !important; }
+
+  .section, .section-dark, .section-mid { padding: 52px 20px !important; }
+  .section-heading, .section-heading-white { font-size: 1.8rem !important; }
+
+  .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  .skills-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+
+  .cases-grid { grid-template-columns: 1fr !important; }
+
+  .stats-strip { padding: 0 20px 40px !important; }
+  .stats-grid  { gap: 1.4rem !important; flex-wrap: wrap; }
+
+  .exp-item { padding-left: 1.2rem !important; }
+  .exp-company { font-size: 0.9rem !important; }
+
+  .footer-bar { font-size: 0.55rem !important; padding: 1.5rem 20px !important; }
+}
+
 /* ── HIDE STREAMLIT ── */
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stSidebar"] { display: none; }
