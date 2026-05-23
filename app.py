@@ -629,7 +629,9 @@ sk_edu  = ["Claude Code in Action — Anthropic",
            "AI Fluency for Small Businesses — PayPal & Anthropic (2026)",
            "Pós-graduação em Gestão de Pessoas — Fac. Metropolitana" if lang=="PT" else "Graduate Certificate in People Management — Fac. Metropolitana",
            "Medicina Veterinária — UFMT" if lang=="PT" else "Doctor of Veterinary Medicine — UFMT",
-           "Comunicação Assertiva — Fac. Líbano (2025)" if lang=="PT" else "Assertive Communication — Fac. Líbano (2025)"]
+           "Comunicação Assertiva — Fac. Líbano" if lang=="PT" else "Assertive Communication — Fac. Líbano",
+           "Flexibilidade — Fac. Líbano" if lang=="PT" else "Flexibility — Fac. Líbano",
+           "Liderança e Resultados — Fac. Líbano" if lang=="PT" else "Leadership & Results — Fac. Líbano"]
 
 def skill_rows(items):
     return "".join(f'<div class="skill-row">{i}</div>' for i in items)
