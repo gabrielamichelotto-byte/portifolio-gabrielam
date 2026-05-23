@@ -411,10 +411,10 @@ lang = st.session_state.lang
 
 T = {
   # HERO
-  "eyebrow":       {"PT": "Gestora Comercial · Estratégia & Dados",
-                    "EN": "Commercial Manager · Strategy & Data"},
-  "subtitle":      {"PT": "9 anos no mercado PET transformando <strong>liderança de equipes</strong>, <strong>análise de dados</strong> e <strong>Inteligência Artificial</strong> em crescimento mensurável.",
-                    "EN": "9 years in the pet industry translating <strong>team leadership</strong>, <strong>data analysis</strong> and <strong>AI</strong> into measurable commercial growth."},
+  "eyebrow":       {"PT": "Analista de Dados & IA · Python · Power BI · Azure AI",
+                    "EN": "Data & AI Analyst · Python · Power BI · Azure AI"},
+  "subtitle":      {"PT": "Profissional em transição para Dados & IA — combinando 8 anos de gestão comercial, <strong>+21% de crescimento em 2025</strong>, Python, Claude Code e Microsoft Azure AI para transformar dados em decisões reais.",
+                    "EN": "Professional transitioning to Data & AI — combining 8 years of commercial leadership, <strong>+21% growth in 2025</strong>, Python, Claude Code and Microsoft Azure AI to turn data into real business decisions."},
   "stat1":         {"PT": "Crescimento<br>2025",           "EN": "Growth<br>2025"},
   "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>led"},
   "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>brands"},
@@ -467,8 +467,8 @@ T = {
   "c1_name": {"PT": "Agente IA Pessoal",                 "EN": "Personal AI Agent"},
   "c1_ctx":  {"PT": "Construir presença digital em IA sem experiência prévia em programação.",
               "EN": "Build an AI-powered digital presence with no prior programming background."},
-  "c1_act":  {"PT": "Aprendi Python do zero e desenvolvi assistente conversacional com Google Gemini.",
-              "EN": "Learned Python from scratch and built a full conversational assistant powered by Google Gemini."},
+  "c1_act":  {"PT": "Aprendi Python do zero e desenvolvi assistente conversacional com Claude AI (Anthropic).",
+              "EN": "Learned Python from scratch and built a full conversational assistant powered by Claude AI (Anthropic)."},
   "c1_res":  {"PT": "App funcional publicado — acessível pelo portfólio.",
               "EN": "Fully deployed app — live and accessible via portfolio."},
   "c1_link": {"PT": "Ver projeto", "EN": "View project"},
@@ -616,7 +616,7 @@ st.markdown(f"""
 # ════════════════════════════════════════════════
 # SKILLS
 # ════════════════════════════════════════════════
-sk_data = ["Power BI", "Python", "Excel", "Claude AI", "Dashboards", "Automação"]
+sk_data = ["Python & Automação", "Claude Code", "Power BI", "Microsoft Azure AI", "Excel Avançado", "IA Generativa"]
 sk_comm = [t("skill_lead") if "skill_lead" in T else "Liderança de equipes",
            "Sell-out & Campanhas",
            "Gestão de carteira",
@@ -624,11 +624,12 @@ sk_comm = [t("skill_lead") if "skill_lead" in T else "Liderança de equipes",
            "Relacionamento B2B"]
 sk_lead = ["Comunicação assertiva", "Gestão de pessoas", "Visão estratégica",
            "Treinamento de equipes", "Adaptabilidade"]
-sk_edu  = ["Pós-graduação em Gestão de Pessoas" if lang=="PT" else "Graduate Certificate — People & Leadership",
-           "Power BI — Básico ao Avançado" if lang=="PT" else "Power BI — Fundamentals to Advanced",
-           "Python para Análise de Dados" if lang=="PT" else "Python for Data Analysis",
+sk_edu  = ["Claude Code in Action — Anthropic",
+           "Microsoft Azure AI: Machine Learning & Workloads — LinkedIn Learning (2026)",
+           "AI Fluency for Small Businesses — PayPal & Anthropic (2026)",
+           "Pós-graduação em Gestão de Pessoas — Fac. Metropolitana" if lang=="PT" else "Graduate Certificate in People Management — Fac. Metropolitana",
            "Medicina Veterinária — UFMT" if lang=="PT" else "Doctor of Veterinary Medicine — UFMT",
-           "Pós-grad. Perícia Criminal (cursando)" if lang=="PT" else "Graduate — Criminal Forensics (ongoing)"]
+           "Comunicação Assertiva — Fac. Líbano (2025)" if lang=="PT" else "Assertive Communication — Fac. Líbano (2025)"]
 
 def skill_rows(items):
     return "".join(f'<div class="skill-row">{i}</div>' for i in items)
