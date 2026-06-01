@@ -472,30 +472,6 @@ T = {
   "c1_res":  {"PT": "App funcional publicado — acessível pelo portfólio.",
               "EN": "Fully deployed app — live and accessible via portfolio."},
   "c1_link": {"PT": "Ver projeto", "EN": "View project"},
-  "c2_tag":  {"PT": "Power BI · Dados",                  "EN": "Power BI · Data"},
-  "c2_name": {"PT": "Dashboard Comercial",               "EN": "Commercial Dashboard"},
-  "c2_ctx":  {"PT": "Equipe de 14 sem visibilidade de performance em tempo real.",
-              "EN": "Team of 14 with no real-time visibility into individual or regional performance."},
-  "c2_act":  {"PT": "Dashboards em Power BI com KPIs por vendedor, laboratório e região.",
-              "EN": "Designed Power BI dashboards tracking KPIs by sales rep, brand and region."},
-  "c2_res":  {"PT": "Gestão orientada por dados — contribuição direta para crescimento de 21%.",
-              "EN": "Data-driven management — direct contribution to 21% revenue growth."},
-  "c3_tag":  {"PT": "Python · Excel",                    "EN": "Python · Excel"},
-  "c3_name": {"PT": "Automação de Relatórios",           "EN": "Report Automation"},
-  "c3_ctx":  {"PT": "Relatórios manuais consumindo horas da liderança toda semana.",
-              "EN": "Manual reporting consuming hours of leadership time every week."},
-  "c3_act":  {"PT": "Automatizei geração de relatórios HTML a partir de planilhas Excel.",
-              "EN": "Automated HTML report generation from Excel data sources."},
-  "c3_res":  {"PT": "Redução significativa de retrabalho — relatórios gerados em segundos.",
-              "EN": "Significant reduction in manual effort — reports generated in seconds."},
-  "c4_tag":  {"PT": "Treinamento · RH",                  "EN": "Training · HR"},
-  "c4_name": {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginners"},
-  "c4_ctx":  {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores.",
-              "EN": "High turnover and slow onboarding for new sales reps and promoters."},
-  "c4_act":  {"PT": "Manual completo para iniciantes: pipeline, abordagem comercial e técnicas de negociação.",
-              "EN": "Complete beginner sales manual: pipeline management, commercial approach and negotiation techniques."},
-  "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
-              "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
 }
 
 T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
@@ -712,11 +688,8 @@ def case_card(tag, name, ctx, act, res, link=None):
     )
 
 c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://agente-gabriela-fcjbnde2pwalgeu5ihgpqr.streamlit.app/")
-c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
-c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
-c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
 
-st.markdown(f'<div class="section"><p class="eyebrow">{t("case_ey")}</p><h2 class="section-heading">{t("case_h")}</h2><div class="cases-grid">{c1}{c2}{c3}{c4}</div></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="section"><p class="eyebrow">{t("case_ey")}</p><h2 class="section-heading">{t("case_h")}</h2><div class="cases-grid">{c1}</div></div>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTACT
