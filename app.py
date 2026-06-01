@@ -413,8 +413,8 @@ T = {
   # HERO
   "eyebrow":       {"PT": "Analista de Dados & IA · Python · Power BI · Azure AI",
                     "EN": "Data & AI Analyst · Python · Power BI · Azure AI"},
-  "subtitle":      {"PT": "Profissional em transição para Dados & IA — combinando 8 anos de gestão comercial, <strong>+21% de crescimento em 2025</strong>, Python, Claude Code e Microsoft Azure AI para transformar dados em decisões reais.",
-                    "EN": "Professional transitioning to Data & AI — combining 8 years of commercial leadership, <strong>+21% growth in 2025</strong>, Python, Claude Code and Microsoft Azure AI to turn data into real business decisions."},
+  "subtitle":      {"PT": "Profissional em transição para Dados & IA — combinando 8 anos de gestão comercial, Python, Claude Code e Microsoft Azure AI para transformar dados em decisões reais.",
+                    "EN": "Professional transitioning to Data & AI — combining 8 years of commercial leadership, Python, Claude Code and Microsoft Azure AI to turn data into real business decisions."},
   "stat1":         {"PT": "Crescimento<br>2025",           "EN": "Growth<br>2025"},
   "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>led"},
   "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>brands"},
@@ -427,8 +427,8 @@ T = {
                     "EN": "Where science meets<br>commercial strategy."},
   "about_p1":      {"PT": "Médica Veterinária formada pela UFMT, construí minha carreira na intersecção entre <strong>conhecimento técnico e gestão comercial</strong>. Ao longo de 9 anos no mercado PET, desenvolvi a capacidade de traduzir dados em decisões — e decisões em resultados.",
                     "EN": "A Doctor of Veterinary Medicine from UFMT, I have built my career at the intersection of <strong>technical expertise and commercial leadership</strong>. Over 9 years in the pet industry, I have developed the ability to translate data into decisions — and decisions into results."},
-  "about_p2":      {"PT": "Hoje coordeno uma equipe de <strong>14 profissionais na SOMAPET</strong> — distribuidora PET em Cuiabá — gerenciando estratégias com 11 laboratórios nacionais e multinacionais, implementando dashboards em Power BI e automação com IA.",
-                    "EN": "Today I lead a team of <strong>14 professionals at SOMAPET</strong> — a PET distributor in Cuiabá — managing strategies with 11 national and multinational partner brands, implementing Power BI dashboards and AI-driven automation."},
+  "about_p2":      {"PT": "Hoje coordeno uma equipe comercial na <strong>SOMAPET</strong> — distribuidora PET em Cuiabá — gerenciando estratégias com laboratórios nacionais e multinacionais, implementando dashboards em Power BI e automação com IA.",
+                    "EN": "Today I lead a commercial team at <strong>SOMAPET</strong> — a PET distributor in Cuiabá — managing strategies with national and multinational partner brands, implementing Power BI dashboards and AI-driven automation."},
   "p1_t":          {"PT": "Liderança",                   "EN": "Leadership"},
   "p1_d":          {"PT": "Gestão de equipes comerciais com foco em desenvolvimento individual, metas e alta performance.",
                     "EN": "Commercial team management focused on individual development, goal-setting and high performance."},
@@ -482,7 +482,7 @@ experiencias = {
   "PT": [
     {"empresa": "SOMAPET", "cargo": "Coordenadora Comercial",
      "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
-     "descricao": "Liderança de 14 profissionais — 8 consultores de vendas e 6 promotores técnicos. Gestão estratégica de 11 laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios. Crescimento de 21% no faturamento em 2025.",
+     "descricao": "Liderança de equipe comercial — consultores de vendas e promotores técnicos. Gestão estratégica de laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios.",
      "sub_cargo": "Promotora Técnica · Virbac",
      "sub_periodo": "MAIO 2023 — ABRIL 2024",
      "sub_desc": "Suporte técnico e promoção de produtos veterinários junto a clínicas, petshops e distribuidoras em Cuiabá."},
@@ -493,7 +493,7 @@ experiencias = {
   "EN": [
     {"empresa": "SOMAPET", "cargo": "Sales Manager",
      "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
-     "descricao": "Lead a team of 14 — 8 sales consultants and 6 technical promoters — across 11 national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows. Delivered 21% revenue growth in 2025.",
+     "descricao": "Led a commercial team — sales consultants and technical promoters — across national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows.",
      "sub_cargo": "Technical Sales Rep · Virbac",
      "sub_periodo": "MAY 2023 — APRIL 2024",
      "sub_desc": "Field-level technical support and product promotion for Virbac across veterinary clinics, pet shops and distributors in the greater Cuiabá area."},
@@ -533,9 +533,6 @@ st.markdown(f"""
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
-      <div><div class="stat-val">+21%</div><div class="stat-lbl">{'Crescimento 2025' if lang=='PT' else 'Growth 2025'}</div></div>
-      <div><div class="stat-val">14</div><div class="stat-lbl">{'Profissionais' if lang=='PT' else 'Professionals'}</div></div>
-      <div><div class="stat-val">11</div><div class="stat-lbl">{'Laboratórios' if lang=='PT' else 'Partner brands'}</div></div>
       <div><div class="stat-val">9</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
     </div>
     <div class="hero-cta">
