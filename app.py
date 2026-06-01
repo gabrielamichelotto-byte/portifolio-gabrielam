@@ -427,8 +427,8 @@ T = {
                     "EN": "Where science meets<br>commercial strategy."},
   "about_p1":      {"PT": "Médica Veterinária formada pela UFMT, construí minha carreira na intersecção entre <strong>conhecimento técnico e gestão comercial</strong>. Ao longo de 9 anos no mercado PET, desenvolvi a capacidade de traduzir dados em decisões — e decisões em resultados.",
                     "EN": "A Doctor of Veterinary Medicine from UFMT, I have built my career at the intersection of <strong>technical expertise and commercial leadership</strong>. Over 9 years in the pet industry, I have developed the ability to translate data into decisions — and decisions into results."},
-  "about_p2":      {"PT": "Hoje coordeno uma equipe comercial na <strong>SOMAPET</strong> — distribuidora PET em Cuiabá — gerenciando estratégias com laboratórios nacionais e multinacionais, implementando dashboards em Power BI e automação com IA.",
-                    "EN": "Today I lead a commercial team at <strong>SOMAPET</strong> — a PET distributor in Cuiabá — managing strategies with national and multinational partner brands, implementing Power BI dashboards and AI-driven automation."},
+  "about_p2":      {"PT": "Hoje coordeno uma equipe comercial em uma distribuidora PET em Cuiabá, gerenciando estratégias com laboratórios nacionais e multinacionais, implementando dashboards em Power BI e automação com IA.",
+                    "EN": "Today I lead a commercial team at a PET distributor in Cuiabá, managing strategies with national and multinational partner brands, implementing Power BI dashboards and AI-driven automation."},
   "p1_t":          {"PT": "Liderança",                   "EN": "Leadership"},
   "p1_d":          {"PT": "Gestão de equipes comerciais com foco em desenvolvimento individual, metas e alta performance.",
                     "EN": "Commercial team management focused on individual development, goal-setting and high performance."},
@@ -472,6 +472,30 @@ T = {
   "c1_res":  {"PT": "App funcional publicado — acessível pelo portfólio.",
               "EN": "Fully deployed app — live and accessible via portfolio."},
   "c1_link": {"PT": "Ver projeto", "EN": "View project"},
+  "c2_tag":  {"PT": "Power BI · Dados",                  "EN": "Power BI · Data"},
+  "c2_name": {"PT": "Dashboard Comercial",               "EN": "Commercial Dashboard"},
+  "c2_ctx":  {"PT": "Equipe comercial sem visibilidade de performance em tempo real.",
+              "EN": "Commercial team with no real-time visibility into individual or regional performance."},
+  "c2_act":  {"PT": "Dashboards em Power BI com KPIs por vendedor, linha de produtos e região.",
+              "EN": "Designed Power BI dashboards tracking KPIs by sales rep, product line and region."},
+  "c2_res":  {"PT": "Gestão orientada por dados com impacto direto nos resultados comerciais.",
+              "EN": "Data-driven management with direct impact on commercial results."},
+  "c3_tag":  {"PT": "Python · Excel",                    "EN": "Python · Excel"},
+  "c3_name": {"PT": "Automação de Relatórios",           "EN": "Report Automation"},
+  "c3_ctx":  {"PT": "Relatórios manuais consumindo horas da liderança toda semana.",
+              "EN": "Manual reporting consuming hours of leadership time every week."},
+  "c3_act":  {"PT": "Automatizei geração de relatórios HTML a partir de planilhas Excel.",
+              "EN": "Automated HTML report generation from Excel data sources."},
+  "c3_res":  {"PT": "Redução significativa de retrabalho — relatórios gerados em segundos.",
+              "EN": "Significant reduction in manual effort — reports generated in seconds."},
+  "c4_tag":  {"PT": "Treinamento · RH",                  "EN": "Training · HR"},
+  "c4_name": {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginners"},
+  "c4_ctx":  {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores.",
+              "EN": "High turnover and slow onboarding for new sales reps and promoters."},
+  "c4_act":  {"PT": "Manual completo para iniciantes: pipeline, abordagem comercial e técnicas de negociação.",
+              "EN": "Complete beginner sales manual: pipeline management, commercial approach and negotiation techniques."},
+  "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
+              "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
 }
 
 T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
@@ -480,24 +504,24 @@ def t(k): return T[k][lang]
 
 experiencias = {
   "PT": [
-    {"empresa": "SOMAPET", "cargo": "Coordenadora Comercial",
+    {"empresa": "Distribuidora PET | Cuiabá", "cargo": "Coordenadora Comercial",
      "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
      "descricao": "Liderança de equipe comercial — consultores de vendas e promotores técnicos. Gestão estratégica de laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios.",
-     "sub_cargo": "Promotora Técnica · Virbac",
+     "sub_cargo": "Promotora Técnica | Laboratório Veterinário",
      "sub_periodo": "MAIO 2023 — ABRIL 2024",
      "sub_desc": "Suporte técnico e promoção de produtos veterinários junto a clínicas, petshops e distribuidoras em Cuiabá."},
-    {"empresa": "ORGANNACT", "cargo": "Coordenadora Regional — MT/MS",
+    {"empresa": "Laboratório Veterinário | MT/MS", "cargo": "Coordenadora Regional — MT/MS",
      "periodo": "AGOSTO 2019 — NOVEMBRO 2022 · MT/MS",
      "descricao": "Gestão comercial de equipes nos estados de MT e MS. Treinamentos técnicos com médicos veterinários, desenvolvimento de carteira e campanhas mensais junto às distribuidoras parceiras."},
   ],
   "EN": [
-    {"empresa": "SOMAPET", "cargo": "Sales Manager",
+    {"empresa": "PET Distributor | Cuiabá", "cargo": "Sales Manager",
      "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
      "descricao": "Led a commercial team — sales consultants and technical promoters — across national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows.",
-     "sub_cargo": "Technical Sales Rep · Virbac",
+     "sub_cargo": "Technical Sales Rep | Veterinary Lab",
      "sub_periodo": "MAY 2023 — APRIL 2024",
-     "sub_desc": "Field-level technical support and product promotion for Virbac across veterinary clinics, pet shops and distributors in the greater Cuiabá area."},
-    {"empresa": "ORGANNACT", "cargo": "Regional Sales Coordinator — MT/MS",
+     "sub_desc": "Field-level technical support and product promotion across veterinary clinics, pet shops and distributors in the greater Cuiabá area."},
+    {"empresa": "Veterinary Lab | MT/MS", "cargo": "Regional Sales Coordinator — MT/MS",
      "periodo": "AUGUST 2019 — NOVEMBER 2022 · MT/MS",
      "descricao": "Managed sales teams across Mato Grosso and Mato Grosso do Sul. Delivered technical training to veterinary professionals, drove regional account growth and coordinated monthly promotional campaigns with local distributors."},
   ],
@@ -685,8 +709,11 @@ def case_card(tag, name, ctx, act, res, link=None):
     )
 
 c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://agente-gabriela-fcjbnde2pwalgeu5ihgpqr.streamlit.app/")
+c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
+c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
+c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
 
-st.markdown(f'<div class="section"><p class="eyebrow">{t("case_ey")}</p><h2 class="section-heading">{t("case_h")}</h2><div class="cases-grid">{c1}</div></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="section"><p class="eyebrow">{t("case_ey")}</p><h2 class="section-heading">{t("case_h")}</h2><div class="cases-grid">{c1}{c2}{c3}{c4}</div></div>', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # CONTACT
