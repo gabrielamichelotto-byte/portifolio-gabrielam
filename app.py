@@ -265,6 +265,28 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 
 /* ── CASES ── */
 .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 0; }
+.case-featured {
+  background: #0d0f14;
+  border: 1px solid #252a37;
+  border-top: 3px solid #c9a96e;
+  border-radius: 4px;
+  padding: 2rem 2.4rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.case-featured .case-tag   { color: #c9a96e; }
+.case-featured .case-name  { color: #e2e8f0; font-size: 1.15rem; }
+.case-featured .case-lbl   { color: #555f6e; }
+.case-featured .case-text  { color: #8892a4; }
+.case-featured .case-result { color: #e2e8f0; border-top-color: #252a37; }
+.case-featured .case-link  { color: #c9a96e; border-bottom-color: #c9a96e; }
+.feat-kpis { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem; }
+.feat-kpi-val { font-size: 1.5rem; font-weight: 800; color: #c9a96e; line-height: 1; }
+.feat-kpi-lbl { font-size: 0.58rem; font-weight: 500; color: #555f6e; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+.feat-badge { display:inline-block; background:transparent; border:1px solid #252a37; color:#8892a4; font-size:0.72rem; padding:0.25rem 0.75rem; border-radius:3px; margin:0.2rem; }
 .case-card {
   background: #fff;
   border: 1px solid #e8e2d9;
@@ -377,6 +399,7 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   .skills-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
 
   .cases-grid { grid-template-columns: 1fr !important; }
+  .case-featured { grid-template-columns: 1fr !important; }
 
   .stats-strip { padding: 0 20px 40px !important; }
   .stats-grid  { gap: 1.4rem !important; flex-wrap: wrap; }
@@ -463,6 +486,15 @@ T = {
   "footer":        {"PT": "Gabriela Barros Michelotto &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026",
                     "EN": "Gabriela Barros Michelotto &nbsp;·&nbsp; Cuiabá, MT &nbsp;·&nbsp; 2026"},
   # CASES content
+  "c0_tag":  {"PT": "Python · SQL · ETL · Chart.js",      "EN": "Python · SQL · ETL · Chart.js"},
+  "c0_name": {"PT": "Toronto LTDA — Pipeline de Dados Completo",
+              "EN": "Toronto LTDA — End-to-End Data Pipeline"},
+  "c0_ctx":  {"PT": "Construir um projeto de dados completo do zero — cobrindo todas as etapas: geração, tratamento, análise e visualização.",
+              "EN": "Build a full data project from scratch covering every stage: generation, processing, analytics and visualization."},
+  "c0_act":  {"PT": "Simulei exportação de ERP com sujeira proposital, construí ETL em Python, banco SQLite dimensional, 12 queries de BI e dashboard interativo com 11 módulos analíticos com drill-down.",
+              "EN": "Simulated ERP exports with intentional data quality issues, built an ETL pipeline in Python, a dimensional SQLite database, 12 BI queries and an interactive dashboard with 11 drill-down analytical modules."},
+  "c0_res":  {"PT": "Dashboard ao vivo com faturamento, margem, metas, giro de estoque, segmentação de clientes e curva ABC — tudo em um único arquivo HTML offline.",
+              "EN": "Live dashboard covering revenue, margin, sales targets, stock rotation, customer segmentation and ABC curve — self-contained in a single offline HTML file."},
   "c1_tag":  {"PT": "Python · Streamlit · IA",           "EN": "Python · Streamlit · AI"},
   "c1_name": {"PT": "Agente IA Pessoal",                 "EN": "Personal AI Agent"},
   "c1_ctx":  {"PT": "Construir presença digital em IA sem experiência prévia em programação.",
@@ -716,7 +748,38 @@ c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
 c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
 c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
 
-st.markdown(f'<div class="section"><p class="eyebrow">{t("case_ey")}</p><h2 class="section-heading">{t("case_h")}</h2><div class="cases-grid">{c1}{c2}{c3}{c4}</div></div>', unsafe_allow_html=True)
+see_lbl = t("see")
+featured_html = f"""
+<div class="case-featured">
+  <div>
+    <p class="case-tag">{t("c0_tag")}</p>
+    <p class="case-name">{t("c0_name")}</p>
+    <p class="case-lbl">{t("ctx")}</p><p class="case-text">{t("c0_ctx")}</p>
+    <p class="case-lbl">{t("act")}</p><p class="case-text">{t("c0_act")}</p>
+    <p class="case-result">◆ {t("c0_res")}</p>
+    <a class="case-link" href="https://gabrielamichelotto-byte.github.io/toronto-ltda" target="_blank">{see_lbl} →</a>
+  </div>
+  <div>
+    <div class="feat-kpis">
+      <div><div class="feat-kpi-val">R$ 148M</div><div class="feat-kpi-lbl">{"Faturamento analisado" if lang=="PT" else "Revenue analysed"}</div></div>
+      <div><div class="feat-kpi-val">325</div><div class="feat-kpi-lbl">{"Clientes segmentados" if lang=="PT" else "Segmented clients"}</div></div>
+      <div><div class="feat-kpi-val">11</div><div class="feat-kpi-lbl">{"Módulos interativos" if lang=="PT" else "Interactive modules"}</div></div>
+      <div><div class="feat-kpi-val">26</div><div class="feat-kpi-lbl">{"Meses de histórico" if lang=="PT" else "Months of history"}</div></div>
+    </div>
+    <div style="margin-top:1.4rem;">
+      {"".join(f'<span class="feat-badge">{b}</span>' for b in ["Python","Pandas","SQLite","ETL","Chart.js","HTML/CSS/JS","BI","Curva ABC","RFM"])}
+    </div>
+  </div>
+</div>
+"""
+
+st.markdown(
+    f'<div class="section"><p class="eyebrow">{t("case_ey")}</p>'
+    f'<h2 class="section-heading">{t("case_h")}</h2>'
+    f'{featured_html}'
+    f'<div class="cases-grid">{c1}{c2}{c3}{c4}</div></div>',
+    unsafe_allow_html=True
+)
 
 # ════════════════════════════════════════════════
 # CONTACT
