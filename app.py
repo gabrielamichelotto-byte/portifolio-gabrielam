@@ -20,7 +20,15 @@ def load_photo():
                 return base64.b64encode(f.read()).decode()
     return None
 
+def load_image(fname):
+    path = os.path.join(os.path.dirname(__file__) or ".", fname)
+    if os.path.exists(path):
+        with open(path, "rb") as f:
+            return base64.b64encode(f.read()).decode()
+    return None
+
 photo_b64 = load_photo()
+toronto_b64 = load_image("toronto_ltda_preview.png")
 photo_src  = f"data:image/jpeg;base64,{photo_b64}" if photo_b64 else ""
 photo_html = f'<img src="{photo_src}" alt="Gabriela Barros Michelotto" style="width:100%;max-width:440px;border-radius:6px;display:block;margin-left:auto;box-shadow:0 32px 80px rgba(0,0,0,0.5);">' if photo_src else ""
 
@@ -743,6 +751,12 @@ c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
 c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
 
 see_lbl = t("see")
+toronto_img_html = (
+    f'<img src="data:image/png;base64,{toronto_b64}" '
+    f'alt="Toronto LTDA Dashboard Preview" '
+    f'style="width:100%;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,0.12);display:block;">'
+    if toronto_b64 else ""
+)
 featured_html = f"""
 <div class="case-featured">
   <div>
@@ -753,16 +767,8 @@ featured_html = f"""
     <p class="case-result">◆ {t("c0_res")}</p>
     <a class="case-link" href="https://gabrielamichelotto-byte.github.io/toronto-ltda" target="_blank">{see_lbl} →</a>
   </div>
-  <div>
-    <div class="feat-kpis">
-      <div><div class="feat-kpi-val">R$ 148M</div><div class="feat-kpi-lbl">{"Faturamento analisado" if lang=="PT" else "Revenue analysed"}</div></div>
-      <div><div class="feat-kpi-val">325</div><div class="feat-kpi-lbl">{"Clientes segmentados" if lang=="PT" else "Segmented clients"}</div></div>
-      <div><div class="feat-kpi-val">11</div><div class="feat-kpi-lbl">{"Módulos interativos" if lang=="PT" else "Interactive modules"}</div></div>
-      <div><div class="feat-kpi-val">26</div><div class="feat-kpi-lbl">{"Meses de histórico" if lang=="PT" else "Months of history"}</div></div>
-    </div>
-    <div style="margin-top:1.4rem;">
-      {"".join(f'<span class="feat-badge">{b}</span>' for b in ["Python","Pandas","SQLite","ETL","Chart.js","HTML/CSS/JS","BI","Curva ABC","RFM"])}
-    </div>
+  <div style="display:flex;align-items:flex-start;">
+    {toronto_img_html}
   </div>
 </div>
 """
