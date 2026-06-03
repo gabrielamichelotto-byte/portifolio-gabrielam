@@ -266,8 +266,8 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 /* ── CASES ── */
 .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 0; }
 .case-featured {
-  background: #0d0f14;
-  border: 1px solid #252a37;
+  background: #fff;
+  border: 1px solid #e8e2d9;
   border-top: 3px solid #c9a96e;
   border-radius: 4px;
   padding: 2rem 2.4rem;
@@ -277,16 +277,10 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   gap: 2rem;
   align-items: start;
 }
-.case-featured .case-tag   { color: #c9a96e; }
-.case-featured .case-name  { color: #e2e8f0; font-size: 1.15rem; }
-.case-featured .case-lbl   { color: #555f6e; }
-.case-featured .case-text  { color: #8892a4; }
-.case-featured .case-result { color: #e2e8f0; border-top-color: #252a37; }
-.case-featured .case-link  { color: #c9a96e; border-bottom-color: #c9a96e; }
-.feat-kpis { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem; }
+.feat-kpis { display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 1rem; }
 .feat-kpi-val { font-size: 1.5rem; font-weight: 800; color: #c9a96e; line-height: 1; }
-.feat-kpi-lbl { font-size: 0.58rem; font-weight: 500; color: #555f6e; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
-.feat-badge { display:inline-block; background:transparent; border:1px solid #252a37; color:#8892a4; font-size:0.72rem; padding:0.25rem 0.75rem; border-radius:3px; margin:0.2rem; }
+.feat-kpi-lbl { font-size: 0.58rem; font-weight: 500; color: #999; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+.feat-badge { display:inline-block; background:#f7f3ee; border:1px solid #e8e2d9; color:#666; font-size:0.72rem; padding:0.25rem 0.75rem; border-radius:3px; margin:0.2rem; }
 .case-card {
   background: #fff;
   border: 1px solid #e8e2d9;
