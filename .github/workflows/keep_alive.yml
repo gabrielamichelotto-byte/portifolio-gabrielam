@@ -1,0 +1,19 @@
+name: Keep Portfolio Alive
+
+on:
+  schedule:
+    # Roda a cada 6 dias às 9h UTC (6h horário de Cuiabá)
+    - cron: "0 9 */6 * *"
+  workflow_dispatch: # permite rodar manualmente se precisar
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping portfolio
+        run: |
+          echo "Acordando o portfólio..."
+          curl -s -o /dev/null -w "Status: %{http_code}" \
+            https://portifolio-gabrielamichelotto.streamlit.app/
+          echo ""
+          echo "Ping concluído com sucesso."
