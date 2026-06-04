@@ -543,10 +543,10 @@ experiencias = {
      "descricao": "Liderança de 14 profissionais — 8 consultores de vendas e 6 promotores técnicos. Gestão estratégica de 11 laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios. Crescimento expressivo de receita acima da meta em 2025.",
      "sub_cargo": "Promotora Técnica · Virbac",
      "sub_periodo": "MAIO 2023 — ABRIL 2024",
-     "sub_desc": "Suporte técnico e promoção de produtos veterinários junto a clínicas, petshops e distribuidoras em Cuiabá."},
+     "sub_desc": "Promoção técnica e desenvolvimento de carteira junto a clínicas, petshops e distribuidoras em Cuiabá."},
     {"empresa": "ORGANNACT", "cargo": "Coordenadora Regional — MT/MS",
      "periodo": "AGOSTO 2019 — NOVEMBRO 2022 · MT/MS",
-     "descricao": "Gestão comercial de equipes nos estados de MT e MS. Treinamentos técnicos com médicos veterinários, desenvolvimento de carteira e campanhas mensais junto às distribuidoras parceiras."},
+     "descricao": "Gestão comercial de equipes nos estados de MT e MS. Desenvolvimento de carteira, campanhas mensais e gestão de relacionamento com distribuidoras parceiras."},
   ],
   "EN": [
     {"empresa": "SOMAPET", "cargo": "Sales Manager",
@@ -554,10 +554,10 @@ experiencias = {
      "descricao": "Lead a team of 14 — 8 sales consultants and 6 technical promoters — across 11 national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows. Delivered above-target revenue growth in 2025.",
      "sub_cargo": "Technical Sales Rep · Virbac",
      "sub_periodo": "MAY 2023 — APRIL 2024",
-     "sub_desc": "Field-level technical support and product promotion for Virbac across veterinary clinics, pet shops and distributors in the greater Cuiabá area."},
+     "sub_desc": "Technical promotion and account development across clinics, pet shops and distributors in the greater Cuiabá area."},
     {"empresa": "ORGANNACT", "cargo": "Regional Sales Coordinator — MT/MS",
      "periodo": "AUGUST 2019 — NOVEMBER 2022 · MT/MS",
-     "descricao": "Managed sales teams across Mato Grosso and Mato Grosso do Sul. Delivered technical training to veterinary professionals, drove regional account growth and coordinated monthly promotional campaigns with local distributors."},
+     "descricao": "Managed commercial teams across Mato Grosso and Mato Grosso do Sul. Drove account development, monthly promotional campaigns and distributor relationship management across the region."},
   ],
 }
 
