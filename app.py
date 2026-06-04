@@ -438,8 +438,8 @@ T = {
   # HERO
   "eyebrow":       {"PT": "Analista de Dados & IA · Python · Power BI · Azure AI",
                     "EN": "Data & AI Analyst · Python · Power BI · Azure AI"},
-  "subtitle":      {"PT": "Profissional em transição para Dados & IA — combinando <strong>9 anos de gestão comercial B2B</strong>, Python, Claude Code e Microsoft Azure AI para transformar dados em decisões reais.",
-                    "EN": "Professional transitioning to Data & AI — combining <strong>9 years of B2B commercial leadership</strong>, Python, Claude Code and Microsoft Azure AI to turn data into real business decisions."},
+  "subtitle":      {"PT": "Profissional com <strong>9 anos em gestão comercial B2B</strong> e <strong>3 anos em análise de dados</strong>, atualmente em desenvolvimento ativo em <strong>ferramentas de IA</strong> — Python, Power BI, Claude Code e Microsoft Azure AI aplicados a decisões reais de negócio.",
+                    "EN": "Professional with <strong>9 years in B2B commercial management</strong> and <strong>3 years in data analysis</strong>, currently in active development of <strong>AI tools</strong> — Python, Power BI, Claude Code and Microsoft Azure AI applied to real business decisions."},
   "stat1":         {"PT": "Crescimento<br>2025",           "EN": "Growth<br>2025"},
   "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>led"},
   "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>brands"},
