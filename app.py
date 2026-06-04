@@ -650,7 +650,7 @@ st.markdown(f"""
 # ════════════════════════════════════════════════
 # SKILLS
 # ════════════════════════════════════════════════
-sk_data = ["Python & Automação", "Claude Code", "Power BI", "Microsoft Azure AI", "Excel Avançado", "IA Generativa"]
+sk_data = ["Python & Automação", "Claude Code", "Power BI", "Microsoft Azure AI", "SQL", "Excel Avançado", "IA Generativa"]
 sk_comm = [t("skill_lead") if "skill_lead" in T else "Liderança de equipes",
            "Sell-out & Campanhas",
            "Gestão de carteira",
@@ -661,6 +661,7 @@ sk_lead = ["Comunicação assertiva", "Gestão de pessoas", "Visão estratégica
 sk_edu  = ["Claude Code in Action — Anthropic",
            "Microsoft Azure AI: Machine Learning & Workloads — LinkedIn Learning (2026)",
            "AI Fluency for Small Businesses — PayPal & Anthropic (2026)",
+           "Aprendendo Programação SQL — LinkedIn Learning (2024)" if lang=="PT" else "SQL Programming — LinkedIn Learning (2024)",
            "Pós-graduação em Gestão de Pessoas — Fac. Metropolitana" if lang=="PT" else "Graduate Certificate in People Management — Fac. Metropolitana",
            "Medicina Veterinária — UFMT" if lang=="PT" else "Doctor of Veterinary Medicine — UFMT",
            "Comunicação Assertiva — Fac. Líbano" if lang=="PT" else "Assertive Communication — Fac. Líbano",
