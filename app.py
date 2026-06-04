@@ -591,9 +591,9 @@ st.markdown(f"""
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
-      <div><div class="stat-val">+21%</div><div class="stat-lbl">{'Crescimento 2025' if lang=='PT' else 'Growth 2025'}</div></div>
-      <div><div class="stat-val">14</div><div class="stat-lbl">{'Profissionais' if lang=='PT' else 'Professionals'}</div></div>
-      <div><div class="stat-val">11</div><div class="stat-lbl">{'Laboratórios' if lang=='PT' else 'Partner brands'}</div></div>
+      <div><div class="stat-val">3</div><div class="stat-lbl">{'Certificações em IA' if lang=='PT' else 'AI Certifications'}</div></div>
+      <div><div class="stat-val">5</div><div class="stat-lbl">{'Projetos de dados' if lang=='PT' else 'Data Projects'}</div></div>
+      <div><div class="stat-val">+10</div><div class="stat-lbl">{'Ferramentas' if lang=='PT' else 'Tools'}</div></div>
       <div><div class="stat-val">9</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
     </div>
     <div class="hero-cta">
