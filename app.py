@@ -770,7 +770,7 @@ featured_painel_bi = f"""
     <p class="case-lbl">{t("ctx")}</p><p class="case-text">{t("c5_ctx")}</p>
     <p class="case-lbl">{t("act")}</p><p class="case-text">{t("c5_act")}</p>
     <p class="case-result">◆ {t("c5_res")}</p>
-    <a class="case-link" href="https://gabrielamichelotto-byte.github.io/toronto-ltda/painel-bi-toronto.html" target="_blank">{see_lbl} →</a>
+    <a class="case-link" href="https://gabrielamichelotto-byte.github.io/toronto-ltda/painel-bi-toronto.html" target="_blank">{t("see")} →</a>
   </div>
   <div style="display:flex;align-items:flex-start;">
     {painel_bi_img_html}
