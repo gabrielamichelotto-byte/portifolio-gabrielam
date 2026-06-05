@@ -2,8 +2,8 @@ name: Keep Portfolio Alive
 
 on:
   schedule:
-    # Roda a cada 6 dias às 9h UTC (6h horário de Cuiabá)
-    - cron: "0 9 */6 * *"
+    # Roda todo dia às 9h UTC (6h horário de Cuiabá)
+    - cron: "0 9 * * *"
   workflow_dispatch: # permite rodar manualmente se precisar
 
 jobs:
