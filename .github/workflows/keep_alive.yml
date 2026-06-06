@@ -2,35 +2,28 @@ name: Keep Portfolio Alive
 
 on:
   schedule:
-    # Roda a cada 6 horas (mais robusto que 1x/dia)
+    # Roda a cada 6 horas — margem enorme contra o sleep de 7 dias do Streamlit
     - cron: "0 */6 * * *"
   workflow_dispatch: # permite rodar manualmente se precisar
 
 jobs:
-  ping:
+  keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping portfolio with browser headers
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Playwright
         run: |
-          echo "Acordando o portfólio..."
+          pip install playwright
+          python -m playwright install chromium
 
-          # Primeira requisição — simula browser real para evitar sleep do Streamlit
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            -L \
-            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
-            -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
-            -H "Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7" \
-            -H "Cache-Control: no-cache" \
-            https://portifolio-gabrielamichelotto.streamlit.app/)
-
-          echo "Status HTTP: $STATUS"
-
-          # Segunda requisição após 10s para garantir que o app acordou
-          sleep 10
-          STATUS2=$(curl -s -o /dev/null -w "%{http_code}" \
-            -L \
-            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-            https://portifolio-gabrielamichelotto.streamlit.app/)
-
-          echo "Status confirmação: $STATUS2"
-          echo "Ping concluído com sucesso."
+      - name: Visit and wake portfolio
+        run: python .github/scripts/keep_alive.py
+        env:
+          APP_URL: "https://portifolio-gabrielamichelotto.streamlit.app/"
