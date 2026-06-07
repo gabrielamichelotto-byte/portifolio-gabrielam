@@ -147,6 +147,21 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
 .btn-primary:hover  { background: #b8975a; }
 .btn-secondary:hover { border-color: #c9a96e; color: #c9a96e; }
 
+/* ── HERO BADGES ── */
+.hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.3);
+  color: #7a6340;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.85rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
 /* ── SECTIONS ── */
 .section      { padding: 88px 80px; background: #f7f3ee; }
 .section-dark { padding: 88px 80px; background: #ede8e0; }
@@ -391,6 +406,8 @@ html, body, [data-testid="stAppViewContainer"], .main { background: #f7f3ee !imp
   .hero-subtitle { font-size: 0.95rem !important; }
   .hero-stats { gap: 1.4rem !important; flex-wrap: wrap; }
   .hero-cta { flex-direction: column; align-items: flex-start; }
+  .hero-badges { gap: 0.4rem !important; }
+  .hero-badge  { font-size: 0.6rem !important; }
 
   .pillars { grid-template-columns: 1fr !important; padding: 36px 20px !important; gap: 1.5rem !important; }
 
@@ -610,6 +627,7 @@ st.markdown(f"""
       <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" onclick="window.open('mailto:gabrielamichelotto@gmail.com');return false;" style="cursor:pointer;">{t("cta1")}</a>
       <a class="btn-secondary" href="https://www.linkedin.com/in/gabriela-michelotto/" target="_blank">{t("cta2")}</a>
     </div>
+    <div class="hero-badges">{badges_html}</div>
   </div>
   <div>{photo_html}</div>
 </div>
