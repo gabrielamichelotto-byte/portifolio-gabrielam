@@ -437,10 +437,10 @@ lang = st.session_state.lang
 
 T = {
   # HERO
-  "eyebrow":       {"PT": "Comercial & Dados · Python · Power BI · Azure AI",
-                    "EN": "Commercial & Data · Python · Power BI · Azure AI"},
-  "subtitle":      {"PT": "Profissional com <strong>9 anos em gestão comercial B2B</strong> e <strong>3 anos em análise de dados</strong>, atualmente em desenvolvimento ativo em <strong>ferramentas de IA</strong> — Python, Power BI, Claude Code e Microsoft Azure AI aplicados a decisões reais de negócio.",
-                    "EN": "Professional with <strong>9 years in B2B commercial management</strong> and <strong>3 years in data analysis</strong>, currently in active development of <strong>AI tools</strong> — Python, Power BI, Claude Code and Microsoft Azure AI applied to real business decisions."},
+  "eyebrow":       {"PT": "Business Intelligence · Inteligência Comercial · Análise de Dados · Python · IA",
+                    "EN": "Business Intelligence · Commercial Intelligence · Data Analysis · Python · AI"},
+  "subtitle":      {"PT": "Profissional de <strong>Dados e Business Intelligence</strong> com forte base em <strong>gestão comercial B2B</strong>. Trabalho com <strong>Python e IA</strong> aplicados a automação, geração de insights e apoio à decisão — e entendo a operação por dentro antes de construir a solução.",
+                    "EN": "<strong>Data and Business Intelligence</strong> professional with a strong background in <strong>B2B commercial management</strong>. I work with <strong>Python and AI</strong> applied to automation, insight generation and decision support — I understand the operation from the inside before building the solution."},
   "stat1":         {"PT": "Crescimento<br>2025",           "EN": "Growth<br>2025"},
   "stat2":         {"PT": "Profissionais<br>liderados",   "EN": "Professionals<br>led"},
   "stat3":         {"PT": "Laboratórios<br>parceiros",    "EN": "Partner<br>brands"},
@@ -451,8 +451,8 @@ T = {
   "about_ey":      {"PT": "Sobre",                        "EN": "About"},
   "about_h":       {"PT": "Dados, tecnologia e<br>estratégia comercial.",
                     "EN": "Data, technology and<br>commercial strategy."},
-  "about_p1":      {"PT": "Profissional de <strong>gestão comercial e dados</strong> com 9 anos de experiência em mercados B2B competitivos e <strong>3 anos em análise de dados</strong>. Atuo na intersecção entre liderança estratégica, inteligência de negócios e tecnologia — com expertise em <strong>Python, Power BI, Microsoft Azure AI e automação com IA generativa</strong> para transformar dados em decisões com impacto mensurável. Formação em Medicina Veterinária (UFMT) com pós em Gestão de Pessoas.",
-                    "EN": "<strong>Commercial and data professional</strong> with 9 years of experience in competitive B2B markets and <strong>3 years in data analysis</strong>. I operate at the intersection of strategic leadership, business intelligence and technology — with expertise in <strong>Python, Power BI, Microsoft Azure AI and generative AI automation</strong> to turn data into measurable business decisions. Academic background in Veterinary Medicine (UFMT) with a graduate certificate in People Management."},
+  "about_p1":      {"PT": "Profissional de <strong>Dados e Business Intelligence</strong> com forte base em <strong>gestão comercial B2B</strong> (9 anos) e <strong>3 anos em análise de dados</strong>. Atuo na intersecção entre inteligência de negócios, tecnologia e decisão — com <strong>Python, Power BI, Microsoft Azure AI e IA generativa</strong> para transformar dados em decisão de verdade. Formação em Medicina Veterinária (UFMT) com pós em Gestão de Pessoas.",
+                    "EN": "<strong>Data and Business Intelligence professional</strong> with a strong background in <strong>B2B commercial management</strong> (9 years) and <strong>3 years in data analysis</strong>. I operate at the intersection of business intelligence, technology and decision-making — using <strong>Python, Power BI, Microsoft Azure AI and generative AI</strong> to turn data into real decisions. Academic background in Veterinary Medicine (UFMT) with a graduate certificate in People Management."},
   "about_p2":      {"PT": "Lidero equipes comerciais de alta performance com foco em <strong>análise de dados, KPIs e dashboards em tempo real</strong>. Experiência em gestão de carteiras, expansão de mercado, relacionamento B2B e implementação de soluções de BI e automação que entregaram <strong>crescimento expressivo de receita acima da meta</strong> em 2025.",
                     "EN": "I lead high-performance commercial teams focused on <strong>data analytics, KPIs and real-time dashboards</strong>. Experienced in account management, market expansion, B2B relationship building and deploying BI solutions that delivered <strong>strong above-target revenue growth</strong> in 2025."},
   "p1_t":          {"PT": "Liderança",                   "EN": "Leadership"},
@@ -548,24 +548,24 @@ def t(k): return T[k][lang]
 
 experiencias = {
   "PT": [
-    {"empresa": "SOMAPET", "cargo": "Coordenadora Comercial",
+    {"empresa": "Distribuidora Pet · B2B", "cargo": "Coordenadora Comercial",
      "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
      "descricao": "Liderança de 14 profissionais — 8 consultores de vendas e 6 promotores técnicos. Gestão estratégica de 11 laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios. Crescimento expressivo de receita acima da meta em 2025.",
-     "sub_cargo": "Promotora Técnica · Virbac",
+     "sub_cargo": "Promotora Técnica",
      "sub_periodo": "MAIO 2023 — ABRIL 2024",
      "sub_desc": "Promoção técnica e desenvolvimento de carteira junto a clínicas, petshops e distribuidoras em Cuiabá."},
-    {"empresa": "ORGANNACT", "cargo": "Coordenadora Regional — MT/MS",
+    {"empresa": "Indústria de Saúde Animal", "cargo": "Coordenadora Regional — MT/MS",
      "periodo": "AGOSTO 2019 — NOVEMBRO 2022 · MT/MS",
      "descricao": "Gestão comercial de equipes nos estados de MT e MS. Desenvolvimento de carteira, campanhas mensais e gestão de relacionamento com distribuidoras parceiras."},
   ],
   "EN": [
-    {"empresa": "SOMAPET", "cargo": "Sales Manager",
+    {"empresa": "Pet Distribution Company · B2B", "cargo": "Sales Manager",
      "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
      "descricao": "Lead a team of 14 — 8 sales consultants and 6 technical promoters — across 11 national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows. Delivered above-target revenue growth in 2025.",
-     "sub_cargo": "Technical Sales Rep · Virbac",
+     "sub_cargo": "Technical Sales Rep",
      "sub_periodo": "MAY 2023 — APRIL 2024",
      "sub_desc": "Technical promotion and account development across clinics, pet shops and distributors in the greater Cuiabá area."},
-    {"empresa": "ORGANNACT", "cargo": "Regional Sales Coordinator — MT/MS",
+    {"empresa": "Animal Health Company", "cargo": "Regional Sales Coordinator — MT/MS",
      "periodo": "AUGUST 2019 — NOVEMBER 2022 · MT/MS",
      "descricao": "Managed commercial teams across Mato Grosso and Mato Grosso do Sul. Drove account development, monthly promotional campaigns and distributor relationship management across the region."},
   ],
@@ -601,7 +601,7 @@ st.markdown(f"""
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
-      <div><div class="stat-val">3</div><div class="stat-lbl">{'Certificações em IA' if lang=='PT' else 'AI Certifications'}</div></div>
+      <div><div class="stat-val">4</div><div class="stat-lbl">{'Certificações em IA' if lang=='PT' else 'AI Certifications'}</div></div>
       <div><div class="stat-val">5</div><div class="stat-lbl">{'Projetos entregues' if lang=='PT' else 'Projects delivered'}</div></div>
       <div><div class="stat-val">+10</div><div class="stat-lbl">{'Ferramentas' if lang=='PT' else 'Tools'}</div></div>
       <div><div class="stat-val">9</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
@@ -671,6 +671,8 @@ sk_lead = ["Comunicação assertiva", "Gestão de pessoas", "Visão estratégica
 sk_edu  = ["Claude Code in Action — Anthropic",
            "Microsoft Azure AI: Machine Learning & Workloads — LinkedIn Learning (2026)",
            "AI Fluency for Small Businesses — PayPal & Anthropic (2026)",
+           "Pré-MBA em Inteligência Artificial para Negócios — Saint Paul (2026)" if lang=="PT" else "Pre-MBA in AI for Business — Saint Paul Business School (2026)",
+           "Certificado de Inbound — HubSpot Academy (2026)" if lang=="PT" else "Inbound Certification — HubSpot Academy (2026)",
            "Aprendendo Programação SQL — LinkedIn Learning (2024)" if lang=="PT" else "SQL Programming — LinkedIn Learning (2024)",
            "Pós-graduação em Gestão de Pessoas — Fac. Metropolitana" if lang=="PT" else "Graduate Certificate in People Management — Fac. Metropolitana",
            "Medicina Veterinária — UFMT" if lang=="PT" else "Doctor of Veterinary Medicine — UFMT",
