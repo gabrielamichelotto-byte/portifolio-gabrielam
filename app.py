@@ -451,8 +451,8 @@ T = {
   "about_ey":      {"PT": "Sobre",                        "EN": "About"},
   "about_h":       {"PT": "Dados, tecnologia e<br>estratégia comercial.",
                     "EN": "Data, technology and<br>commercial strategy."},
-  "about_p1":      {"PT": "Profissional de <strong>Dados e Business Intelligence</strong> com forte base em <strong>gestão comercial B2B</strong> (9 anos) e <strong>3 anos em análise de dados</strong>. Atuo na intersecção entre inteligência de negócios, tecnologia e decisão — com <strong>Python, Power BI, Microsoft Azure AI e IA generativa</strong> para transformar dados em decisão de verdade. Formação em Medicina Veterinária (UFMT) com pós em Gestão de Pessoas.",
-                    "EN": "<strong>Data and Business Intelligence professional</strong> with a strong background in <strong>B2B commercial management</strong> (9 years) and <strong>3 years in data analysis</strong>. I operate at the intersection of business intelligence, technology and decision-making — using <strong>Python, Power BI, Microsoft Azure AI and generative AI</strong> to turn data into real decisions. Academic background in Veterinary Medicine (UFMT) with a graduate certificate in People Management."},
+  "about_p1":      {"PT": "Profissional de <strong>Business Intelligence e Inteligência Comercial</strong> com forte base em <strong>gestão comercial B2B</strong> (8 anos) e <strong>3 anos em análise de dados</strong>. Atuo na intersecção entre inteligência de negócios, tecnologia e decisão — com <strong>Python, Power BI, Microsoft Azure AI e IA generativa</strong> para transformar dados em decisão de verdade.",
+                    "EN": "<strong>Business Intelligence and Commercial Intelligence professional</strong> with a strong background in <strong>B2B commercial management</strong> (8 years) and <strong>3 years in data analysis</strong>. I operate at the intersection of business intelligence, technology and decision-making — using <strong>Python, Power BI, Microsoft Azure AI and generative AI</strong> to turn data into real decisions."},
   "about_p2":      {"PT": "Lidero equipes comerciais de alta performance com foco em <strong>análise de dados, KPIs e dashboards em tempo real</strong>. Experiência em gestão de carteiras, expansão de mercado, relacionamento B2B e implementação de soluções de BI e automação que entregaram <strong>crescimento expressivo de receita acima da meta</strong> em 2025.",
                     "EN": "I lead high-performance commercial teams focused on <strong>data analytics, KPIs and real-time dashboards</strong>. Experienced in account management, market expansion, B2B relationship building and deploying BI solutions that delivered <strong>strong above-target revenue growth</strong> in 2025."},
   "p1_t":          {"PT": "Liderança",                   "EN": "Leadership"},
@@ -518,8 +518,8 @@ T = {
   "c1_link": {"PT": "Ver projeto", "EN": "View project"},
   "c2_tag":  {"PT": "Power BI · Dados",                  "EN": "Power BI · Data"},
   "c2_name": {"PT": "Dashboard Comercial",               "EN": "Commercial Dashboard"},
-  "c2_ctx":  {"PT": "Equipe de 14 sem visibilidade de performance em tempo real.",
-              "EN": "Team of 14 with no real-time visibility into individual or regional performance."},
+  "c2_ctx":  {"PT": "Equipe comercial sem visibilidade de performance em tempo real.",
+              "EN": "Commercial team with no real-time visibility into individual or regional performance."},
   "c2_act":  {"PT": "Dashboards em Power BI com KPIs por vendedor, laboratório e região.",
               "EN": "Designed Power BI dashboards tracking KPIs by sales rep, brand and region."},
   "c2_res":  {"PT": "Gestão orientada por dados — contribuição direta para crescimento expressivo de receita acima da meta.",
@@ -540,6 +540,15 @@ T = {
               "EN": "Complete beginner sales manual: pipeline management, commercial approach and negotiation techniques."},
   "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
               "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
+  "c6_tag":  {"PT": "Python · SQL · ETL · Streamlit",     "EN": "Python · SQL · ETL · Streamlit"},
+  "c6_name": {"PT": "Grupo Quatro Patas — Gestão Multi-CNPJ",
+              "EN": "Quatro Patas Group — Multi-Entity Management"},
+  "c6_ctx":  {"PT": "Redes de varejo com CNPJs distintos e o mesmo sistema em instâncias separadas não enxergam o grupo como um todo — demanda real observada no mercado.",
+              "EN": "Retail chains running the same system in separate instances per legal entity lack a consolidated group view — a real market need."},
+  "c6_act":  {"PT": "Desenvolvi um protótipo funcional de sistema web que consolida as operações em um painel único de gestão, com dados 100% fictícios gerados por código.",
+              "EN": "Built a functional web system prototype that consolidates the operations into a single management panel, using 100% synthetic data generated by code."},
+  "c6_res":  {"PT": "Protótipo completo publicado em nuvem e apresentado comercialmente como solução para a demanda identificada.",
+              "EN": "Complete prototype deployed to the cloud and presented commercially as a solution to the identified need."},
 }
 
 T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
@@ -550,7 +559,7 @@ experiencias = {
   "PT": [
     {"empresa": "Distribuidora Pet · B2B", "cargo": "Coordenadora Comercial",
      "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
-     "descricao": "Liderança de 14 profissionais — 8 consultores de vendas e 6 promotores técnicos. Gestão estratégica de 11 laboratórios parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios. Crescimento expressivo de receita acima da meta em 2025.",
+     "descricao": "Liderança da equipe comercial — consultores de vendas e promotores técnicos. Gestão estratégica de portfólio de fornecedores parceiros nacionais e multinacionais. Implementação de dashboards em Power BI e automação com IA (Claude) para análises e relatórios. Crescimento expressivo de receita acima da meta em 2025.",
      "sub_cargo": "Promotora Técnica",
      "sub_periodo": "MAIO 2023 — ABRIL 2024",
      "sub_desc": "Promoção técnica e desenvolvimento de carteira junto a clínicas, petshops e distribuidoras em Cuiabá."},
@@ -561,7 +570,7 @@ experiencias = {
   "EN": [
     {"empresa": "Pet Distribution Company · B2B", "cargo": "Sales Manager",
      "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
-     "descricao": "Lead a team of 14 — 8 sales consultants and 6 technical promoters — across 11 national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows. Delivered above-target revenue growth in 2025.",
+     "descricao": "Lead the commercial team — sales consultants and technical promoters — across a portfolio of national and multinational partner brands. Deployed Power BI dashboards for real-time KPI visibility and integrated AI automation (Claude) into reporting workflows. Delivered above-target revenue growth in 2025.",
      "sub_cargo": "Technical Sales Rep",
      "sub_periodo": "MAY 2023 — APRIL 2024",
      "sub_desc": "Technical promotion and account development across clinics, pet shops and distributors in the greater Cuiabá area."},
@@ -587,11 +596,6 @@ st.markdown('<style>div[data-testid="stHorizontalBlock"]{margin-top:-52px;paddin
 # ════════════════════════════════════════════════
 # HERO
 # ════════════════════════════════════════════════
-badges_pt = ["Power BI", "Inteligência Artificial", "Python", "Excel", "Channel Sales", "Medicina Veterinária", "Gestão de Pessoas"]
-badges_en = ["Power BI", "Artificial Intelligence", "Python", "Excel", "Channel Sales", "Veterinary Medicine", "People Management"]
-badges = badges_pt if lang == "PT" else badges_en
-badges_html = "".join(f'<span class="hero-badge">{b}</span>' for b in badges)
-
 st.markdown(f"""
 <div class="hero-wrap">
 <div class="hero-grid">
@@ -601,10 +605,10 @@ st.markdown(f"""
     <p class="hero-subtitle">{t("subtitle")}</p>
     <div class="hero-divider"></div>
     <div class="hero-stats">
-      <div><div class="stat-val">4</div><div class="stat-lbl">{'Certificações em IA' if lang=='PT' else 'AI Certifications'}</div></div>
-      <div><div class="stat-val">5</div><div class="stat-lbl">{'Projetos entregues' if lang=='PT' else 'Projects delivered'}</div></div>
+      <div><div class="stat-val">6</div><div class="stat-lbl">{'Certificações em IA' if lang=='PT' else 'AI Certifications'}</div></div>
+      <div><div class="stat-val">6</div><div class="stat-lbl">{'Projetos entregues' if lang=='PT' else 'Projects delivered'}</div></div>
       <div><div class="stat-val">+10</div><div class="stat-lbl">{'Ferramentas' if lang=='PT' else 'Tools'}</div></div>
-      <div><div class="stat-val">9</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
+      <div><div class="stat-val">8</div><div class="stat-lbl">{'Anos exp.' if lang=='PT' else 'Years exp.'}</div></div>
     </div>
     <div class="hero-cta">
       <a class="btn-primary" href="mailto:gabrielamichelotto@gmail.com" onclick="window.open('mailto:gabrielamichelotto@gmail.com');return false;" style="cursor:pointer;">{t("cta1")}</a>
@@ -668,7 +672,10 @@ sk_comm = [t("skill_lead") if "skill_lead" in T else "Liderança de equipes",
            "Relacionamento B2B"]
 sk_lead = ["Comunicação assertiva", "Gestão de pessoas", "Visão estratégica",
            "Treinamento de equipes", "Adaptabilidade"]
-sk_edu  = ["Claude Code in Action — Anthropic",
+sk_edu  = ["Business for All 2026 — Harvard Business Impact — Santander Open Academy",
+           "AI Fundamentals — Google (2026)",
+           "Criar valor com IA, automação e bots — Santander (2026)",
+           "Claude Code in Action — Anthropic",
            "Microsoft Azure AI: Machine Learning & Workloads — LinkedIn Learning (2026)",
            "AI Fluency for Small Businesses — PayPal & Anthropic (2026)",
            "Pré-MBA em Inteligência Artificial para Negócios — Saint Paul (2026)" if lang=="PT" else "Pre-MBA in AI for Business — Saint Paul Business School (2026)",
@@ -784,6 +791,7 @@ c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"htt
 c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
 c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
 c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
+c6 = case_card(t("c6_tag"),t("c6_name"),t("c6_ctx"),t("c6_act"),t("c6_res"))
 
 see_lbl = t("see")
 toronto_img_html = (
@@ -813,7 +821,7 @@ st.markdown(
     f'<h2 class="section-heading">{t("case_h")}</h2>'
     f'{featured_html}'
     f'{featured_painel_bi}'
-    f'<div class="cases-grid">{c1}{c2}{c3}{c4}</div></div>',
+    f'<div class="cases-grid">{c6}{c1}{c2}{c3}{c4}</div></div>',
     unsafe_allow_html=True
 )
 
