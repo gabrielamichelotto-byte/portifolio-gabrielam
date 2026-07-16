@@ -532,14 +532,6 @@ T = {
               "EN": "Automated HTML report generation from Excel data sources."},
   "c3_res":  {"PT": "Redução significativa de retrabalho — relatórios gerados em segundos.",
               "EN": "Significant reduction in manual effort — reports generated in seconds."},
-  "c4_tag":  {"PT": "Treinamento · RH",                  "EN": "Training · HR"},
-  "c4_name": {"PT": "Manual de Vendas para Iniciantes",  "EN": "Sales Manual for Beginners"},
-  "c4_ctx":  {"PT": "Alta rotatividade e curva longa de aprendizado para novos vendedores.",
-              "EN": "High turnover and slow onboarding for new sales reps and promoters."},
-  "c4_act":  {"PT": "Manual completo para iniciantes: pipeline, abordagem comercial e técnicas de negociação.",
-              "EN": "Complete beginner sales manual: pipeline management, commercial approach and negotiation techniques."},
-  "c4_res":  {"PT": "Onboarding mais rápido e padronizado, menor dependência de treinamento individual.",
-              "EN": "Faster, standardized onboarding — reducing dependence on one-on-one coaching."},
   "c6_tag":  {"PT": "Python · SQL · ETL · Streamlit",     "EN": "Python · SQL · ETL · Streamlit"},
   "c6_name": {"PT": "Grupo Quatro Patas — Gestão Multi-CNPJ",
               "EN": "Quatro Patas Group — Multi-Entity Management"},
@@ -790,7 +782,6 @@ featured_painel_bi = f"""
 c1 = case_card(t("c1_tag"),t("c1_name"),t("c1_ctx"),t("c1_act"),t("c1_res"),"https://agente-gabriela-fcjbnde2pwalgeu5ihgpqr.streamlit.app/")
 c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
 c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
-c4 = case_card(t("c4_tag"),t("c4_name"),t("c4_ctx"),t("c4_act"),t("c4_res"))
 c6 = case_card(t("c6_tag"),t("c6_name"),t("c6_ctx"),t("c6_act"),t("c6_res"))
 
 see_lbl = t("see")
@@ -821,7 +812,7 @@ st.markdown(
     f'<h2 class="section-heading">{t("case_h")}</h2>'
     f'{featured_html}'
     f'{featured_painel_bi}'
-    f'<div class="cases-grid">{c6}{c1}{c2}{c3}{c4}</div></div>',
+    f'<div class="cases-grid">{c6}{c1}{c2}{c3}</div></div>',
     unsafe_allow_html=True
 )
 
