@@ -558,7 +558,7 @@ def t(k): return T[k][lang]
 
 experiencias = {
   "PT": [
-    {"empresa": "Distribuidora Pet · B2B", "cargo": "Coordenadora Comercial",
+    {"empresa": "SOMAPET Distribuição Pet", "cargo": "Coordenadora Comercial",
      "periodo": "ABRIL 2024 — PRESENTE · CUIABÁ, MT",
      "descricao": "Liderança da equipe comercial — consultores de vendas e promotores técnicos. Gestão estratégica de portfólio de fornecedores parceiros nacionais e multinacionais. Análise de indicadores comerciais em Power BI e desenvolvimento de agentes de automação (Python + IA) que executam análises e geram relatórios e dashboards. Crescimento expressivo de receita acima da meta em 2025.",
      "sub_cargo": "Promotora Técnica",
@@ -569,7 +569,7 @@ experiencias = {
      "descricao": "Gestão comercial de equipes nos estados de MT e MS. Desenvolvimento de carteira, campanhas mensais e gestão de relacionamento com distribuidoras parceiras."},
   ],
   "EN": [
-    {"empresa": "Pet Distribution Company · B2B", "cargo": "Sales Manager",
+    {"empresa": "SOMAPET Distribuição Pet", "cargo": "Sales Manager",
      "periodo": "APRIL 2024 — PRESENT · CUIABÁ, MT",
      "descricao": "Lead the commercial team — sales consultants and technical promoters — across a portfolio of national and multinational partner brands. Analyze commercial KPIs in Power BI and build automation agents (Python + AI) that run the analyses and generate reports and dashboards. Delivered above-target revenue growth in 2025.",
      "sub_cargo": "Technical Sales Rep",
