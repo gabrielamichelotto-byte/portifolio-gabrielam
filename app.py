@@ -30,6 +30,7 @@ def load_image(fname):
 photo_b64 = load_photo()
 toronto_b64  = load_image("toronto_ltda_preview.png")
 painel_bi_b64 = load_image("painel_bi_preview.png")
+spb_b64 = load_image("spb_preview.png")
 photo_src  = f"data:image/jpeg;base64,{photo_b64}" if photo_b64 else ""
 photo_html = f'<img src="{photo_src}" alt="Gabriela Barros Michelotto" style="width:100%;max-width:440px;border-radius:6px;display:block;margin-left:auto;box-shadow:0 32px 80px rgba(0,0,0,0.5);">' if photo_src else ""
 
@@ -802,7 +803,28 @@ c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
 c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
 c6 = case_card(t("c6_tag"),t("c6_name"),t("c6_ctx"),t("c6_act"),t("c6_res"))
 c7 = case_card(t("c7_tag"),t("c7_name"),t("c7_ctx"),t("c7_act"),t("c7_res"))
-c8 = case_card(t("c8_tag"),t("c8_name"),t("c8_ctx"),t("c8_act"),t("c8_res"),"https://spb-projeto.streamlit.app/")
+
+spb_img_html = (
+    f'<img src="data:image/png;base64,{spb_b64}" '
+    f'alt="Success Proposal Business Preview" '
+    f'style="width:100%;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,0.12);display:block;">'
+    if spb_b64 else ""
+)
+featured_spb = f"""
+<div class="case-featured">
+  <div>
+    <p class="case-tag">{t("c8_tag")}</p>
+    <p class="case-name">{t("c8_name")}</p>
+    <p class="case-lbl">{t("ctx")}</p><p class="case-text">{t("c8_ctx")}</p>
+    <p class="case-lbl">{t("act")}</p><p class="case-text">{t("c8_act")}</p>
+    <p class="case-result">◆ {t("c8_res")}</p>
+    <a class="case-link" href="https://spb-projeto.streamlit.app/" target="_blank">{t("see")} →</a>
+  </div>
+  <div style="display:flex;align-items:flex-start;">
+    {spb_img_html}
+  </div>
+</div>
+"""
 
 see_lbl = t("see")
 toronto_img_html = (
@@ -830,9 +852,10 @@ featured_html = f"""
 st.markdown(
     f'<div class="section"><p class="eyebrow">{t("case_ey")}</p>'
     f'<h2 class="section-heading">{t("case_h")}</h2>'
+    f'{featured_spb}'
     f'{featured_html}'
     f'{featured_painel_bi}'
-    f'<div class="cases-grid">{c8}{c7}{c6}{c1}{c2}</div></div>',
+    f'<div class="cases-grid">{c7}{c6}{c1}{c2}</div></div>',
     unsafe_allow_html=True
 )
 
