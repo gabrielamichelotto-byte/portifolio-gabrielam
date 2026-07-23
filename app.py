@@ -550,6 +550,15 @@ T = {
               "EN": "Built a 7-agent AI ecosystem running the funnel end to end: prospecting, ICP lead scoring, outreach, proposal generation, follow-up, submission tracking and daily logs — with CRM pipeline and an automation-generated dashboard."},
   "c7_res":  {"PT": "Funil comercial inteiro operado por agentes sob supervisão humana — o tempo manual migrou para a etapa que precisa de gente: a conversa com o cliente.",
               "EN": "The entire sales funnel runs on supervised AI agents — manual time now goes where humans matter: the client conversation."},
+  "c8_tag":  {"PT": "Python · SQL · Streamlit · Power BI",  "EN": "Python · SQL · Streamlit · Power BI"},
+  "c8_name": {"PT": "Success Proposal Business — Painel de RevOps",
+              "EN": "Success Proposal Business — RevOps Dashboard"},
+  "c8_ctx":  {"PT": "Mostrar como a operação comercial, o CRM e os dados se conectam e viram decisão — o território de RevOps, onde o comercial encontra os dados.",
+              "EN": "Show how sales operations, CRM and data connect and turn into decisions — the RevOps space, where the commercial side meets the data."},
+  "c8_act":  {"PT": "Criei uma SaaS B2B do zero, gerei 18 meses de operação por código (4 mil+ leads, carteira 60% BR / 40% internacional), construí ETL em Python e banco SQLite em modelo estrela, e um app Streamlit bilíngue com receita, funil, win/loss e plano de ação — com as mesmas métricas em Power BI e medidas DAX.",
+              "EN": "Built a B2B SaaS from scratch, generated 18 months of operations by code (4k+ leads, 60% BR / 40% international), built an ETL in Python and a star-schema SQLite database, and a bilingual Streamlit app covering revenue, funnel, win/loss and an action plan — with the same metrics in Power BI and DAX measures."},
+  "c8_res":  {"PT": "App ao vivo com MRR, funil, win/loss e uma página de plano de ação que sugere a jogada para cada negócio perdido ou parado — publicado e acessível pelo link abaixo.",
+              "EN": "Live app with MRR, funnel, win/loss and an action-plan page that suggests the play for every lost or stalled deal — published and accessible via the link below."},
 }
 
 T["skill_lead"] = {"PT": "Liderança de equipes", "EN": "Team Leadership"}
@@ -793,6 +802,7 @@ c2 = case_card(t("c2_tag"),t("c2_name"),t("c2_ctx"),t("c2_act"),t("c2_res"))
 c3 = case_card(t("c3_tag"),t("c3_name"),t("c3_ctx"),t("c3_act"),t("c3_res"))
 c6 = case_card(t("c6_tag"),t("c6_name"),t("c6_ctx"),t("c6_act"),t("c6_res"))
 c7 = case_card(t("c7_tag"),t("c7_name"),t("c7_ctx"),t("c7_act"),t("c7_res"))
+c8 = case_card(t("c8_tag"),t("c8_name"),t("c8_ctx"),t("c8_act"),t("c8_res"),"https://spb-projeto.streamlit.app/")
 
 see_lbl = t("see")
 toronto_img_html = (
@@ -822,7 +832,7 @@ st.markdown(
     f'<h2 class="section-heading">{t("case_h")}</h2>'
     f'{featured_html}'
     f'{featured_painel_bi}'
-    f'<div class="cases-grid">{c7}{c6}{c1}{c2}</div></div>',
+    f'<div class="cases-grid">{c8}{c7}{c6}{c1}{c2}</div></div>',
     unsafe_allow_html=True
 )
 
