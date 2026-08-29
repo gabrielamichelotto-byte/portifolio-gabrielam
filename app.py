@@ -1,5 +1,6 @@
 import base64
 from pathlib import Path
+from urllib.request import urlopen
 
 import streamlit as st
 
@@ -35,15 +36,21 @@ if isinstance(profile, list):
     profile = profile[0] if profile else ""
 
 if str(profile).lower().strip() == "professional":
-    st.markdown("""
-    <style>
-    header[data-testid="stHeader"] {display:none;}
-    .stApp {background:#f4efe8;}
-    .block-container {padding:0; max-width:100%;}
-    iframe {display:block; width:100%; height:100vh; border:0;}
-    </style>
-    <iframe src="https://raw.githubusercontent.com/gabrielamichelotto-byte/professional-profile/main/Gabriela_Michelotto_Recruiter_Preview_EN(1).pdf#view=FitH" title="Gabriela Michelotto Professional Profile"></iframe>
-    """, unsafe_allow_html=True)
+    pdf_url = "https://raw.githubusercontent.com/gabrielamichelotto-byte/professional-profile/main/Gabriela_Michelotto_Recruiter_Preview_EN(1).pdf"
+    pdf_bytes = urlopen(pdf_url).read()
+    pdf_b64 = base64.b64encode(pdf_bytes).decode("utf-8")
+    st.markdown(
+        f"""
+        <style>
+        header[data-testid="stHeader"] {{display:none;}}
+        .stApp {{background:#f4efe8;}}
+        .block-container {{padding:0; max-width:100%;}}
+        iframe {{display:block; width:100%; height:100vh; border:0;}}
+        </style>
+        <iframe src="data:application/pdf;base64,{pdf_b64}#view=FitH" title="Gabriela Michelotto Professional Profile"></iframe>
+        """,
+        unsafe_allow_html=True,
+    )
     st.stop()
 
 template = "portfolio_en.html" if language == "en" else "portfolio.html"
