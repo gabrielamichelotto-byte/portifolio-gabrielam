@@ -1,8 +1,9 @@
 import base64
 from pathlib import Path
-from urllib.request import urlopen
+from urllib.parse import quote
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 st.set_page_config(
@@ -36,21 +37,19 @@ if isinstance(profile, list):
     profile = profile[0] if profile else ""
 
 if str(profile).lower().strip() == "professional":
-    pdf_url = "https://raw.githubusercontent.com/gabrielamichelotto-byte/professional-profile/main/Gabriela_Michelotto_Recruiter_Preview_EN(1).pdf"
-    pdf_bytes = urlopen(pdf_url).read()
-    pdf_b64 = base64.b64encode(pdf_bytes).decode("utf-8")
     st.markdown(
-        f"""
+        """
         <style>
-        header[data-testid="stHeader"] {{display:none;}}
-        .stApp {{background:#f4efe8;}}
-        .block-container {{padding:0; max-width:100%;}}
-        iframe {{display:block; width:100%; height:100vh; border:0;}}
+        header[data-testid="stHeader"] {display:none;}
+        .stApp {background:#f4efe8;}
+        .block-container {padding:0; max-width:100%;}
         </style>
-        <iframe src="data:application/pdf;base64,{pdf_b64}#view=FitH" title="Gabriela Michelotto Professional Profile"></iframe>
         """,
         unsafe_allow_html=True,
     )
+    pdf_url = "https://raw.githubusercontent.com/gabrielamichelotto-byte/professional-profile/main/Gabriela_Michelotto_Recruiter_Preview_EN(1).pdf"
+    viewer_url = "https://docs.google.com/gview?embedded=1&url=" + quote(pdf_url, safe="")
+    components.iframe(viewer_url, height=1100, scrolling=True)
     st.stop()
 
 template = "portfolio_en.html" if language == "en" else "portfolio.html"
