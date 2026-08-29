@@ -30,6 +30,22 @@ language = str(language).lower().strip()
 if language not in {"pt", "en"}:
     language = "pt"
 
+profile = st.query_params.get("profile", "")
+if isinstance(profile, list):
+    profile = profile[0] if profile else ""
+
+if str(profile).lower().strip() == "professional":
+    st.markdown("""
+    <style>
+    header[data-testid="stHeader"] {display:none;}
+    .stApp {background:#f4efe8;}
+    .block-container {padding:0; max-width:100%;}
+    iframe {display:block; width:100%; height:100vh; border:0;}
+    </style>
+    <iframe src="https://raw.githubusercontent.com/gabrielamichelotto-byte/professional-profile/main/Gabriela_Michelotto_Recruiter_Preview_EN(1).pdf#view=FitH" title="Gabriela Michelotto Professional Profile"></iframe>
+    """, unsafe_allow_html=True)
+    st.stop()
+
 template = "portfolio_en.html" if language == "en" else "portfolio.html"
 html = (ROOT / template).read_text(encoding="utf-8")
 
