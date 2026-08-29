@@ -24,8 +24,20 @@ def data_uri(filename: str) -> str:
 
 
 language = st.query_params.get("lang", "pt")
+if isinstance(language, list):
+    language = language[0] if language else "pt"
+language = str(language).lower().strip()
+if language not in {"pt", "en"}:
+    language = "pt"
+
 template = "portfolio_en.html" if language == "en" else "portfolio.html"
 html = (ROOT / template).read_text(encoding="utf-8")
+
+# Use an absolute query link so the language switch always reloads
+# the app with the corresponding template.
+html = html.replace('href="?lang=en"', 'href="/?lang=en"')
+html = html.replace('href="?lang=pt"', 'href="/?lang=pt"')
+
 for filename in ("foto-profissional-v2.png", "spb_preview.png", "painel_bi_preview.png"):
     html = html.replace(f'src="{filename}"', f'src="{data_uri(filename)}"')
 
