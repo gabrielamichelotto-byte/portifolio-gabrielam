@@ -82,7 +82,7 @@ if str(profile).lower().strip() == "professional":
           <div class="metric"><b>8</b><span>years in B2B sales and commercial management</span></div>
           <div class="metric"><b>8</b><span>salespeople under commercial leadership</span></div>
           <div class="metric"><b>11</b><span>laboratory partners in portfolio management</span></div>
-          <div class="metric"><b>12.8%</b><span>response rate in international outbound</span></div>
+          <div class="metric"><b>2</b><span>branding projects closed in October 2026</span></div>
         </div>
       </section>
 
