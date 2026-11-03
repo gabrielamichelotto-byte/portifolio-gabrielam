@@ -77,7 +77,7 @@ if str(profile).lower().strip() == "professional":
 
       <section class="section">
         <h2>Profile</h2>
-        <p>8 years across B2B sales, commercial management and operations. My work evolved from client and distributor relationships to team leadership, portfolio ownership and targets, and now to pipeline, CRM, forecasting, BI and automation. I know what the numbers mean because I know the operation behind them.</p>
+        <p>9 years across B2B sales, commercial management and operations. My work evolved from client and distributor relationships to team leadership, portfolio ownership and targets, and now to pipeline, CRM, forecasting, BI and automation. I know what the numbers mean because I know the operation behind them.</p>
         <div class="metrics">
           <div class="metric"><b>8</b><span>years in B2B sales and commercial management</span></div>
           <div class="metric"><b>8</b><span>salespeople under commercial leadership</span></div>
