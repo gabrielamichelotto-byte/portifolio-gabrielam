@@ -77,7 +77,7 @@ if str(profile).lower().strip() == "professional":
 
       <section class="section">
         <h2>Profile</h2>
-        <p>9 years across B2B sales, commercial management and operations. My work evolved from client and distributor relationships to team leadership, portfolio ownership and targets, and now to pipeline, CRM, forecasting, BI and automation. I know what the numbers mean because I know the operation behind them.</p>
+        <p>8 years across B2B sales, commercial management and operations. My work evolved from client and distributor relationships to team leadership, portfolio ownership and targets, and now to pipeline, CRM, forecasting, BI and automation. I know what the numbers mean because I know the operation behind them.</p>
         <div class="metrics">
           <div class="metric"><b>8</b><span>years in B2B sales and commercial management</span></div>
           <div class="metric"><b>8</b><span>salespeople under commercial leadership</span></div>
@@ -90,6 +90,7 @@ if str(profile).lower().strip() == "professional":
         <div>
           <h2>Selected Experience</h2>
           <div class="item"><h3>Sales &amp; Pipeline Assistant · Rebecca Arnaud Design</h3><div class="meta">Jun 2026–Present · Freelance · Remote</div><p>International funnel ownership from sourcing through reporting: ICP qualification, tailored proposals in English, follow-up cadence, CRM hygiene in ClickUp/Notion, executive metrics and AI agents applied to prospecting.</p></div>
+          <div class="item"><h3>Social Media &amp; Communications Volunteer · Bolivian Children Foundation</h3><div class="meta">Nov 2026 — present · Remote</div><p>I support a Canadian nonprofit remotely and coordinate with the team in English. I use Asana and Meta Business Suite to organize and schedule weekly Facebook and Instagram posts for Bolivian Children Foundation and Niños con Valor.</p></div>
           <div class="item"><h3>Commercial Coordinator · SOMAPET Distribuição Pet</h3><div class="meta">Apr 2024–Aug 2026 · Cuiabá, Brazil</div><p>Led commercial performance, portfolio management, targets and forecasting. Structured pipeline routines and replaced recurring manual reporting with Python automation supported by Power BI and generative AI.</p></div>
         </div>
         <div>
